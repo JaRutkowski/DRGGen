@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.javafee.forms.mainform.MainForm">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="5" left="5" bottom="5" right="5"/>
+    <constraints>
+      <xy x="20" y="20" width="1234" height="927"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="b30ba" class="javax.swing.JMenuBar" binding="menuBar" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="true" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="297" height="25"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="e3264" class="javax.swing.JMenu" binding="menuData" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="91" height="17"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="mainForm.menuData"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="86d68" class="javax.swing.JMenuItem" binding="menuItemLoadData" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints/>
+                <properties>
+                  <text resource-bundle="messages" key="mainForm.menuData.menuItemLoadData"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <grid id="21c52" class="javax.swing.JMenuItem" binding="menuItemSaveToDatabase" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints/>
+                <properties>
+                  <text resource-bundle="messages" key="mainForm.menuData.menuItemSaveToDatabase"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+          <grid id="b2a2b" class="javax.swing.JMenu" binding="menuResearch" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="91" height="17"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="mainForm.menuResearch"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="14479" class="javax.swing.JMenu" binding="menuParametrisation" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="91" height="17"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="mainForm.menuParametrisation"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="7f6a4" class="javax.swing.JMenuItem" binding="menuItemSettings" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints/>
+                <properties>
+                  <text resource-bundle="messages" key="mainForm.menuParametrisation.menuItemSettings"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <scrollpane id="204ba">
+        <constraints>
+          <grid row="1" column="0" row-span="7" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="acd9f" class="javax.swing.JTable" binding="decisionTable">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <splitpane id="d0b0a">
+        <constraints>
+          <grid row="6" column="1" row-span="2" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties>
+          <lastDividerLocation value="-1"/>
+          <oneTouchExpandable value="true"/>
+          <orientation value="0"/>
+          <resizeWeight value="0.5"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="f035a">
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="53a5" class="javax.swing.JTextArea" binding="textAreaTest">
+                <constraints/>
+                <properties>
+                  <font swing-font="Button.font"/>
+                  <minimumSize width="40" height="16"/>
+                  <text resource-bundle="messages" key="mainForm.textAreaTest"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="d995d">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="27c2c" class="javax.swing.JTextArea" binding="textAreaDecisionRules">
+                <constraints/>
+                <properties>
+                  <font swing-font="Button.font"/>
+                  <minimumSize width="15" height="16"/>
+                  <text resource-bundle="messages" key="mainForm.textAreaDecisionRules"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </splitpane>
+      <component id="2061f" class="javax.swing.JButton" binding="btnSaveResearch">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="106" height="17"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text resource-bundle="messages" key="mainForm.btnSaveResearch"/>
+        </properties>
+      </component>
+      <component id="a0bd0" class="javax.swing.JButton" binding="btnSaveDecisionRules">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text resource-bundle="messages" key="mainForm.btnSaveDecisionRules"/>
+        </properties>
+      </component>
+      <component id="97365" class="javax.swing.JButton" binding="btnCheckData">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text resource-bundle="messages" key="mainForm.btnCheckData"/>
+        </properties>
+      </component>
+      <grid id="69857" binding="dataParametersPanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b73a2" class="javax.swing.JLabel" binding="lblDecisionAttributeIndex">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="dataParametersPanel.lblDecisionAttributeIndex"/>
+            </properties>
+          </component>
+          <vspacer id="aedf7">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="4a51f" class="javax.swing.JTextField" binding="textFieldDecisionAttributeIndex">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="18e55" class="javax.swing.JLabel" binding="lblConditionalAttributes">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="dataParametersPanel.lblConditionalAttributes"/>
+            </properties>
+          </component>
+          <component id="7b01c" class="javax.swing.JLabel" binding="lblNumberOfConditionalAttributes">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="dataParametersPanel.lblNumberOfConditionalAttributes"/>
+            </properties>
+          </component>
+          <component id="fdf17" class="javax.swing.JLabel" binding="lblNumberOfRows">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="dataParametersPanel.lblNumberOfRows"/>
+            </properties>
+          </component>
+          <component id="7f72f" class="javax.swing.JLabel" binding="lblNumberOfColumns">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="dataParametersPanel.lblNumberOfColumns"/>
+            </properties>
+          </component>
+          <component id="a51e6" class="javax.swing.JTextField" binding="textFieldConditionalAttributes">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="7d01e" class="javax.swing.JTextField" binding="textFieldNumberOfConditionalAttributes">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="e7941" class="javax.swing.JTextField" binding="textFieldNumberOfRows">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="a03c0" class="javax.swing.JTextField" binding="textFieldNumberOfColumns">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+        </children>
+      </grid>
+      <component id="d5f0c" class="javax.swing.JButton" binding="btnGenerateTest">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text resource-bundle="messages" key="mainForm.btnGenerateTest"/>
+        </properties>
+      </component>
+      <component id="e6b58" class="javax.swing.JButton" binding="btnGenerateDecisionRules">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text resource-bundle="messages" key="mainForm.bntGenerateDecisionRules"/>
+        </properties>
+      </component>
+      <grid id="db4e7" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="90e94" class="javax.swing.JLabel" binding="lblAlgorithm">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="70" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="mainForm.lblAlgorithm"/>
+            </properties>
+          </component>
+          <component id="36277" class="javax.swing.JComboBox" binding="comboBoxAlgorithm">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="10255" class="javax.swing.JCheckBox" binding="checkBoxShowDataParameters">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="mainForm.checkBoxShowDataParameters"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
