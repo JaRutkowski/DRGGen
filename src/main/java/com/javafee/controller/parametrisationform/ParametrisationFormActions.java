@@ -22,6 +22,7 @@ public class ParametrisationFormActions implements Actions {
 	public void control() {
 		openParametrisationForm();
 		initializeListeners();
+		initializeParameters();
 	}
 
 	public void openParametrisationForm() {
@@ -34,6 +35,16 @@ public class ParametrisationFormActions implements Actions {
 
 	private void initializeListeners() {
 		parametrisationForm.getBtnConfigureConnection().addActionListener(e -> onClickBtnConfigureConnection());
+		parametrisationForm.getBtnAccept().addActionListener(e -> onClickBtnAccept());
+	}
+
+	private void initializeParameters() {
+		initializeSystemParameterDecisionAttribute();
+	}
+
+	private void initializeSystemParameterDecisionAttribute() {
+		parametrisationForm.getSpinnerDecisionAttributeIndex().setValue(SystemProperties.getSystemParameterDecisionAttributeIndex() != null ?
+				SystemProperties.getSystemParameterDecisionAttributeIndex() : 0);
 	}
 
 	private void onClickBtnConfigureConnection() {
@@ -56,6 +67,15 @@ public class ParametrisationFormActions implements Actions {
 					SystemProperties.getResourceBundle().getString("parametrisationFormActions.dataBasePropertiesValidationMessage"),
 					JOptionPane.ERROR_MESSAGE, parametrisationForm.getParametrisationFrame());
 		}
+	}
+
+	private void onClickBtnAccept() {
+		if (Utils.displayConfirmDialog(SystemProperties.getResourceBundle().getString("confirmDialog.message"),
+				SystemProperties.getResourceBundle().getString("confirmDialog.title")) == JOptionPane.YES_OPTION)
+			SystemProperties.setSystemParameterDecisionAttributeIndex((Integer) parametrisationForm.getSpinnerDecisionAttributeIndex().getValue());
+		Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
+				SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionAttrIdxSuccessMessage"),
+				JOptionPane.INFORMATION_MESSAGE, null);
 	}
 
 	private void reloadLblTestConnection(boolean isError) {

@@ -8,6 +8,7 @@ import com.javafee.controller.algorithm.datastructure.Row;
 import com.javafee.controller.algorithm.datastructure.RowPair;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
+import com.javafee.controller.utils.SystemProperties;
 
 public final class VectorProcess {
 	/**
@@ -45,7 +46,7 @@ public final class VectorProcess {
 		List<Integer> rowIndexList = new ArrayList<>();
 		Integer rowIndex = 1;
 
-		Integer rowToCompareDecisionAttributeIndex = rowToCompare.size() - 1;
+		Integer rowToCompareDecisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
 		String rowToCompareAttributeValue = (String) rowToCompare.get(variousAttributeIndex);
 		String rowToCompareDecisionAttributeValue = (String) rowToCompare.get(rowToCompareDecisionAttributeIndex);
 
@@ -86,7 +87,7 @@ public final class VectorProcess {
 		List<Integer> rowIndexList = new ArrayList<>();
 		Integer rowIndex = 1;
 
-		Integer rowToCompareDecisionAttributeIndex = rowToCompare.size() - 1;
+		Integer rowToCompareDecisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
 		String rowToCompareDecisionAttributeValue = (String) rowToCompare.get(rowToCompareDecisionAttributeIndex);
 
 		for (Vector row : data) {
@@ -109,7 +110,7 @@ public final class VectorProcess {
 	public static RowsSet findDistinctRowsWithVariousAttributesAndDecisionValue(RowsSet rowsSet, Vector rowToCompare, int variousAttributeIndex) {
 		RowsSet resultRowsSet = new RowsSet();
 		for (Row row : rowsSet.getRows()) {
-			Integer rowToCompareDecisionAttributeIndex = rowToCompare.size() - 1;
+			Integer rowToCompareDecisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
 			String rowToCompareAttributeValue = (String) rowToCompare.get(variousAttributeIndex);
 			String rowToCompareDecisionAttributeValue = (String) rowToCompare.get(rowToCompareDecisionAttributeIndex);
 

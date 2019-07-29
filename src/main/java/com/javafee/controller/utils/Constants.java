@@ -12,4 +12,6 @@ public class Constants {
 	public String CSV_EXTENSION = ".csv";
 	public String XLS_EXTENSION = ".xls";
 	public String XLSX_EXTENSION = ".xlsx";
+
+	public Integer SYS_PARAMETER_DECISION_ATTRIBUTE_INDEX = null;
 }

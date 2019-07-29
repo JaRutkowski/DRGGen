@@ -79,10 +79,15 @@ public class MainFormActions implements Actions {
 			else {
 				throw new InvalidObjectException("Invalid data format");
 			}
-			mainForm.getDecisionTable().setModel(fileToDefaultTableModelMapper.map(file));
+
+			DefaultTableModel defaultTableModel = fileToDefaultTableModelMapper.map(file);
+			mainForm.getDecisionTable().setModel(defaultTableModel);
 			addTableNameToParams(FilenameUtils.removeExtension(file.getName()));
 			setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
-			fillDataParametersPanel(((DefaultTableModel) mainForm.getDecisionTable().getModel()));
+			fillDataParametersPanel(defaultTableModel);
+
+			SystemProperties.setSystemParameterDecisionAttributeIndex(
+					SystemProperties.getSystemParameterDecisionAttributeIndex(((Vector) defaultTableModel.getDataVector().get(0)).size()));
 		} catch (IOException | InvalidFormatException e) {
 			Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("errorOptionPaneTitle"), e.getMessage(), mainForm);
 		}

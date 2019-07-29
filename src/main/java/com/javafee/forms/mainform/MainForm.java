@@ -17,6 +17,7 @@ import com.javafee.controller.utils.SystemProperties;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.coderazzi.filters.gui.TableFilterHeader;
 
 public class MainForm extends JFrame {
 	private JFrame mainFrame;
@@ -88,10 +89,12 @@ public class MainForm extends JFrame {
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 
+		TableFilterHeader customTableFilterHeader = new TableFilterHeader(decisionTable);
+
 		internationalizing();
 	}
 
-	private void internationalizing(){
+	private void internationalizing() {
 		menuResearch.setText(SystemProperties.getResourceBundle().getString("mainForm.menuResearch"));
 		menuParametrisation.setText(SystemProperties.getResourceBundle().getString("mainForm.menuParametrisation"));
 		menuItemLoadData.setText(SystemProperties.getResourceBundle().getString("mainForm.menuData.menuItemLoadData"));
