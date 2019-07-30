@@ -19,6 +19,7 @@ public class ParametrisationForm {
 	private JPanel parametrisationPanel;
 
 	private JPanel databaseSettingsPanel;
+	@Getter
 	private JPanel decisionTableSettingsPanel;
 
 	private JLabel lblDataBaseUrl;
