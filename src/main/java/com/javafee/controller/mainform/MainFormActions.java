@@ -88,7 +88,7 @@ public class MainFormActions implements Actions {
 			fillDataParametersPanel(defaultTableModel);
 
 			SystemProperties.setSystemParameterDecisionAttributeIndex(
-					SystemProperties.getSystemParameterDecisionAttributeIndex(defaultTableModel.getDataVector().get(0).size()));
+					SystemProperties.getSystemParameterDecisionAttributeIndex(((Vector) defaultTableModel.getDataVector().get(0)).size()));
 			if (Params.getInstance().contains("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH") && Params.getInstance().contains("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")) {
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH")).accept(null);
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")).accept(null);
