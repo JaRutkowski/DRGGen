@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.process.VectorProcess;
+import com.javafee.controller.utils.SystemProperties;
 
 import lombok.NonNull;
 
@@ -16,13 +17,13 @@ public class StandardTestGenerator implements TestGenerator {
 	@Override
 	public List<RowPairsSet> generate(@NonNull Vector<Vector> data) {
 		//TODO Extract to constants or utility method
-		int decisionAttributeColumnIndex = data.get(0).size() - 1;
+		int lastAttributeIndex = data.get(0).size() - 1;
 		List<RowPairsSet> rowPairsSetList = new ArrayList<>();
-		//TODO Important! rowIndex _probably_ should be the attributeIndex!
-		for (int rowIndex = 0; rowIndex <= decisionAttributeColumnIndex; rowIndex++) {
-			RowPairsSet rowPairsSet = VectorProcess.findDistinctRowPairsWithVariousAttributeAndDecisionValue(data, rowIndex);
-			rowPairsSet.setAttributeIndex(rowIndex);
-			if (rowIndex == decisionAttributeColumnIndex)
+		for (int attributeIndex = 0; attributeIndex <= lastAttributeIndex; attributeIndex++) {
+			RowPairsSet rowPairsSet = VectorProcess.findDistinctRowPairsWithVariousAttributeAndDecisionValue(data, attributeIndex);
+			rowPairsSet.setAttributeIndex(attributeIndex);
+			// all reducts set for processing decision attribute
+			if (attributeIndex == SystemProperties.getSystemParameterDecisionAttributeIndex())
 				rowPairsSet.setAllReductSet(true);
 			rowPairsSetList.add(rowPairsSet);
 		}

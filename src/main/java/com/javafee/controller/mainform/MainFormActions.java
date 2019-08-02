@@ -6,6 +6,7 @@ import java.io.InvalidObjectException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
+import java.util.function.Consumer;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -79,10 +80,22 @@ public class MainFormActions implements Actions {
 			else {
 				throw new InvalidObjectException("Invalid data format");
 			}
-			mainForm.getDecisionTable().setModel(fileToDefaultTableModelMapper.map(file));
+
+			DefaultTableModel defaultTableModel = fileToDefaultTableModelMapper.map(file);
+			mainForm.getDecisionTable().setModel(defaultTableModel);
 			addTableNameToParams(FilenameUtils.removeExtension(file.getName()));
 			setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
-			fillDataParametersPanel(((DefaultTableModel) mainForm.getDecisionTable().getModel()));
+			fillDataParametersPanel(defaultTableModel);
+
+			SystemProperties.setSystemParameterDecisionAttributeIndex(
+					SystemProperties.getSystemParameterDecisionAttributeIndex(((Vector) defaultTableModel.getDataVector().get(0)).size()));
+			if (Params.getInstance().contains("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH") && Params.getInstance().contains("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")) {
+				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH")).accept(null);
+				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")).accept(null);
+
+				Consumer refreshTextFieldDecisionAttributeIndex = (e) -> refreshTextFieldDecisionAttributeIndex();
+				Params.getInstance().add("MAIN_FORM_ACTIONS_REFRESH_TEXT_FIELD_DEC_ATTR_IDX", refreshTextFieldDecisionAttributeIndex);
+			}
 		} catch (IOException | InvalidFormatException e) {
 			Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("errorOptionPaneTitle"), e.getMessage(), mainForm);
 		}
@@ -152,6 +165,10 @@ public class MainFormActions implements Actions {
 		mainForm.getTextFieldNumberOfConditionalAttributes().setText(Integer.toString(dataVector.get(0).size() - 1));
 		mainForm.getTextFieldNumberOfRows().setText(Integer.toString(dataVector.size()));
 		mainForm.getTextFieldNumberOfColumns().setText(Integer.toString(dataVector.get(0).size()));
+	}
+
+	private void refreshTextFieldDecisionAttributeIndex() {
+		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(SystemProperties.getSystemParameterDecisionAttributeIndex()));
 	}
 
 	private void addTableNameToParams(String tableName) {

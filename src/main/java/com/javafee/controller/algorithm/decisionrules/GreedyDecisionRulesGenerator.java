@@ -9,6 +9,7 @@ import javax.inject.Named;
 import com.javafee.controller.algorithm.datastructure.Row;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.process.VectorProcess;
+import com.javafee.controller.utils.SystemProperties;
 
 @Named("GreedyDecisionRulesGenerator")
 public class GreedyDecisionRulesGenerator implements DecisionRulesGenerator {
@@ -34,14 +35,16 @@ public class GreedyDecisionRulesGenerator implements DecisionRulesGenerator {
 
 			// Second step - generate A(T, r_1, f_1)
 			// For each attributes f_1, f_2 to f_n
-			int decisionAttributeColumnIndex = data.get(0).size() - 1;
+			int lastColumnIndex = row.size() - 1;
 			List<RowsSet> rowsSetForEachAttributesList = new ArrayList<>();
-			for (int attributeIndex = 0; attributeIndex < decisionAttributeColumnIndex; attributeIndex++) {
-				RowsSet rowsSetForEachAttributes = VectorProcess.findDistinctRowsWithVariousAttributesAndDecisionValue(rowsSet, row, attributeIndex);
-				rowsSetForEachAttributes.setConcernedRow(concernedRow);
-				rowsSetForEachAttributes.setAttributeIndex(attributeIndex);
-				rowsSetForEachAttributes.setConcernedRow(new Row(rowIndex));
-				rowsSetForEachAttributesList.add(rowsSetForEachAttributes);
+			for (int attributeIndex = 0; attributeIndex <= lastColumnIndex; attributeIndex++) {
+				if (attributeIndex != SystemProperties.getSystemParameterDecisionAttributeIndex()) {
+					RowsSet rowsSetForEachAttributes = VectorProcess.findDistinctRowsWithVariousAttributesAndDecisionValue(rowsSet, row, attributeIndex);
+					rowsSetForEachAttributes.setConcernedRow(concernedRow);
+					rowsSetForEachAttributes.setAttributeIndex(attributeIndex);
+					rowsSetForEachAttributes.setConcernedRow(new Row(rowIndex));
+					rowsSetForEachAttributesList.add(rowsSetForEachAttributes);
+				}
 			}
 			partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.add(rowsSetForEachAttributesList);
 

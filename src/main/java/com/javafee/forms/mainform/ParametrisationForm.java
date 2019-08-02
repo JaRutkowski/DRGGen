@@ -5,7 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 import com.javafee.controller.utils.SystemProperties;
 
@@ -16,16 +18,29 @@ public class ParametrisationForm {
 	private JFrame parametrisationFrame;
 	private JPanel parametrisationPanel;
 
+	private JPanel databaseSettingsPanel;
+	@Getter
+	private JPanel decisionTableSettingsPanel;
+
+	private JLabel lblDataBaseUrl;
 	@Getter
 	private JTextField textFieldUrl;
+	private JLabel lblUser;
 	@Getter
-	private JButton btnConfigureConnection;
-	@Getter
-	private JLabel lblTestConnection;
+	private JTextField textFieldUser;
+	private JLabel lblPassword;
 	@Getter
 	private JPasswordField passwordField;
 	@Getter
-	private JTextField textFieldUser;
+	private JLabel lblTestConnection;
+	@Getter
+	private JButton btnConfigureConnection;
+
+	private JLabel lblDecisionAttributeIndex;
+	@Getter
+	private JButton btnAccept;
+	@Getter
+	private JSpinner spinnerDecisionAttributeIndex;
 
 	public ParametrisationForm() {
 		parametrisationFrame = new JFrame(SystemProperties.getResourceBundle().getString("parametrisationForm.title"));
@@ -33,5 +48,20 @@ public class ParametrisationForm {
 		parametrisationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		parametrisationFrame.pack();
 		parametrisationFrame.setVisible(true);
+
+		internationalizing();
+	}
+
+	private void internationalizing() {
+		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
+		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
+
+		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
+		lblUser.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUser"));
+		lblPassword.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblPassword"));
+		btnConfigureConnection.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnConfigureConnection"));
+
+		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDecisionAttributeIndex"));
+		btnAccept.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 	}
 }

@@ -201,7 +201,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
           <component id="18e55" class="javax.swing.JLabel" binding="lblConditionalAttributes">
             <constraints>
@@ -241,7 +243,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
           <component id="7d01e" class="javax.swing.JTextField" binding="textFieldNumberOfConditionalAttributes">
             <constraints>
@@ -249,7 +253,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
           <component id="e7941" class="javax.swing.JTextField" binding="textFieldNumberOfRows">
             <constraints>
@@ -257,7 +263,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
           <component id="a03c0" class="javax.swing.JTextField" binding="textFieldNumberOfColumns">
             <constraints>
@@ -265,7 +273,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
         </children>
       </grid>
