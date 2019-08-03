@@ -3,6 +3,8 @@ package com.javafee.forms.mainform.utils;
 import java.awt.*;
 import java.io.File;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -10,6 +12,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 
 import com.javafee.controller.utils.SystemProperties;
+import com.javafee.forms.mainform.ParametrisationForm;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.java.Log;
@@ -57,5 +60,10 @@ public class Utils {
 			result = jfc.getSelectedFile();
 
 		return result;
+	}
+
+	public Icon getResourceIcon(String resourceName) {
+		return new ImageIcon(new ImageIcon(Utils.class.getResource("/images/" + resourceName))
+				.getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 	}
 }

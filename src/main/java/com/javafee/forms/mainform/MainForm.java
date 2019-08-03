@@ -1,5 +1,8 @@
 package com.javafee.forms.mainform;
 
+import java.awt.*;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -9,15 +12,17 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.javafee.controller.utils.SystemProperties;
+import com.javafee.forms.mainform.utils.Utils;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.coderazzi.filters.gui.TableFilterHeader;
 
 public class MainForm extends JFrame {
 	private JFrame mainFrame;
@@ -37,9 +42,17 @@ public class MainForm extends JFrame {
 	@Getter
 	private JMenuItem menuItemSettings;
 
+
+	@Getter
+	private JScrollPane decisionTableScrollPane;
 	@Setter
 	@Getter
 	private JTable decisionTable;
+
+	@Getter
+	private JTextArea textAreaCachedTest;
+	@Getter
+	private JTextArea textAreaCachedDecisionRules;
 
 
 	private JLabel lblDecisionAttributeIndex;
@@ -68,7 +81,11 @@ public class MainForm extends JFrame {
 	@Getter
 	private JCheckBox checkBoxShowDataParameters;
 	@Getter
+	private JCheckBox checkBoxShowCache;
+	@Getter
 	private JPanel dataParametersPanel;
+	@Getter
+	private JSplitPane splitPaneCache;
 
 	@Getter
 	private JButton btnSaveDecisionRules;
@@ -87,11 +104,11 @@ public class MainForm extends JFrame {
 		mainFrame.setContentPane(mainPanel);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.pack();
-		mainFrame.setVisible(true);
-
-		TableFilterHeader customTableFilterHeader = new TableFilterHeader(decisionTable);
 
 		internationalizing();
+		setupGraphics();
+
+		mainFrame.setVisible(true);
 	}
 
 	private void internationalizing() {
@@ -100,6 +117,10 @@ public class MainForm extends JFrame {
 		menuItemLoadData.setText(SystemProperties.getResourceBundle().getString("mainForm.menuData.menuItemLoadData"));
 		menuItemSaveToDatabase.setText(SystemProperties.getResourceBundle().getString("mainForm.menuData.menuItemSaveToDatabase"));
 		menuItemSettings.setText(SystemProperties.getResourceBundle().getString("mainForm.menuParametrisation.menuItemSettings"));
+
+		lblAlgorithm.setText(SystemProperties.getResourceBundle().getString("mainForm.lblAlgorithm"));
+		checkBoxShowDataParameters.setText(SystemProperties.getResourceBundle().getString("mainForm.checkBoxShowDataParameters"));
+		checkBoxShowCache.setText(SystemProperties.getResourceBundle().getString("mainForm.checkBoxShowCache"));
 
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblDecisionAttributeIndex"));
 		lblConditionalAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblConditionalAttributes"));
@@ -110,7 +131,6 @@ public class MainForm extends JFrame {
 		btnCheckData.setText(SystemProperties.getResourceBundle().getString("mainForm.btnCheckData"));
 		btnGenerateTest.setText(SystemProperties.getResourceBundle().getString("mainForm.btnGenerateTest"));
 		btnGenerateDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.bntGenerateDecisionRules"));
-		lblAlgorithm.setText(SystemProperties.getResourceBundle().getString("mainForm.lblAlgorithm"));
 
 		textAreaTest.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaTest"));
 		textAreaDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaDecisionRules"));
@@ -118,5 +138,25 @@ public class MainForm extends JFrame {
 		btnSaveDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.btnSaveDecisionRules"));
 		btnSaveResearch.setText(SystemProperties.getResourceBundle().getString("mainForm.btnSaveResearch"));
 		menuData.setText(SystemProperties.getResourceBundle().getString("mainForm.menuData"));
+	}
+
+	private void setupGraphics() {
+		initializeDecisionTableScrollPaneWithImage();
+		btnCheckData.setIcon(Utils.getResourceIcon("btnCheckData-ico.png"));
+		btnGenerateDecisionRules.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
+		btnGenerateTest.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
+		btnSaveDecisionRules.setIcon(Utils.getResourceIcon("btnSave-ico.png"));
+		btnSaveResearch.setIcon(Utils.getResourceIcon("btnSaveResearch-ico.png"));
+	}
+
+	private void initializeDecisionTableScrollPaneWithImage() {
+		ImageIcon image = new ImageIcon(new ImageIcon(MainForm.class.getResource("/images/data-image.png"))
+				.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+		JLabel label = new JLabel(image);
+		decisionTableScrollPane.setViewportView(label);
+	}
+
+	public void pack() {
+		mainFrame.pack();
 	}
 }
