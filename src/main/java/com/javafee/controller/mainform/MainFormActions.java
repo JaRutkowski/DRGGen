@@ -27,6 +27,7 @@ import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
 import com.javafee.controller.utils.Constants;
 import com.javafee.controller.utils.SystemProperties;
+import com.javafee.controller.utils.cache.Cache;
 import com.javafee.controller.utils.databasemapper.MySQLMapper;
 import com.javafee.controller.utils.jtablemapper.CSVFormatToDefaultTableModelDefaultTableModelMapper;
 import com.javafee.controller.utils.jtablemapper.ExcelFormatToDefaultTableModelDefaultTableModelMapper;
@@ -34,6 +35,8 @@ import com.javafee.controller.utils.jtablemapper.FileToDefaultTableModelDefaultT
 import com.javafee.controller.utils.params.Params;
 import com.javafee.forms.mainform.MainForm;
 import com.javafee.forms.mainform.utils.Utils;
+
+import net.coderazzi.filters.gui.TableFilterHeader;
 
 @Stateless
 public class MainFormActions implements Actions {
@@ -56,6 +59,8 @@ public class MainFormActions implements Actions {
 	private void setComponentsVisibility() {
 		setAndGetDataParametersPanelVisibility(mainForm.getCheckBoxShowDataParameters().isSelected());
 		setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
+		setAndGetCheckBoxShowCacheVisibility(Params.getInstance().contains("TABLE_NAME"));
+		setAndGetSplitPaneCacheVisibility(mainForm.getCheckBoxShowCache().isSelected());
 	}
 
 	private void initializeListeners() {
@@ -64,6 +69,7 @@ public class MainFormActions implements Actions {
 		mainForm.getMenuItemSettings().addActionListener(e -> onClickMenuParametrisation());
 
 		mainForm.getCheckBoxShowDataParameters().addActionListener(e -> onClickCheckBoxDataParameters());
+		mainForm.getCheckBoxShowCache().addActionListener(e -> onClickCheckBoxShowCache());
 
 		mainForm.getBtnCheckData().addActionListener(e -> onClickBtnCheckData());
 		mainForm.getBtnGenerateTest().addActionListener(e -> onClickBtnGenerateTest());
@@ -80,11 +86,12 @@ public class MainFormActions implements Actions {
 			else {
 				throw new InvalidObjectException("Invalid data format");
 			}
-
 			DefaultTableModel defaultTableModel = fileToDefaultTableModelMapper.map(file);
-			mainForm.getDecisionTable().setModel(defaultTableModel);
+
+			buildAndRefreshViewWithDecisionTable(defaultTableModel);
 			addTableNameToParams(FilenameUtils.removeExtension(file.getName()));
 			setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
+			setAndGetCheckBoxShowCacheVisibility(Params.getInstance().contains("TABLE_NAME"));
 			fillDataParametersPanel(defaultTableModel);
 
 			SystemProperties.setSystemParameterDecisionAttributeIndex(
@@ -128,28 +135,25 @@ public class MainFormActions implements Actions {
 		mainForm.getDataParametersPanel().setVisible(mainForm.getCheckBoxShowDataParameters().isSelected());
 	}
 
+	private void onClickCheckBoxShowCache() {
+		setAndGetSplitPaneCacheVisibility(mainForm.getCheckBoxShowCache().isSelected());
+		mainForm.pack();
+	}
+
 	private void onClickBtnCheckData() {
 
 	}
 
 	private void onClickBtnGenerateTest() {
 		List<RowPairsSet> rowPairsSetList = testGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
-		StringBuilder result = new StringBuilder();
-		for (RowPairsSet rowPairsSet : rowPairsSetList)
-			result.append(rowPairsSet.toString() + "\n");
-		mainForm.getTextAreaTest().setText(result.toString());
+		Cache.getInstance().cache("TEST", rowPairsSetList);
+		refreshTextAreaTest(rowPairsSetList, true);
 	}
 
 	private void onClickBtnGenerateDecisionRules() {
 		List<List<Object>> resultObjectListOfObject = greedyDecisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
-		StringBuilder result = new StringBuilder();
-		for (List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
-			result.append(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(0).toString() + "\n");
-			for (RowsSet rowsSet : (List<RowsSet>) partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(1))
-				result.append((rowsSet).toString() + "\n");
-			result.append("\n");
-		}
-		mainForm.getTextAreaDecisionRules().setText(result.toString());
+		Cache.getInstance().cache("DECISION_RULES", resultObjectListOfObject);
+		refreshTextAreaDecisionRules(resultObjectListOfObject, true);
 	}
 
 	private void fillDataParametersPanel(DefaultTableModel defaultTableModel) {
@@ -167,8 +171,51 @@ public class MainFormActions implements Actions {
 		mainForm.getTextFieldNumberOfColumns().setText(Integer.toString(dataVector.get(0).size()));
 	}
 
+	private void refreshTextAreaTest(List<RowPairsSet> rowPairsSetList, boolean withCache) {
+		StringBuilder result = new StringBuilder();
+		for (RowPairsSet rowPairsSet : rowPairsSetList)
+			result.append(rowPairsSet.toString() + "\n");
+		mainForm.getTextAreaTest().setText(result.toString());
+
+		if (withCache && Cache.getInstance().get("TEST") != null) {
+			result = new StringBuilder();
+			for (RowPairsSet rowPairsSet : (List<RowPairsSet>) Cache.getInstance().get("TEST"))
+				result.append(rowPairsSet.toString() + "\n");
+			mainForm.getTextAreaCachedTest().setText(result.toString());
+		}
+	}
+
+	private void refreshTextAreaDecisionRules(List<List<Object>> resultObjectListOfObject, boolean withCache) {
+		StringBuilder result = new StringBuilder();
+		for (List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
+			result.append(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(0).toString() + "\n");
+			for (RowsSet rowsSet : (List<RowsSet>) partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(1))
+				result.append((rowsSet).toString() + "\n");
+			result.append("\n");
+		}
+		mainForm.getTextAreaDecisionRules().setText(result.toString());
+
+
+		if (withCache && Cache.getInstance().get("DECISION_RULES") != null) {
+			result = new StringBuilder();
+			for (List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes : (List<List<Object>>) Cache.getInstance().get("DECISION_RULES")) {
+				result.append(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(0).toString() + "\n");
+				for (RowsSet rowsSet : (List<RowsSet>) partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(1))
+					result.append((rowsSet).toString() + "\n");
+				result.append("\n");
+			}
+			mainForm.getTextAreaCachedDecisionRules().setText(result.toString());
+		}
+	}
+
 	private void refreshTextFieldDecisionAttributeIndex() {
 		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(SystemProperties.getSystemParameterDecisionAttributeIndex()));
+	}
+
+	private void buildAndRefreshViewWithDecisionTable(DefaultTableModel defaultTableModel) {
+		mainForm.getDecisionTable().setModel(defaultTableModel);
+		new TableFilterHeader(mainForm.getDecisionTable());
+		mainForm.getDecisionTableScrollPane().setViewportView(mainForm.getDecisionTable());
 	}
 
 	private void addTableNameToParams(String tableName) {
@@ -187,6 +234,16 @@ public class MainFormActions implements Actions {
 	private boolean setAndGetCheckBoxShowDataParametersVisibility(boolean visibility) {
 		mainForm.getCheckBoxShowDataParameters().setVisible(visibility);
 		return mainForm.getCheckBoxShowDataParameters().isVisible();
+	}
+
+	private boolean setAndGetCheckBoxShowCacheVisibility(boolean visibility) {
+		mainForm.getCheckBoxShowCache().setVisible(visibility);
+		return mainForm.getCheckBoxShowCache().isVisible();
+	}
+
+	private boolean setAndGetSplitPaneCacheVisibility(boolean visibility) {
+		mainForm.getSplitPaneCache().setVisible(visibility);
+		return mainForm.getSplitPaneCache().isVisible();
 	}
 
 	private boolean validateTableDataLoaded() {

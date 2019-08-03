@@ -1,5 +1,9 @@
 package com.javafee.forms.mainform;
 
+import java.awt.*;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import com.javafee.controller.utils.SystemProperties;
+import com.javafee.forms.mainform.utils.Utils;
 
 import lombok.Getter;
 
@@ -47,9 +52,11 @@ public class ParametrisationForm {
 		parametrisationFrame.setContentPane(parametrisationPanel);
 		parametrisationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		parametrisationFrame.pack();
-		parametrisationFrame.setVisible(true);
 
 		internationalizing();
+		setupGraphics();
+
+		parametrisationFrame.setVisible(true);
 	}
 
 	private void internationalizing() {
@@ -63,5 +70,10 @@ public class ParametrisationForm {
 
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDecisionAttributeIndex"));
 		btnAccept.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
+	}
+
+	private void setupGraphics() {
+		btnAccept.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
+		btnConfigureConnection.setIcon(Utils.getResourceIcon("btnConfigureConnection-ico.png"));
 	}
 }
