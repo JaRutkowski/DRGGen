@@ -7,21 +7,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
+@Getter
+@Setter
 public class Row {
-	@Getter
-	@Setter
 	int index;
 
-	@Getter
-	@Setter
 	double value;
 
-	@Getter
-	@Setter
 	Vector values;
 
-	@Getter
-	@Setter
 	boolean prettyPrintWithValues = false;
 
 	public Row(int index) {

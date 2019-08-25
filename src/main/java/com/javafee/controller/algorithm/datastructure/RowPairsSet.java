@@ -8,14 +8,14 @@ import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public class RowPairsSet {
-	@Getter
 	@Setter
 	private Integer attributeIndex = null;
-	@Getter
+
 	@Setter
 	private boolean allReductSet = false;
-	@Getter
+
 	private List<RowPair> rowPairs = new ArrayList<>();
 
 	/**

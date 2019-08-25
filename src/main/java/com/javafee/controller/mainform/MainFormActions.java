@@ -21,7 +21,7 @@ import com.javafee.controller.Actions;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.decisionrules.DecisionRulesGenerator;
-import com.javafee.controller.algorithm.decisionrules.GreedyDecisionRulesGenerator;
+import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGenerator;
 import com.javafee.controller.algorithm.test.StandardTestGenerator;
 import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
@@ -49,7 +49,7 @@ public class MainFormActions implements Actions {
 	private FileToDefaultTableModelDefaultTableModelMapperService fileToDefaultTableModelMapper;
 
 	private TestGenerator testGenerator = new StandardTestGenerator();
-	private DecisionRulesGenerator greedyDecisionRulesGenerator = new GreedyDecisionRulesGenerator();
+	private DecisionRulesGenerator greedyDecisionRulesGenerator = new StandardDecisionRulesGenerator();
 
 	public void control() {
 		setComponentsVisibility();
@@ -187,25 +187,34 @@ public class MainFormActions implements Actions {
 
 	private void refreshTextAreaDecisionRules(List<List<Object>> resultObjectListOfObject, boolean withCache) {
 		StringBuilder result = new StringBuilder();
-		for (List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
-			result.append(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(0).toString() + "\n");
-			for (RowsSet rowsSet : (List<RowsSet>) partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(1))
-				result.append((rowsSet).toString() + "\n");
-			result.append("\n");
+		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
+			buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
 		}
 		mainForm.getTextAreaDecisionRules().setText(result.toString());
 
 
 		if (withCache && Cache.getInstance().get("DECISION_RULES") != null) {
 			result = new StringBuilder();
-			for (List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes : (List<List<Object>>) Cache.getInstance().get("DECISION_RULES")) {
-				result.append(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(0).toString() + "\n");
-				for (RowsSet rowsSet : (List<RowsSet>) partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.get(1))
-					result.append((rowsSet).toString() + "\n");
-				result.append("\n");
+			for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : (List<List<Object>>) Cache.getInstance().get("DECISION_RULES")) {
+				buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
 			}
 			mainForm.getTextAreaCachedDecisionRules().setText(result.toString());
 		}
+	}
+
+	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
+		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "\n");
+		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
+				Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getResultIndex()))
+			result.append((rowsSet).toString() + "\n");
+		result.append("\n");
+		result.append("Coverage: \n");
+		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
+				Constants.StandardDecisionRulesGenerator.COVERAGE.getResultIndex()))
+			result.append((rowsSet).toString() + "\n");
+		result.append("\n");
+		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getResultIndex()).toString());
+		result.append("\n\n");
 	}
 
 	private void refreshTextFieldDecisionAttributeIndex() {
