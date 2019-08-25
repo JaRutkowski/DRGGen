@@ -2,22 +2,23 @@ package com.javafee.controller.algorithm.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.validation.constraints.NotNull;
+
+import com.javafee.controller.algorithm.datastructure.utils.RowsSetUtils;
 
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public class RowsSet {
-	@Getter
 	@Setter
 	private Row concernedRow = null;
 
-	@Getter
 	@Setter
 	private Integer attributeIndex = null;
 
-	@Getter
 	private List<Row> rows = new ArrayList<>();
 
 	/**
@@ -32,6 +33,35 @@ public class RowsSet {
 			rows.add(row);
 		else if (!distinct)
 			rows.add(row);
+	}
+
+	/**
+	 * Calculate coverage for rows set to the concerned rows set as integer value.
+	 *
+	 * <p>For mathematically clarification below is the example of the cover value calculations:
+	 * <ul>
+	 * <li> Consider concerned rows set like <code>A(T, r_1) = {r_2, r_3, r_4, r_5}</code> and the rows set consisted
+	 * of <code>A(T, r_1, f_1) = {r_3, r_4, r_5}</code>. </li>
+	 * <li> For given data coverage value is 3, because max coverage of the <code>A(T, r_1)</code> is 4 but only 3 of
+	 * 4 rows are covered by <code>A(T, r_1, f_1)</code>. The assumption is that <code>r_1</code> from concerned rows
+	 * set is equals to <code>r_1</code> in the rows set what means that indexes are the same. The assumption is applied
+	 * for all the rows in given sets.</li>
+	 * </ul>
+	 *
+	 * @param concernedRowsSet concerned rows set relative which calculation are made
+	 * @return cover value
+	 * @see Row
+	 */
+	public int coverage(@NotNull RowsSet concernedRowsSet) {
+		AtomicInteger coverage = new AtomicInteger(0);
+		concernedRowsSet.getRows().forEach(row -> {
+			if (this.contains(row)) coverage.getAndIncrement();
+		});
+		return coverage.get();
+	}
+
+	public int coverage(RowsSet[] rowsSetCombinationArray) {
+		return this.coverage(RowsSetUtils.merge(rowsSetCombinationArray));
 	}
 
 	private boolean contains(Row row) {

@@ -6,13 +6,20 @@ import java.util.Vector;
 
 import javax.inject.Named;
 
+import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.Row;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.process.VectorProcess;
+import com.javafee.controller.algorithm.process.drgen.DRGenAlgorithmProcess;
+import com.javafee.controller.algorithm.process.drgen.DRGeneratorProcess;
+import com.javafee.controller.algorithm.process.drgen.greedy.DRGreedyGenAlgorithmProcess;
 import com.javafee.controller.utils.SystemProperties;
 
-@Named("GreedyDecisionRulesGenerator")
-public class GreedyDecisionRulesGenerator implements DecisionRulesGenerator {
+@Named("StandardDecisionRulesGenerator")
+public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
+
+	private DRGeneratorProcess drGeneratorProcess = new DRGeneratorProcess();
+
 	//TODO Should return List<LogicStatement>
 	@Override
 	public List<List<Object>> generate(Vector<Vector> data) {
@@ -24,14 +31,15 @@ public class GreedyDecisionRulesGenerator implements DecisionRulesGenerator {
 		// For each rows r_1, r_2 to r_n
 		for (Vector row : data) {
 			// Initialization
-			List<Object> partialResultConsistedOfRowsSetAndRowsSetForEachAttributes = new ArrayList<>();
+			List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules = new ArrayList<>();
 			Row concernedRow = new Row(rowIndex);
+			concernedRow.setValues(data.get(rowIndex - 1));
 
 			// First step - generate A(T, r_x)
 			RowsSet rowsSet = VectorProcess.findDistinctRowsWithVariousAttributesAndDecisionValue(data, row);
 			rowsSet.setConcernedRow(concernedRow);
 			rowsSetList.add(rowsSet);
-			partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.add(rowsSet);
+			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(rowsSet);
 
 			// Second step - generate A(T, r_1, f_1)
 			// For each attributes f_1, f_2 to f_n
@@ -42,13 +50,19 @@ public class GreedyDecisionRulesGenerator implements DecisionRulesGenerator {
 					RowsSet rowsSetForEachAttributes = VectorProcess.findDistinctRowsWithVariousAttributesAndDecisionValue(rowsSet, row, attributeIndex);
 					rowsSetForEachAttributes.setConcernedRow(concernedRow);
 					rowsSetForEachAttributes.setAttributeIndex(attributeIndex);
-					rowsSetForEachAttributes.setConcernedRow(new Row(rowIndex));
 					rowsSetForEachAttributesList.add(rowsSetForEachAttributes);
 				}
 			}
-			partialResultConsistedOfRowsSetAndRowsSetForEachAttributes.add(rowsSetForEachAttributesList);
+			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(rowsSetForEachAttributesList);
 
-			result.add(partialResultConsistedOfRowsSetAndRowsSetForEachAttributes);
+			// Third step - calculate cover and decision rules generation
+			DRGenAlgorithmProcess drGenAlgorithmProcess = new DRGenAlgorithmProcess(rowsSet, rowsSetForEachAttributesList, new DRGreedyGenAlgorithmProcess());
+			LogicalExpression decisionRules = drGenAlgorithmProcess.generateDecisionRules();
+			List<RowsSet> resultCoverageRowsSet = drGenAlgorithmProcess.getResultCoverageRowsSet();
+			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(resultCoverageRowsSet);
+			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(decisionRules);
+
+			result.add(resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules);
 			rowIndex++;
 		}
 

@@ -12,7 +12,6 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 
 import com.javafee.controller.utils.SystemProperties;
-import com.javafee.forms.mainform.ParametrisationForm;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.java.Log;
