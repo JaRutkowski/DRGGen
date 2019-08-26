@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.javafee.forms.mainform.MainForm">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="5" left="5" bottom="5" right="5"/>
     <constraints>
-      <xy x="20" y="20" width="1336" height="927"/>
+      <xy x="20" y="20" width="1096" height="460"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -87,7 +87,9 @@
       </grid>
       <scrollpane id="204ba" binding="decisionTableScrollPane">
         <constraints>
-          <grid row="1" column="0" row-span="5" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="185" height="419"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -100,7 +102,7 @@
       </scrollpane>
       <splitpane id="3a409" binding="splitPaneCache">
         <constraints>
-          <grid row="1" column="3" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
@@ -119,13 +121,9 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="6a386" class="javax.swing.JTextArea" binding="textAreaCachedTest">
+              <component id="cef8e" class="javax.swing.JEditorPane" binding="editorPaneCachedTest" default-binding="true">
                 <constraints/>
-                <properties>
-                  <font swing-font="Button.font"/>
-                  <minimumSize width="40" height="16"/>
-                  <text resource-bundle="messages" key="mainForm.textAreaTest"/>
-                </properties>
+                <properties/>
               </component>
             </children>
           </scrollpane>
@@ -136,13 +134,9 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="4fd93" class="javax.swing.JTextArea" binding="textAreaCachedDecisionRules">
+              <component id="eb77a" class="javax.swing.JEditorPane" binding="editorPaneCachedDecisionRules" default-binding="true">
                 <constraints/>
-                <properties>
-                  <font swing-font="Button.font"/>
-                  <minimumSize width="15" height="16"/>
-                  <text resource-bundle="messages" key="mainForm.textAreaDecisionRules"/>
-                </properties>
+                <properties/>
               </component>
             </children>
           </scrollpane>
@@ -150,7 +144,7 @@
       </splitpane>
       <splitpane id="d0b0a">
         <constraints>
-          <grid row="1" column="2" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
@@ -169,13 +163,9 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="53a5" class="javax.swing.JTextArea" binding="textAreaTest">
+              <component id="1d6dd" class="javax.swing.JEditorPane" binding="editorPaneTest" default-binding="true">
                 <constraints/>
-                <properties>
-                  <font swing-font="Button.font"/>
-                  <minimumSize width="40" height="16"/>
-                  <text resource-bundle="messages" key="mainForm.textAreaTest"/>
-                </properties>
+                <properties/>
               </component>
             </children>
           </scrollpane>
@@ -186,22 +176,25 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="27c2c" class="javax.swing.JTextArea" binding="textAreaDecisionRules">
+              <component id="2e1c1" class="javax.swing.JEditorPane" binding="editorPaneDecisionRules" default-binding="true">
                 <constraints/>
-                <properties>
-                  <font swing-font="Button.font"/>
-                  <minimumSize width="15" height="16"/>
-                  <text resource-bundle="messages" key="mainForm.textAreaDecisionRules"/>
-                </properties>
+                <properties/>
               </component>
             </children>
           </scrollpane>
         </children>
       </splitpane>
-      <grid id="5684c" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <hspacer id="be885">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <grid id="5684c" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="5" left="5" bottom="5" right="5"/>
         <constraints>
-          <grid row="1" column="1" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="303" height="396"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -248,17 +241,17 @@
               </component>
             </children>
           </grid>
-          <grid id="89dfb" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="89dfb" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
               <component id="2061f" class="javax.swing.JButton" binding="btnSaveResearch">
                 <constraints>
-                  <grid row="2" column="0" row-span="3" col-span="3" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="106" height="17"/>
                   </grid>
                 </constraints>
@@ -298,9 +291,9 @@
                   <text resource-bundle="messages" key="mainForm.bntGenerateDecisionRules"/>
                 </properties>
               </component>
-              <vspacer id="d6ce1">
+              <vspacer id="a1ed">
                 <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
             </children>
