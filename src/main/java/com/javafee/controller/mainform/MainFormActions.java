@@ -172,49 +172,49 @@ public class MainFormActions implements Actions {
 	}
 
 	private void refreshTextAreaTest(List<RowPairsSet> rowPairsSetList, boolean withCache) {
-		StringBuilder result = new StringBuilder();
+		StringBuilder result = new StringBuilder("<b>Reduct set:</b><br>");
 		for (RowPairsSet rowPairsSet : rowPairsSetList)
-			result.append(rowPairsSet.toString() + "\n");
-		mainForm.getTextAreaTest().setText(result.toString());
+			result.append(rowPairsSet.toString() + "<br>");
+		mainForm.getEditorPaneTest().setText(result.toString());
 
 		if (withCache && Cache.getInstance().get("TEST") != null) {
 			result = new StringBuilder();
 			for (RowPairsSet rowPairsSet : (List<RowPairsSet>) Cache.getInstance().get("TEST"))
-				result.append(rowPairsSet.toString() + "\n");
-			mainForm.getTextAreaCachedTest().setText(result.toString());
+				result.append(rowPairsSet.toString() + "<br>");
+			mainForm.getEditorPaneCachedTest().setText(result.toString());
 		}
 	}
 
 	private void refreshTextAreaDecisionRules(List<List<Object>> resultObjectListOfObject, boolean withCache) {
-		StringBuilder result = new StringBuilder();
+		StringBuilder result = new StringBuilder("<b>Decision rules:</b><br>");
 		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
 			buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
 		}
-		mainForm.getTextAreaDecisionRules().setText(result.toString());
+		mainForm.getEditorPaneDecisionRules().setText(result.toString());
 
 
 		if (withCache && Cache.getInstance().get("DECISION_RULES") != null) {
-			result = new StringBuilder();
+			result = new StringBuilder("<b>Decision rules:</b><br>");
 			for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : (List<List<Object>>) Cache.getInstance().get("DECISION_RULES")) {
 				buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
 			}
-			mainForm.getTextAreaCachedDecisionRules().setText(result.toString());
+			mainForm.getEditorPaneCachedDecisionRules().setText(result.toString());
 		}
 	}
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
-		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "\n");
+		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "<br>");
 		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 				Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getResultIndex()))
-			result.append((rowsSet).toString() + "\n");
-		result.append("\n");
-		result.append("Coverage: \n");
+			result.append((rowsSet).toString() + "<br>");
+		result.append("<br>");
+		result.append("Coverage: <br>");
 		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 				Constants.StandardDecisionRulesGenerator.COVERAGE.getResultIndex()))
-			result.append((rowsSet).toString() + "\n");
-		result.append("\n");
+			result.append((rowsSet).toString() + "<br>");
+		result.append("<br>");
 		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getResultIndex()).toString());
-		result.append("\n\n");
+		result.append("<br><br>");
 	}
 
 	private void refreshTextFieldDecisionAttributeIndex() {

@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -15,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.javafee.controller.utils.SystemProperties;
@@ -50,9 +50,9 @@ public class MainForm extends JFrame {
 	private JTable decisionTable;
 
 	@Getter
-	private JTextArea textAreaCachedTest;
+	private JEditorPane editorPaneCachedTest;
 	@Getter
-	private JTextArea textAreaCachedDecisionRules;
+	private JEditorPane editorPaneCachedDecisionRules;
 
 
 	private JLabel lblDecisionAttributeIndex;
@@ -95,9 +95,9 @@ public class MainForm extends JFrame {
 	private JComboBox comboBoxAlgorithm;
 
 	@Getter
-	private JTextArea textAreaTest;
+	private JEditorPane editorPaneTest;
 	@Getter
-	private JTextArea textAreaDecisionRules;
+	private JEditorPane editorPaneDecisionRules;
 
 	public MainForm() {
 		mainFrame = new JFrame(SystemProperties.getResourceBundle().getString("applicationName"));
@@ -107,6 +107,7 @@ public class MainForm extends JFrame {
 
 		internationalizing();
 		setupGraphics();
+		setupTextContentType();
 
 		mainFrame.setVisible(true);
 	}
@@ -132,8 +133,10 @@ public class MainForm extends JFrame {
 		btnGenerateTest.setText(SystemProperties.getResourceBundle().getString("mainForm.btnGenerateTest"));
 		btnGenerateDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.bntGenerateDecisionRules"));
 
-		textAreaTest.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaTest"));
-		textAreaDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaDecisionRules"));
+		editorPaneTest.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaTest"));
+		editorPaneCachedTest.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaTest"));
+		editorPaneDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaDecisionRules"));
+		editorPaneCachedDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaDecisionRules"));
 
 		btnSaveDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.btnSaveDecisionRules"));
 		btnSaveResearch.setText(SystemProperties.getResourceBundle().getString("mainForm.btnSaveResearch"));
@@ -147,6 +150,13 @@ public class MainForm extends JFrame {
 		btnGenerateTest.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
 		btnSaveDecisionRules.setIcon(Utils.getResourceIcon("btnSave-ico.png"));
 		btnSaveResearch.setIcon(Utils.getResourceIcon("btnSaveResearch-ico.png"));
+	}
+
+	private void setupTextContentType() {
+		editorPaneTest.setContentType("text/html");
+		editorPaneDecisionRules.setContentType("text/html");
+		editorPaneCachedTest.setContentType("text/html");
+		editorPaneCachedDecisionRules.setContentType("text/html");
 	}
 
 	private void initializeDecisionTableScrollPaneWithImage() {
