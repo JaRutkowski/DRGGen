@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.swing.JOptionPane;
 
 import com.javafee.controller.Actions;
+import com.javafee.controller.utils.Constants;
 import com.javafee.controller.utils.Session;
 import com.javafee.controller.utils.SystemProperties;
 import com.javafee.controller.utils.params.Params;
@@ -39,22 +40,47 @@ public class ParametrisationFormActions implements Actions {
 
 	private void setComponentsVisibility() {
 		parametrisationForm.getDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getLblDecisionAttributeIndex().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getSpinnerDecisionAttributeIndex().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getBtnAccept().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getRadioButtonShowAllData().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getBtnAcceptDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 	}
 
 	private void initializeListeners() {
 		parametrisationForm.getBtnConfigureConnection().addActionListener(e -> onClickBtnConfigureConnection());
-		parametrisationForm.getBtnAccept().addActionListener(e -> onClickBtnAccept());
+		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().addActionListener(e -> onClickBtnAcceptDecisionTableSettingsPanel());
+		parametrisationForm.getBtnAcceptDecisionRulesDataRangePanel().addActionListener(e -> onClickBtnAcceptDecisionRulesDataRangePanel());
 	}
 
 	private void initializeParameters() {
 		initializeSystemParameterDecisionAttribute();
+		initializeSystemParameterDecisionRulesDataRange();
 	}
 
 	private void initializeSystemParameterDecisionAttribute() {
 		parametrisationForm.getSpinnerDecisionAttributeIndex().setValue(SystemProperties.getSystemParameterDecisionAttributeIndex() != null ?
 				SystemProperties.getSystemParameterDecisionAttributeIndex() : 0);
+	}
+
+	private void initializeSystemParameterDecisionRulesDataRange() {
+		if (SystemProperties.getDecisionRulesDataRange() != null) {
+			switch (SystemProperties.getDecisionRulesDataRange()) {
+				case ALL_DATA:
+					parametrisationForm.getRadioButtonShowAllData().setSelected(true);
+					break;
+				case COVERAGE_AND_DECISION_RULES:
+					parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().setSelected(true);
+					break;
+				case DECISION_RULES:
+					parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().setSelected(true);
+					break;
+			}
+		} else
+			parametrisationForm.getRadioButtonShowAllData().setSelected(true);
 	}
 
 	private void onClickBtnConfigureConnection() {
@@ -79,7 +105,7 @@ public class ParametrisationFormActions implements Actions {
 		}
 	}
 
-	private void onClickBtnAccept() {
+	private void onClickBtnAcceptDecisionTableSettingsPanel() {
 		if (Utils.displayConfirmDialog(SystemProperties.getResourceBundle().getString("confirmDialog.message"),
 				SystemProperties.getResourceBundle().getString("confirmDialog.title")) == JOptionPane.YES_OPTION) {
 			SystemProperties.setSystemParameterDecisionAttributeIndex((Integer) parametrisationForm.getSpinnerDecisionAttributeIndex().getValue());
@@ -87,6 +113,23 @@ public class ParametrisationFormActions implements Actions {
 					SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionAttrIdxSuccessMessage"),
 					JOptionPane.INFORMATION_MESSAGE, null);
 			refreshMainFormTextFieldDecisionAttributeIndex();
+		}
+	}
+
+	private void onClickBtnAcceptDecisionRulesDataRangePanel() {
+		if (Utils.displayConfirmDialog(SystemProperties.getResourceBundle().getString("confirmDialog.message"),
+				SystemProperties.getResourceBundle().getString("confirmDialog.title")) == JOptionPane.YES_OPTION) {
+			Constants.DecisionRulesDataRange decisionRulesDataRange = null;
+			if (parametrisationForm.getRadioButtonShowAllData().isSelected())
+				decisionRulesDataRange = Constants.DecisionRulesDataRange.ALL_DATA;
+			else if (parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().isSelected())
+				decisionRulesDataRange = Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES;
+			else if (parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().isSelected())
+				decisionRulesDataRange = Constants.DecisionRulesDataRange.DECISION_RULES;
+			SystemProperties.setDecisionRulesDataRange(decisionRulesDataRange);
+			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
+					SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionRulesDataRangeSuccessMessage"),
+					JOptionPane.INFORMATION_MESSAGE, null);
 		}
 	}
 

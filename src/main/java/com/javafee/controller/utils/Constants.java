@@ -21,6 +21,10 @@ public class Constants {
 		}
 	}
 
+	public enum DecisionRulesDataRange {
+		ALL_DATA, COVERAGE_AND_DECISION_RULES, DECISION_RULES
+	}
+
 	public String LANGUAGE_RESOURCE_BUNDLE = "messages";
 	public String APPLICATION_LANGUAGE = "en";
 	public String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";

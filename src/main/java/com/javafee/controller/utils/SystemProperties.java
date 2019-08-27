@@ -16,6 +16,10 @@ public class SystemProperties {
 	@Getter
 	private static Integer systemParameterDecisionAttributeIndex = null;
 
+	@Setter
+	@Getter
+	private static Constants.DecisionRulesDataRange decisionRulesDataRange = Constants.DecisionRulesDataRange.ALL_DATA;
+
 	@Getter
 	private static ResourceBundle resourceBundle = ResourceBundle.getBundle(
 			Constants.LANGUAGE_RESOURCE_BUNDLE,

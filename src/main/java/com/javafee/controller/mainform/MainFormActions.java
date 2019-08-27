@@ -153,7 +153,7 @@ public class MainFormActions implements Actions {
 	private void onClickBtnGenerateDecisionRules() {
 		List<List<Object>> resultObjectListOfObject = greedyDecisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
 		Cache.getInstance().cache("DECISION_RULES", resultObjectListOfObject);
-		refreshTextAreaDecisionRules(resultObjectListOfObject, true);
+		refreshTextAreaDecisionRulesBaseOnSysParameters(resultObjectListOfObject, true);
 	}
 
 	private void fillDataParametersPanel(DefaultTableModel defaultTableModel) {
@@ -185,7 +185,7 @@ public class MainFormActions implements Actions {
 		}
 	}
 
-	private void refreshTextAreaDecisionRules(List<List<Object>> resultObjectListOfObject, boolean withCache) {
+	private void refreshTextAreaDecisionRulesBaseOnSysParameters(List<List<Object>> resultObjectListOfObject, boolean withCache) {
 		StringBuilder result = new StringBuilder("<b>Decision rules:</b><br>");
 		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
 			buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
@@ -203,18 +203,30 @@ public class MainFormActions implements Actions {
 	}
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
-		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "<br>");
-		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
-				Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getResultIndex()))
-			result.append((rowsSet).toString() + "<br>");
-		result.append("<br>");
-		result.append("Coverage: <br>");
-		for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
-				Constants.StandardDecisionRulesGenerator.COVERAGE.getResultIndex()))
-			result.append((rowsSet).toString() + "<br>");
-		result.append("<br>");
-		result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getResultIndex()).toString());
-		result.append("<br><br>");
+		boolean isSysParametersAll = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.ALL_DATA,
+				isSysParametersCoverageAndDecisionRulesSet = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES,
+				isSysParametersDecisionRulesSet = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES;
+
+		if (isSysParametersAll) {
+			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "<br>");
+			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
+					Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getResultIndex()))
+				result.append((rowsSet).toString() + "<br>");
+			result.append("<br>");
+		}
+
+		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet) {
+			result.append("Coverage: <br>");
+			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
+					Constants.StandardDecisionRulesGenerator.COVERAGE.getResultIndex()))
+				result.append((rowsSet).toString() + "<br>");
+			result.append("<br>");
+		}
+
+		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet || isSysParametersDecisionRulesSet) {
+			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getResultIndex()).toString());
+			result.append("<br>");
+		}
 	}
 
 	private void refreshTextFieldDecisionAttributeIndex() {
