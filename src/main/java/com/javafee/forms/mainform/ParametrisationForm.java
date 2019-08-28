@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -22,6 +23,8 @@ public class ParametrisationForm {
 	private JPanel databaseSettingsPanel;
 	@Getter
 	private JPanel decisionTableSettingsPanel;
+	@Getter
+	private JPanel decisionRulesDataRangePanel;
 
 	private JLabel lblDataBaseUrl;
 	@Getter
@@ -37,11 +40,21 @@ public class ParametrisationForm {
 	@Getter
 	private JButton btnConfigureConnection;
 
+	@Getter
 	private JLabel lblDecisionAttributeIndex;
 	@Getter
-	private JButton btnAccept;
+	private JButton btnAcceptDecisionTableSettingsPanel;
 	@Getter
 	private JSpinner spinnerDecisionAttributeIndex;
+
+	@Getter
+	private JButton btnAcceptDecisionRulesDataRangePanel;
+	@Getter
+	private JRadioButton radioButtonShowAllData;
+	@Getter
+	private JRadioButton radioButtonShowCoverageAndDecisionRulesSetOnly;
+	@Getter
+	private JRadioButton radioButtonShowDecisionRulesSetOnly;
 
 	public ParametrisationForm() {
 		parametrisationFrame = new JFrame(SystemProperties.getResourceBundle().getString("parametrisationForm.title"));
@@ -58,6 +71,7 @@ public class ParametrisationForm {
 	private void internationalizing() {
 		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
 		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
+		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
 
 		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
 		lblUser.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUser"));
@@ -65,11 +79,17 @@ public class ParametrisationForm {
 		btnConfigureConnection.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnConfigureConnection"));
 
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDecisionAttributeIndex"));
-		btnAccept.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
+		btnAcceptDecisionTableSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
+
+		radioButtonShowAllData.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowAllData"));
+		radioButtonShowCoverageAndDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowCoverageAndDecisionRulesSetOnly"));
+		radioButtonShowDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowDecisionRulesSetOnly"));
+		btnAcceptDecisionRulesDataRangePanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 	}
 
 	private void setupGraphics() {
-		btnAccept.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
+		btnAcceptDecisionTableSettingsPanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
+		btnAcceptDecisionRulesDataRangePanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
 		btnConfigureConnection.setIcon(Utils.getResourceIcon("btnConfigureConnection-ico.png"));
 	}
 }
