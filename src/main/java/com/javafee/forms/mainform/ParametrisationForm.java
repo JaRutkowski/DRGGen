@@ -1,6 +1,8 @@
 package com.javafee.forms.mainform;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import com.javafee.controller.utils.SystemProperties;
+import com.javafee.forms.mainform.utils.DoubleJSpinner;
 import com.javafee.forms.mainform.utils.Utils;
 
 import lombok.Getter;
@@ -43,9 +46,23 @@ public class ParametrisationForm {
 	@Getter
 	private JLabel lblDecisionAttributeIndex;
 	@Getter
-	private JButton btnAcceptDecisionTableSettingsPanel;
-	@Getter
 	private JSpinner spinnerDecisionAttributeIndex;
+	@Getter
+	private JLabel lblSetType;
+	@Getter
+	private JComboBox comboBoxSetType;
+	@Getter
+	private JLabel lblTrainingPercentage;
+	@Getter
+	private DoubleJSpinner doubleSpinnerTrainingPercentage;
+	@Getter
+	private JLabel lblTestPercentage;
+	@Getter
+	private DoubleJSpinner doubleSpinnerTestPercentage;
+	@Getter
+	private JCheckBox checkBoxShuffle;
+	@Getter
+	private JButton btnAcceptDecisionTableSettingsPanel;
 
 	@Getter
 	private JButton btnAcceptDecisionRulesDataRangePanel;
@@ -64,6 +81,7 @@ public class ParametrisationForm {
 
 		internationalizing();
 		setupGraphics();
+		setupSpinners();
 
 		parametrisationFrame.setVisible(true);
 	}
@@ -80,6 +98,10 @@ public class ParametrisationForm {
 
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDecisionAttributeIndex"));
 		btnAcceptDecisionTableSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
+		lblSetType.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblSetType"));
+		lblTrainingPercentage.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblTrainingPercentage"));
+		lblTestPercentage.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblTestPercentage"));
+		checkBoxShuffle.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShuffle"));
 
 		radioButtonShowAllData.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowAllData"));
 		radioButtonShowCoverageAndDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowCoverageAndDecisionRulesSetOnly"));
@@ -91,5 +113,8 @@ public class ParametrisationForm {
 		btnAcceptDecisionTableSettingsPanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
 		btnAcceptDecisionRulesDataRangePanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
 		btnConfigureConnection.setIcon(Utils.getResourceIcon("btnConfigureConnection-ico.png"));
+	}
+
+	private void setupSpinners() {
 	}
 }

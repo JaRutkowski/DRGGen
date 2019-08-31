@@ -77,7 +77,7 @@ public class DRGreedyGenAlgorithmProcess implements DRGenAlgorithm {
 	}
 
 	private void checkCoversForAllCombinations(RowsSet[] rowsSetArray, int rowsSetArraySize, int coefficient) {
-		RowsSet currentCombinations[] = new RowsSet[coefficient];
+		RowsSet[] currentCombinations = new RowsSet[coefficient];
 		generateCombinations(rowsSetArray, currentCombinations, 0, rowsSetArraySize - 1, 0, coefficient);
 	}
 

@@ -25,13 +25,14 @@ import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGener
 import com.javafee.controller.algorithm.test.StandardTestGenerator;
 import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
+import com.javafee.controller.utils.Common;
 import com.javafee.controller.utils.Constants;
 import com.javafee.controller.utils.SystemProperties;
 import com.javafee.controller.utils.cache.Cache;
-import com.javafee.controller.utils.databasemapper.MySQLMapper;
-import com.javafee.controller.utils.jtablemapper.CSVFormatToDefaultTableModelDefaultTableModelMapper;
-import com.javafee.controller.utils.jtablemapper.ExcelFormatToDefaultTableModelDefaultTableModelMapper;
-import com.javafee.controller.utils.jtablemapper.FileToDefaultTableModelDefaultTableModelMapperService;
+import com.javafee.controller.utils.databasemapper.MySQLMapperService;
+import com.javafee.controller.utils.jtablemapper.CSVFormatToDefaultTableModelMapper;
+import com.javafee.controller.utils.jtablemapper.ExcelFormatToDefaultTableModelMapper;
+import com.javafee.controller.utils.jtablemapper.FileToDefaultTableModelMapperService;
 import com.javafee.controller.utils.params.Params;
 import com.javafee.forms.mainform.MainForm;
 import com.javafee.forms.mainform.utils.Utils;
@@ -46,14 +47,24 @@ public class MainFormActions implements Actions {
 	private ParametrisationFormActions parametrisationFormActions;
 
 	@Inject
-	private FileToDefaultTableModelDefaultTableModelMapperService fileToDefaultTableModelMapper;
+	private FileToDefaultTableModelMapperService fileToDefaultTableModelMapperService;
+
+	@Inject
+	private MySQLMapperService mySQLMapperService;
 
 	private TestGenerator testGenerator = new StandardTestGenerator();
 	private DecisionRulesGenerator greedyDecisionRulesGenerator = new StandardDecisionRulesGenerator();
 
+	private TableFilterHeader decisionTableFilterHeader = null;
+
 	public void control() {
+		initializeComboBoxSetType();
 		setComponentsVisibility();
 		initializeListeners();
+	}
+
+	private void initializeComboBoxSetType() {
+		Common.initializeComboBoxSetType(mainForm.getComboBoxSetType());
 	}
 
 	private void setComponentsVisibility() {
@@ -80,15 +91,16 @@ public class MainFormActions implements Actions {
 		File file = Utils.displayFileChooserAndGetFile(null);
 		try {
 			if (file != null && file.toString().endsWith(Constants.CSV_EXTENSION))
-				fileToDefaultTableModelMapper = new FileToDefaultTableModelDefaultTableModelMapperService(new CSVFormatToDefaultTableModelDefaultTableModelMapper());
+				fileToDefaultTableModelMapperService = new FileToDefaultTableModelMapperService(new CSVFormatToDefaultTableModelMapper());
 			else if (file != null && (file.toString().endsWith(Constants.XLS_EXTENSION) || file.toString().endsWith(Constants.XLSX_EXTENSION)))
-				fileToDefaultTableModelMapper = new FileToDefaultTableModelDefaultTableModelMapperService(new ExcelFormatToDefaultTableModelDefaultTableModelMapper());
-			else {
+				fileToDefaultTableModelMapperService = new FileToDefaultTableModelMapperService(new ExcelFormatToDefaultTableModelMapper());
+			else
 				throw new InvalidObjectException("Invalid data format");
-			}
-			DefaultTableModel defaultTableModel = fileToDefaultTableModelMapper.map(file);
+			DefaultTableModel defaultTableModel = fileToDefaultTableModelMapperService.map(file, SystemProperties.getSystemParameterSetType(),
+					SystemProperties.isSystemParameterShuffle(), SystemProperties.getSystemParameterTrainingPercentage(),
+					SystemProperties.getSystemParameterTestPercentage());
 
-			buildAndRefreshViewWithDecisionTable(defaultTableModel);
+			buildAndRefreshViewOfDecisionTable(defaultTableModel);
 			addTableNameToParams(FilenameUtils.removeExtension(file.getName()));
 			setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
 			setAndGetCheckBoxShowCacheVisibility(Params.getInstance().contains("TABLE_NAME"));
@@ -99,27 +111,28 @@ public class MainFormActions implements Actions {
 			if (Params.getInstance().contains("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH") && Params.getInstance().contains("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")) {
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH")).accept(null);
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")).accept(null);
-
-				Consumer refreshTextFieldDecisionAttributeIndex = (e) -> refreshTextFieldDecisionAttributeIndex();
-				Params.getInstance().add("MAIN_FORM_ACTIONS_REFRESH_TEXT_FIELD_DEC_ATTR_IDX", refreshTextFieldDecisionAttributeIndex);
 			}
+			Consumer refreshDecisionTableAttributes = (e) -> refreshDecisionTableAttributes();
+			Params.getInstance().add("MAIN_FORM_ACTIONS_REFRESH_DEC_TABLE_ATTR", refreshDecisionTableAttributes);
+			Consumer buildAndRefreshViewOfDecisionTable = (e) -> buildAndRefreshViewOfDecisionTable(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
+			Params.getInstance().add("MAIN_FORM_ACTIONS_BUILD_AND_REFRESH_VIEW_OF_DECISION_TABLE", buildAndRefreshViewOfDecisionTable);
 		} catch (IOException | InvalidFormatException e) {
-			Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("errorOptionPaneTitle"), e.getMessage(), mainForm);
+			Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
 		}
 	}
 
 	private void onClickMenuItemSaveToDatabase() {
 		if (validateTableDataLoaded()) {
 			TableModel decisionTableModel = mainForm.getDecisionTable().getModel();
-			MySQLMapper mySQLMapper = new MySQLMapper();
+			mySQLMapperService = new MySQLMapperService();
 			String tableName = (String) Params.getInstance().get("TABLE_NAME");
 			try {
-				mySQLMapper.map(decisionTableModel, tableName);
+				mySQLMapperService.map(decisionTableModel, tableName);
 			} catch (SQLException e) {
-				Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("errorOptionPaneTitle"), e.getMessage(), mainForm);
+				Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
 			}
 		} else {
-			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("validationOptionPaneTitle"),
+			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.validationOptionPaneTitle"),
 					SystemProperties.getResourceBundle().getString("mainFormActions.tableDataLoadedValidationMessage"),
 					JOptionPane.ERROR_MESSAGE, mainForm);
 		}
@@ -164,6 +177,7 @@ public class MainFormActions implements Actions {
 		for (; columnIndex < defaultTableModel.getColumnCount() - 1; columnIndex++)
 			attributes.append(defaultTableModel.getColumnName(columnIndex) + " ");
 
+		refreshTrainingAndTestAttributes();
 		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(dataVector.get(0).size() - 1));
 		mainForm.getTextFieldConditionalAttributes().setText(attributes.toString());
 		mainForm.getTextFieldNumberOfConditionalAttributes().setText(Integer.toString(dataVector.get(0).size() - 1));
@@ -203,14 +217,14 @@ public class MainFormActions implements Actions {
 	}
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
-		boolean isSysParametersAll = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.ALL_DATA,
-				isSysParametersCoverageAndDecisionRulesSet = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES,
-				isSysParametersDecisionRulesSet = SystemProperties.getDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES;
+		boolean isSysParametersAll = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.ALL_DATA,
+				isSysParametersCoverageAndDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES,
+				isSysParametersDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES;
 
 		if (isSysParametersAll) {
-			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getResultIndex()).toString() + "<br>");
+			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getValue()).toString() + "<br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
-					Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getResultIndex()))
+					Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getValue()))
 				result.append((rowsSet).toString() + "<br>");
 			result.append("<br>");
 		}
@@ -218,24 +232,34 @@ public class MainFormActions implements Actions {
 		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet) {
 			result.append("Coverage: <br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
-					Constants.StandardDecisionRulesGenerator.COVERAGE.getResultIndex()))
+					Constants.StandardDecisionRulesGenerator.COVERAGE.getValue()))
 				result.append((rowsSet).toString() + "<br>");
 			result.append("<br>");
 		}
 
 		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet || isSysParametersDecisionRulesSet) {
-			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getResultIndex()).toString());
+			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
 			result.append("<br>");
 		}
 	}
 
-	private void refreshTextFieldDecisionAttributeIndex() {
+	private void refreshDecisionTableAttributes() {
 		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(SystemProperties.getSystemParameterDecisionAttributeIndex()));
+		refreshTrainingAndTestAttributes();
 	}
 
-	private void buildAndRefreshViewWithDecisionTable(DefaultTableModel defaultTableModel) {
+	private void refreshTrainingAndTestAttributes() {
+		mainForm.getComboBoxSetType().setSelectedItem(SystemProperties.getSystemParameterSetType().getName());
+		mainForm.getTextFieldTrainingPercentage().setText(Double.toString(SystemProperties.getSystemParameterTrainingPercentage()));
+		mainForm.getTextFieldTestPercentage().setText(Double.toString(SystemProperties.getSystemParameterTestPercentage()));
+		mainForm.getCheckBoxShowCache().setSelected(SystemProperties.isSystemParameterShuffle());
+	}
+
+	private void buildAndRefreshViewOfDecisionTable(DefaultTableModel defaultTableModel) {
 		mainForm.getDecisionTable().setModel(defaultTableModel);
-		new TableFilterHeader(mainForm.getDecisionTable());
+		((DefaultTableModel) mainForm.getDecisionTable().getModel()).fireTableDataChanged();
+		if (decisionTableFilterHeader == null)
+			decisionTableFilterHeader = new TableFilterHeader(mainForm.getDecisionTable());
 		mainForm.getDecisionTableScrollPane().setViewportView(mainForm.getDecisionTable());
 	}
 
