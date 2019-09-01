@@ -14,18 +14,34 @@ import lombok.experimental.UtilityClass;
 public class SystemProperties {
 	@Setter
 	@Getter
-	private static Integer systemParameterDecisionAttributeIndex = null;
+	private Integer systemParameterDecisionAttributeIndex = null;
 
 	@Setter
 	@Getter
-	private static Constants.DecisionRulesDataRange decisionRulesDataRange = Constants.DecisionRulesDataRange.ALL_DATA;
+	private Constants.SetType systemParameterSetType = Constants.APPLICATION_SET_TYPE;
+
+	@Setter
+	@Getter
+	private double systemParameterTrainingPercentage = Constants.APPLICATION_TRAINING_PERCENTAGE;
+
+	@Setter
+	@Getter
+	private double systemParameterTestPercentage = Constants.APPLICATION_TEST_PERCENTAGE;
+
+	@Setter
+	@Getter
+	private boolean systemParameterShuffle = Constants.APPLICATION_SHUFFLE;
+
+	@Setter
+	@Getter
+	private Constants.DecisionRulesDataRange systemParameterDecisionRulesDataRange = Constants.APPLICATION_DECISION_RULES_DATA_RANGE;
 
 	@Getter
-	private static ResourceBundle resourceBundle = ResourceBundle.getBundle(
+	private ResourceBundle resourceBundle = ResourceBundle.getBundle(
 			Constants.LANGUAGE_RESOURCE_BUNDLE,
 			new Locale(Constants.APPLICATION_LANGUAGE));
 
-	public static void initializeDataBase(String url, String userName, String password) throws SQLException, ClassNotFoundException {
+	public void initializeDataBase(String url, String userName, String password) throws SQLException, ClassNotFoundException {
 		JpaUtils.initializeDataBase(url, userName, password);
 	}
 

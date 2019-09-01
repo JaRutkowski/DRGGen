@@ -2,6 +2,7 @@ package com.javafee.controller.utils.databasemapper;
 
 import java.sql.SQLException;
 
+import javax.ejb.Stateless;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -9,7 +10,8 @@ import com.javafee.controller.utils.Common;
 import com.javafee.model.dao.BaseDao;
 import com.javafee.model.dao.JpaDao;
 
-public class MySQLMapper implements DataBaseMapperStrategy {
+@Stateless
+public class MySQLMapperService implements DataBaseMapperStrategy {
 	private BaseDao dao = new JpaDao();
 
 	@Override

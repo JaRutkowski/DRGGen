@@ -55,6 +55,15 @@ public class MainForm extends JFrame {
 	private JEditorPane editorPaneCachedDecisionRules;
 
 
+	private JLabel lblSetType;
+	@Getter
+	private JComboBox comboBoxSetType;
+	private JLabel lblTrainingPercentage;
+	@Getter
+	private JTextField textFieldTrainingPercentage;
+	private JLabel lblTestPercentage;
+	@Getter
+	private JTextField textFieldTestPercentage;
 	private JLabel lblDecisionAttributeIndex;
 	@Getter
 	private JTextField textFieldDecisionAttributeIndex;
@@ -123,6 +132,9 @@ public class MainForm extends JFrame {
 		checkBoxShowDataParameters.setText(SystemProperties.getResourceBundle().getString("mainForm.checkBoxShowDataParameters"));
 		checkBoxShowCache.setText(SystemProperties.getResourceBundle().getString("mainForm.checkBoxShowCache"));
 
+		lblSetType.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblSetType"));
+		lblTrainingPercentage.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblTrainingPercentage"));
+		lblTestPercentage.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblTestPercentage"));
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblDecisionAttributeIndex"));
 		lblConditionalAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblConditionalAttributes"));
 		lblNumberOfConditionalAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblNumberOfConditionalAttributes"));
