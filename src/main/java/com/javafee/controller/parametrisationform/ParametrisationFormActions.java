@@ -132,9 +132,9 @@ public class ParametrisationFormActions implements Actions {
 				SystemProperties.setSystemParameterTestPercentage(parametrisationForm.getDoubleSpinnerTestPercentage().getDouble());
 				SystemProperties.setSystemParameterShuffle(parametrisationForm.getCheckBoxShuffle().isSelected());
 				Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
-						SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionAttrIdxSuccessMessage"),
+						SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionTableParametersSuccessMessage"),
 						JOptionPane.INFORMATION_MESSAGE, null);
-				invokeRefreshMainFormDecisionTableAttributes();
+				invokeFillDataParametersPanel();
 				invokeBuildAndRefreshViewOfDecisionTable();
 			}
 		} else
@@ -167,9 +167,9 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getLblTestConnection().setText(information);
 	}
 
-	private void invokeRefreshMainFormDecisionTableAttributes() {
-		if (Params.getInstance().contains("MAIN_FORM_ACTIONS_REFRESH_DEC_TABLE_ATTR"))
-			((Consumer) Params.getInstance().get("MAIN_FORM_ACTIONS_REFRESH_DEC_TABLE_ATTR")).accept(null);
+	private void invokeFillDataParametersPanel() {
+		if (Params.getInstance().contains("MAIN_FORM_ACTIONS_FILL_DATA_PARAMS_PANEL"))
+			((Consumer) Params.getInstance().get("MAIN_FORM_ACTIONS_FILL_DATA_PARAMS_PANEL")).accept(null);
 	}
 
 	private void invokeBuildAndRefreshViewOfDecisionTable() {

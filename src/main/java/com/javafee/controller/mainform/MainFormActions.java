@@ -112,8 +112,8 @@ public class MainFormActions implements Actions {
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH")).accept(null);
 				((Consumer) Params.getInstance().get("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS")).accept(null);
 			}
-			Consumer refreshDecisionTableAttributes = (e) -> refreshDecisionTableAttributes();
-			Params.getInstance().add("MAIN_FORM_ACTIONS_REFRESH_DEC_TABLE_ATTR", refreshDecisionTableAttributes);
+			Consumer fillDataParametersPanel = (e) -> fillDataParametersPanel(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
+			Params.getInstance().add("MAIN_FORM_ACTIONS_FILL_DATA_PARAMS_PANEL", fillDataParametersPanel);
 			Consumer buildAndRefreshViewOfDecisionTable = (e) -> buildAndRefreshViewOfDecisionTable(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
 			Params.getInstance().add("MAIN_FORM_ACTIONS_BUILD_AND_REFRESH_VIEW_OF_DECISION_TABLE", buildAndRefreshViewOfDecisionTable);
 		} catch (IOException | InvalidFormatException e) {
