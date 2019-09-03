@@ -3,9 +3,13 @@ package com.javafee.controller.algorithm.datastructure;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+
 public class LogicalExpression {
+	@Getter
 	private List<LogicalAttributeValuePair> logicalAttributeValuePairList = new ArrayList<>();
 	private List<LogicalOperator> logicalOperatorList = new ArrayList<>();
+	@Getter
 	private String logicalValue;
 
 	boolean logicalAttributeFlag = false;

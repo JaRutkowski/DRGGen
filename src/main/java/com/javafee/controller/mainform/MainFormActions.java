@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.function.Consumer;
@@ -18,10 +19,14 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.javafee.controller.Actions;
+import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.decisionrules.DecisionRulesGenerator;
 import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGenerator;
+import com.javafee.controller.algorithm.measures.StandardErrorRateMeasure;
+import com.javafee.controller.algorithm.measures.StandardQualityMeasure;
+import com.javafee.controller.algorithm.measures.StandardSupportMeasure;
 import com.javafee.controller.algorithm.test.StandardTestGenerator;
 import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
@@ -54,7 +59,9 @@ public class MainFormActions implements Actions {
 
 	private TestGenerator testGenerator = new StandardTestGenerator();
 	private DecisionRulesGenerator greedyDecisionRulesGenerator = new StandardDecisionRulesGenerator();
+	private StandardQualityMeasure standardQualityMeasure = null;
 
+	private List<List<Object>> decisionRulesGeneratorResult = null;
 	private TableFilterHeader decisionTableFilterHeader = null;
 
 	public void control() {
@@ -71,7 +78,10 @@ public class MainFormActions implements Actions {
 		setAndGetDataParametersPanelVisibility(mainForm.getCheckBoxShowDataParameters().isSelected());
 		setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
 		setAndGetCheckBoxShowCacheVisibility(Params.getInstance().contains("TABLE_NAME"));
+		setAndGetBtnCalculateDecisionRulesMeasures(Params.getInstance().contains("TABLE_NAME"));
+		setAndGetScrollPaneEditorPaneDecisionRulesMeasuresVisibility(Params.getInstance().contains("TABLE_NAME"));
 		setAndGetSplitPaneCacheVisibility(mainForm.getCheckBoxShowCache().isSelected());
+		setAndGetScrollPaneEditorPaneCachedDecisionRulesMeasuresVisibility(mainForm.getCheckBoxShowCache().isSelected());
 	}
 
 	private void initializeListeners() {
@@ -85,6 +95,7 @@ public class MainFormActions implements Actions {
 		mainForm.getBtnCheckData().addActionListener(e -> onClickBtnCheckData());
 		mainForm.getBtnGenerateTest().addActionListener(e -> onClickBtnGenerateTest());
 		mainForm.getBtnGenerateDecisionRules().addActionListener(e -> onClickBtnGenerateDecisionRules());
+		mainForm.getBtnCalculateDecisionRulesMeasures().addActionListener(e -> onClickBtnCalculateDecisionRulesMeasures());
 	}
 
 	private void onClickMenuItemLoadData() {
@@ -164,9 +175,28 @@ public class MainFormActions implements Actions {
 	}
 
 	private void onClickBtnGenerateDecisionRules() {
-		List<List<Object>> resultObjectListOfObject = greedyDecisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
-		Cache.getInstance().cache("DECISION_RULES", resultObjectListOfObject);
-		refreshTextAreaDecisionRulesBaseOnSysParameters(resultObjectListOfObject, true);
+		decisionRulesGeneratorResult = greedyDecisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
+		Cache.getInstance().cache("DECISION_RULES", decisionRulesGeneratorResult);
+		refreshTextAreaDecisionRulesBaseOnSysParameters(decisionRulesGeneratorResult, true);
+		setAndGetBtnCalculateDecisionRulesMeasures(true);
+	}
+
+	private void onClickBtnCalculateDecisionRulesMeasures() {
+		List<LogicalExpression> decisionRules = new ArrayList<>();
+		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : decisionRulesGeneratorResult) {
+			decisionRules.add((LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()));
+		}
+
+		StringBuilder result = new StringBuilder();
+		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
+		result.append("Support: " + ((StandardSupportMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
+		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
+		result.append("Error rate: " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateAverage().toString());
+		mainForm.getEditorPaneDecisionRulesMeasures().setText(result.toString());
+
+		setAndGetBtnCalculateDecisionRulesMeasures(true);
+		setAndGetScrollPaneEditorPaneDecisionRulesMeasuresVisibility(true);
+		mainForm.pack();
 	}
 
 	private void fillDataParametersPanel(DefaultTableModel defaultTableModel) {
@@ -243,11 +273,6 @@ public class MainFormActions implements Actions {
 		}
 	}
 
-	private void refreshDecisionTableAttributes() {
-		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(SystemProperties.getSystemParameterDecisionAttributeIndex()));
-		refreshTrainingAndTestAttributes();
-	}
-
 	private void refreshTrainingAndTestAttributes() {
 		mainForm.getComboBoxSetType().setSelectedItem(SystemProperties.getSystemParameterSetType().getName());
 		mainForm.getTextFieldTrainingPercentage().setText(Double.toString(SystemProperties.getSystemParameterTrainingPercentage()));
@@ -286,9 +311,24 @@ public class MainFormActions implements Actions {
 		return mainForm.getCheckBoxShowCache().isVisible();
 	}
 
+	private boolean setAndGetBtnCalculateDecisionRulesMeasures(boolean visibility) {
+		mainForm.getBtnCalculateDecisionRulesMeasures().setVisible(visibility);
+		return mainForm.getBtnCalculateDecisionRulesMeasures().isVisible();
+	}
+
+	private boolean setAndGetScrollPaneEditorPaneDecisionRulesMeasuresVisibility(boolean visibility) {
+		mainForm.getScrollPaneEditorPaneDecisionRulesMeasures().setVisible(visibility);
+		return mainForm.getScrollPaneEditorPaneDecisionRulesMeasures().isVisible();
+	}
+
 	private boolean setAndGetSplitPaneCacheVisibility(boolean visibility) {
 		mainForm.getSplitPaneCache().setVisible(visibility);
 		return mainForm.getSplitPaneCache().isVisible();
+	}
+
+	private boolean setAndGetScrollPaneEditorPaneCachedDecisionRulesMeasuresVisibility(boolean visibility) {
+		mainForm.getScrollPaneEditorPaneCachedDecisionRulesMeasures().setVisible(visibility);
+		return mainForm.getScrollPaneEditorPaneCachedDecisionRulesMeasures().isVisible();
 	}
 
 	private boolean validateTableDataLoaded() {
