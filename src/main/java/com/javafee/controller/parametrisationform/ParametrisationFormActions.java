@@ -20,21 +20,17 @@ public class ParametrisationFormActions implements Actions {
 	private ParametrisationForm parametrisationForm;
 
 	public void control() {
-		openParametrisationForm();
-		initializeComboBoxSetType();
-		setComponentsVisibility();
-		initializeListeners();
-		initializeParameters();
-
-		Consumer setComponentsVisibility = (e) -> setComponentsVisibility();
-		Consumer initializeParameters = (e) -> initializeParameters();
-		Params.getInstance().add("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH", setComponentsVisibility);
-		Params.getInstance().add("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS", initializeParameters);
-	}
-
-	public void openParametrisationForm() {
 		if (parametrisationForm == null || (parametrisationForm != null && !parametrisationForm.getParametrisationFrame().isDisplayable())) {
 			parametrisationForm = new ParametrisationForm();
+			initializeComboBoxSetType();
+			setComponentsVisibility();
+			initializeListeners();
+			initializeParameters();
+
+			Consumer setComponentsVisibility = (e) -> setComponentsVisibility();
+			Consumer initializeParameters = (e) -> initializeParameters();
+			Params.getInstance().add("PARAM_FORM_ACTIONS_COMPONENTS_REFRESH", setComponentsVisibility);
+			Params.getInstance().add("PARAM_FORM_ACTIONS_INITIALIZE_PARAMETERS", initializeParameters);
 		} else {
 			parametrisationForm.getParametrisationFrame().toFront();
 		}
