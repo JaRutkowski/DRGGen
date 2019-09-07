@@ -1,4 +1,4 @@
-package com.javafee.forms.mainform.utils;
+package com.javafee.forms.utils;
 
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;

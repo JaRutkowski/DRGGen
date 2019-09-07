@@ -36,6 +36,10 @@ public class SystemProperties {
 	@Getter
 	private Constants.DecisionRulesDataRange systemParameterDecisionRulesDataRange = Constants.APPLICATION_DECISION_RULES_DATA_RANGE;
 
+	@Setter
+	@Getter
+	private boolean systemParameterCalculateQualityMeasureForEachDecisionRules = false;
+
 	@Getter
 	private ResourceBundle resourceBundle = ResourceBundle.getBundle(
 			Constants.LANGUAGE_RESOURCE_BUNDLE,

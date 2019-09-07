@@ -47,7 +47,7 @@ public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
 			List<RowsSet> rowsSetForEachAttributesList = new ArrayList<>();
 			for (int attributeIndex = 0; attributeIndex <= lastColumnIndex; attributeIndex++) {
 				if (attributeIndex != SystemProperties.getSystemParameterDecisionAttributeIndex()) {
-					RowsSet rowsSetForEachAttributes = VectorProcess.findDistinctRowsWithVariousAttributesAndDecisionValue(rowsSet, row, attributeIndex);
+					RowsSet rowsSetForEachAttributes = VectorProcess.findDistinctRowsWithVariousAttributeAndDecisionValue(rowsSet, row, attributeIndex);
 					rowsSetForEachAttributes.setConcernedRow(concernedRow);
 					rowsSetForEachAttributes.setAttributeIndex(attributeIndex);
 					rowsSetForEachAttributesList.add(rowsSetForEachAttributes);
