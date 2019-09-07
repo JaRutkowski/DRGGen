@@ -19,7 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import com.javafee.controller.utils.SystemProperties;
-import com.javafee.forms.mainform.utils.Utils;
+import com.javafee.forms.utils.Utils;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -169,6 +169,7 @@ public class MainForm extends JFrame {
 		initializeDecisionTableScrollPaneWithImage();
 		btnCheckData.setIcon(Utils.getResourceIcon("btnCheckData-ico.png"));
 		btnGenerateDecisionRules.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
+		btnCalculateDecisionRulesMeasures.setIcon(Utils.getResourceIcon("btnCalculateDecisionRulesMeasures-ico.png"));
 		btnGenerateTest.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
 		btnSaveDecisionRules.setIcon(Utils.getResourceIcon("btnSave-ico.png"));
 		btnSaveResearch.setIcon(Utils.getResourceIcon("btnSaveResearch-ico.png"));

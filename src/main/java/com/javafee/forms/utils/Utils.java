@@ -1,4 +1,4 @@
-package com.javafee.forms.mainform.utils;
+package com.javafee.forms.utils;
 
 import java.awt.*;
 import java.io.File;

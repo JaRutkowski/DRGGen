@@ -12,8 +12,8 @@ import com.javafee.controller.utils.Constants;
 import com.javafee.controller.utils.Session;
 import com.javafee.controller.utils.SystemProperties;
 import com.javafee.controller.utils.params.Params;
-import com.javafee.forms.mainform.ParametrisationForm;
-import com.javafee.forms.mainform.utils.Utils;
+import com.javafee.forms.parametrisationform.ParametrisationForm;
+import com.javafee.forms.utils.Utils;
 
 @Stateless
 public class ParametrisationFormActions implements Actions {
@@ -56,17 +56,17 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getDoubleSpinnerTestPercentage().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShuffle().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getRadioButtonShowAllData().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getBtnAcceptDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getBtnAcceptDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 	}
 
 	private void initializeListeners() {
 		parametrisationForm.getBtnConfigureConnection().addActionListener(e -> onClickBtnConfigureConnection());
 		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().addActionListener(e -> onClickBtnAcceptDecisionTableSettingsPanel());
-		parametrisationForm.getBtnAcceptDecisionRulesDataRangePanel().addActionListener(e -> onClickBtnAcceptDecisionRulesDataRangePanel());
+		parametrisationForm.getBtnAcceptDecisionRulesSettingsPanel().addActionListener(e -> onClickBtnAcceptDecisionRulesSettingsPanel());
 	}
 
 	private void initializeParameters() {
@@ -143,7 +143,7 @@ public class ParametrisationFormActions implements Actions {
 					JOptionPane.ERROR_MESSAGE, parametrisationForm.getParametrisationFrame());
 	}
 
-	private void onClickBtnAcceptDecisionRulesDataRangePanel() {
+	private void onClickBtnAcceptDecisionRulesSettingsPanel() {
 		if (Utils.displayConfirmDialog(SystemProperties.getResourceBundle().getString("confirmDialog.message"),
 				SystemProperties.getResourceBundle().getString("confirmDialog.title")) == JOptionPane.YES_OPTION) {
 			Constants.DecisionRulesDataRange decisionRulesDataRange = null;
@@ -154,6 +154,8 @@ public class ParametrisationFormActions implements Actions {
 			else if (parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().isSelected())
 				decisionRulesDataRange = Constants.DecisionRulesDataRange.DECISION_RULES;
 			SystemProperties.setSystemParameterDecisionRulesDataRange(decisionRulesDataRange);
+			SystemProperties.setSystemParameterCalculateQualityMeasureForEachDecisionRules(
+					parametrisationForm.getCheckBoxCalculateDecRulesMeasuresForEachDecRules().isSelected());
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
 					SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionRulesDataRangeSuccessMessage"),
 					JOptionPane.INFORMATION_MESSAGE, null);

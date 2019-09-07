@@ -1,4 +1,4 @@
-package com.javafee.forms.mainform;
+package com.javafee.forms.parametrisationform;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -13,8 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import com.javafee.controller.utils.SystemProperties;
-import com.javafee.forms.mainform.utils.DoubleJSpinner;
-import com.javafee.forms.mainform.utils.Utils;
+import com.javafee.forms.utils.DoubleJSpinner;
+import com.javafee.forms.utils.Utils;
 
 import lombok.Getter;
 
@@ -27,6 +27,7 @@ public class ParametrisationForm {
 	@Getter
 	private JPanel decisionTableSettingsPanel;
 	@Getter
+	private JPanel decisionRulesSettingsPanel;
 	private JPanel decisionRulesDataRangePanel;
 
 	private JLabel lblDataBaseUrl;
@@ -65,13 +66,15 @@ public class ParametrisationForm {
 	private JButton btnAcceptDecisionTableSettingsPanel;
 
 	@Getter
-	private JButton btnAcceptDecisionRulesDataRangePanel;
+	private JButton btnAcceptDecisionRulesSettingsPanel;
 	@Getter
 	private JRadioButton radioButtonShowAllData;
 	@Getter
 	private JRadioButton radioButtonShowCoverageAndDecisionRulesSetOnly;
 	@Getter
 	private JRadioButton radioButtonShowDecisionRulesSetOnly;
+	@Getter
+	private JCheckBox checkBoxCalculateDecRulesMeasuresForEachDecRules;
 
 	public ParametrisationForm() {
 		parametrisationFrame = new JFrame(SystemProperties.getResourceBundle().getString("parametrisationForm.title"));
@@ -81,7 +84,6 @@ public class ParametrisationForm {
 
 		internationalizing();
 		setupGraphics();
-		setupSpinners();
 
 		parametrisationFrame.setVisible(true);
 	}
@@ -89,6 +91,7 @@ public class ParametrisationForm {
 	private void internationalizing() {
 		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
 		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
+		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
 		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
 
 		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
@@ -106,15 +109,13 @@ public class ParametrisationForm {
 		radioButtonShowAllData.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowAllData"));
 		radioButtonShowCoverageAndDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowCoverageAndDecisionRulesSetOnly"));
 		radioButtonShowDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowDecisionRulesSetOnly"));
-		btnAcceptDecisionRulesDataRangePanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
+		checkBoxCalculateDecRulesMeasuresForEachDecRules.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxCalculateDecRulesMeasuresForEachDecRules"));
+		btnAcceptDecisionRulesSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 	}
 
 	private void setupGraphics() {
 		btnAcceptDecisionTableSettingsPanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
-		btnAcceptDecisionRulesDataRangePanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
+		btnAcceptDecisionRulesSettingsPanel.setIcon(Utils.getResourceIcon("btnAccept-ico.png"));
 		btnConfigureConnection.setIcon(Utils.getResourceIcon("btnConfigureConnection-ico.png"));
-	}
-
-	private void setupSpinners() {
 	}
 }

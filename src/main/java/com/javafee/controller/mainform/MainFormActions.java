@@ -40,7 +40,7 @@ import com.javafee.controller.utils.jtablemapper.ExcelFormatToDefaultTableModelM
 import com.javafee.controller.utils.jtablemapper.FileToDefaultTableModelMapperService;
 import com.javafee.controller.utils.params.Params;
 import com.javafee.forms.mainform.MainForm;
-import com.javafee.forms.mainform.utils.Utils;
+import com.javafee.forms.utils.Utils;
 
 import net.coderazzi.filters.gui.TableFilterHeader;
 
@@ -249,7 +249,8 @@ public class MainFormActions implements Actions {
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
 		boolean isSysParametersAll = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.ALL_DATA,
 				isSysParametersCoverageAndDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES,
-				isSysParametersDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES;
+				isSysParametersDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES,
+				isSysParametersCalculateQualityMeasureForEachDecisionRules = SystemProperties.isSystemParameterCalculateQualityMeasureForEachDecisionRules();
 
 		if (isSysParametersAll) {
 			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getValue()).toString() + "<br>");
@@ -270,7 +271,19 @@ public class MainFormActions implements Actions {
 		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet || isSysParametersDecisionRulesSet) {
 			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
 			result.append("<br>");
+			if (isSysParametersCalculateQualityMeasureForEachDecisionRules)
+				buildResultConsistedOfCalculatedQualityMeasure(
+						(LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()),
+						result);
 		}
+	}
+
+	private void buildResultConsistedOfCalculatedQualityMeasure(LogicalExpression decisionRule, StringBuilder result) {
+		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule);
+		result.append("Support: " + ((StandardSupportMeasure) standardQualityMeasure).calculate().toString() + "<br>");
+		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule);
+		result.append("Error rate: " + ((StandardErrorRateMeasure) standardQualityMeasure).calculate().toString() + "<br>");
+		result.append("<br>");
 	}
 
 	private void refreshTrainingAndTestAttributes() {
