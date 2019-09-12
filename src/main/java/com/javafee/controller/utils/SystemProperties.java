@@ -1,8 +1,11 @@
 package com.javafee.controller.utils;
 
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import com.javafee.model.JpaUtils;
 
@@ -34,11 +37,15 @@ public class SystemProperties {
 
 	@Setter
 	@Getter
-	private Constants.DecisionRulesDataRange systemParameterDecisionRulesDataRange = Constants.APPLICATION_DECISION_RULES_DATA_RANGE;
+	private Set<Constants.DecisionRulesDataRange> systemParameterDecisionRulesDataRangeList = new HashSet<>(Arrays.asList(Constants.DecisionRulesDataRange.ROWS_SETS));
 
 	@Setter
 	@Getter
 	private boolean systemParameterCalculateQualityMeasureForEachDecisionRules = false;
+
+	@Setter
+	@Getter
+	private boolean systemParameterShowDecRulesGenerationTime = false;
 
 	@Getter
 	private ResourceBundle resourceBundle = ResourceBundle.getBundle(
