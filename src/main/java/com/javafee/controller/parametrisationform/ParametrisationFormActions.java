@@ -54,9 +54,12 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getCheckBoxShuffle().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShowRowsSets().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShowCoverages().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShowDecisionRulesSet().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxCalculateDecRulesMeasuresForEachDecRules().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowDecRulesGenerationTime().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 	}
 
@@ -96,7 +99,7 @@ public class ParametrisationFormActions implements Actions {
 				}
 			});
 		} else
-			parametrisationForm.getCheckBoxShowRowsSets().setSelected(true);
+			parametrisationForm.getCheckBoxShowDecisionRulesSet().setSelected(true);
 	}
 
 	private void onClickBtnConfigureConnection() {

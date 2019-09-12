@@ -37,7 +37,7 @@ public class SystemProperties {
 
 	@Setter
 	@Getter
-	private Set<Constants.DecisionRulesDataRange> systemParameterDecisionRulesDataRangeList = new HashSet<>(Arrays.asList(Constants.DecisionRulesDataRange.ROWS_SETS));
+	private Set<Constants.DecisionRulesDataRange> systemParameterDecisionRulesDataRangeList = new HashSet<>(Arrays.asList(Constants.DecisionRulesDataRange.DECISION_RULES));
 
 	@Setter
 	@Getter

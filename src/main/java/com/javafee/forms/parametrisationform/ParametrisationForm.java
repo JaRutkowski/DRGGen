@@ -27,6 +27,7 @@ public class ParametrisationForm {
 	private JPanel decisionTableSettingsPanel;
 	@Getter
 	private JPanel decisionRulesSettingsPanel;
+	@Getter
 	private JPanel decisionRulesDataRangePanel;
 
 	private JLabel lblDataBaseUrl;
@@ -92,7 +93,7 @@ public class ParametrisationForm {
 	private void internationalizing() {
 		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
 		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
-		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
+		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesPanel"));
 		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
 
 		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
