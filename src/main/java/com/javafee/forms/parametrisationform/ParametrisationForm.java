@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -28,6 +27,7 @@ public class ParametrisationForm {
 	private JPanel decisionTableSettingsPanel;
 	@Getter
 	private JPanel decisionRulesSettingsPanel;
+	@Getter
 	private JPanel decisionRulesDataRangePanel;
 
 	private JLabel lblDataBaseUrl;
@@ -68,13 +68,15 @@ public class ParametrisationForm {
 	@Getter
 	private JButton btnAcceptDecisionRulesSettingsPanel;
 	@Getter
-	private JRadioButton radioButtonShowAllData;
+	private JCheckBox checkBoxShowRowsSets;
 	@Getter
-	private JRadioButton radioButtonShowCoverageAndDecisionRulesSetOnly;
+	private JCheckBox checkBoxShowCoverages;
 	@Getter
-	private JRadioButton radioButtonShowDecisionRulesSetOnly;
+	private JCheckBox checkBoxShowDecisionRulesSet;
 	@Getter
 	private JCheckBox checkBoxCalculateDecRulesMeasuresForEachDecRules;
+	@Getter
+	private JCheckBox checkBoxShowDecRulesGenerationTime;
 
 	public ParametrisationForm() {
 		parametrisationFrame = new JFrame(SystemProperties.getResourceBundle().getString("parametrisationForm.title"));
@@ -91,7 +93,7 @@ public class ParametrisationForm {
 	private void internationalizing() {
 		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
 		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
-		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
+		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesPanel"));
 		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
 
 		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
@@ -106,10 +108,11 @@ public class ParametrisationForm {
 		lblTestPercentage.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblTestPercentage"));
 		checkBoxShuffle.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShuffle"));
 
-		radioButtonShowAllData.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowAllData"));
-		radioButtonShowCoverageAndDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowCoverageAndDecisionRulesSetOnly"));
-		radioButtonShowDecisionRulesSetOnly.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonShowDecisionRulesSetOnly"));
+		checkBoxShowRowsSets.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowRowsSets"));
+		checkBoxShowCoverages.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowCoverages"));
+		checkBoxShowDecisionRulesSet.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowDecisionRules"));
 		checkBoxCalculateDecRulesMeasuresForEachDecRules.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxCalculateDecRulesMeasuresForEachDecRules"));
+		checkBoxShowDecRulesGenerationTime.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowDecRulesGenerationTime"));
 		btnAcceptDecisionRulesSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 	}
 

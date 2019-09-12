@@ -15,12 +15,18 @@ import com.javafee.controller.algorithm.process.drgen.DRGeneratorProcess;
 import com.javafee.controller.algorithm.process.drgen.greedy.DRGreedyGenAlgorithmProcess;
 import com.javafee.controller.utils.SystemProperties;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Named("StandardDecisionRulesGenerator")
 public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
 
 	private DRGeneratorProcess drGeneratorProcess = new DRGeneratorProcess();
 
-	//TODO Should return List<LogicStatement>
+	@Getter
+	@Setter
+	private long timeMeasure = 0L;
+
 	@Override
 	public List<List<Object>> generate(Vector<Vector> data) {
 		// RowsSet and List<RowsSet>

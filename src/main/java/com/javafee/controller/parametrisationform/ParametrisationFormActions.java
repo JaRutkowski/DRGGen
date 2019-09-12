@@ -1,6 +1,7 @@
 package com.javafee.controller.parametrisationform;
 
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.function.Consumer;
 
 import javax.ejb.Stateless;
@@ -53,9 +54,12 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getCheckBoxShuffle().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getRadioButtonShowAllData().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
-		parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowRowsSets().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowCoverages().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowDecisionRulesSet().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxCalculateDecRulesMeasuresForEachDecRules().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowDecRulesGenerationTime().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 	}
 
@@ -80,20 +84,22 @@ public class ParametrisationFormActions implements Actions {
 	}
 
 	private void initializeSystemParameterDecisionRulesDataRange() {
-		if (SystemProperties.getSystemParameterDecisionRulesDataRange() != null) {
-			switch (SystemProperties.getSystemParameterDecisionRulesDataRange()) {
-				case ALL_DATA:
-					parametrisationForm.getRadioButtonShowAllData().setSelected(true);
-					break;
-				case COVERAGE_AND_DECISION_RULES:
-					parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().setSelected(true);
-					break;
-				case DECISION_RULES:
-					parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().setSelected(true);
-					break;
-			}
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList() != null) {
+			SystemProperties.getSystemParameterDecisionRulesDataRangeList().forEach(dataRange -> {
+				switch (dataRange) {
+					case ROWS_SETS:
+						parametrisationForm.getCheckBoxShowRowsSets().setSelected(true);
+						break;
+					case COVERAGES:
+						parametrisationForm.getCheckBoxShowCoverages().setSelected(true);
+						break;
+					case DECISION_RULES:
+						parametrisationForm.getCheckBoxShowDecisionRulesSet().setSelected(true);
+						break;
+				}
+			});
 		} else
-			parametrisationForm.getRadioButtonShowAllData().setSelected(true);
+			parametrisationForm.getCheckBoxShowDecisionRulesSet().setSelected(true);
 	}
 
 	private void onClickBtnConfigureConnection() {
@@ -142,16 +148,17 @@ public class ParametrisationFormActions implements Actions {
 	private void onClickBtnAcceptDecisionRulesSettingsPanel() {
 		if (Utils.displayConfirmDialog(SystemProperties.getResourceBundle().getString("confirmDialog.message"),
 				SystemProperties.getResourceBundle().getString("confirmDialog.title")) == JOptionPane.YES_OPTION) {
-			Constants.DecisionRulesDataRange decisionRulesDataRange = null;
-			if (parametrisationForm.getRadioButtonShowAllData().isSelected())
-				decisionRulesDataRange = Constants.DecisionRulesDataRange.ALL_DATA;
-			else if (parametrisationForm.getRadioButtonShowCoverageAndDecisionRulesSetOnly().isSelected())
-				decisionRulesDataRange = Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES;
-			else if (parametrisationForm.getRadioButtonShowDecisionRulesSetOnly().isSelected())
-				decisionRulesDataRange = Constants.DecisionRulesDataRange.DECISION_RULES;
-			SystemProperties.setSystemParameterDecisionRulesDataRange(decisionRulesDataRange);
+			SystemProperties.setSystemParameterDecisionRulesDataRangeList(new HashSet<>());
+			if (parametrisationForm.getCheckBoxShowRowsSets().isSelected())
+				SystemProperties.getSystemParameterDecisionRulesDataRangeList().add(Constants.DecisionRulesDataRange.ROWS_SETS);
+			if (parametrisationForm.getCheckBoxShowCoverages().isSelected())
+				SystemProperties.getSystemParameterDecisionRulesDataRangeList().add(Constants.DecisionRulesDataRange.COVERAGES);
+			if (parametrisationForm.getCheckBoxShowDecisionRulesSet().isSelected())
+				SystemProperties.getSystemParameterDecisionRulesDataRangeList().add(Constants.DecisionRulesDataRange.DECISION_RULES);
 			SystemProperties.setSystemParameterCalculateQualityMeasureForEachDecisionRules(
 					parametrisationForm.getCheckBoxCalculateDecRulesMeasuresForEachDecRules().isSelected());
+			SystemProperties.setSystemParameterShowDecRulesGenerationTime(
+					parametrisationForm.getCheckBoxShowDecRulesGenerationTime().isSelected());
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
 					SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionRulesDataRangeSuccessMessage"),
 					JOptionPane.INFORMATION_MESSAGE, null);

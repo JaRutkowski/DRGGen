@@ -68,6 +68,8 @@ public class MainFormActions implements Actions {
 		initializeComboBoxSetType();
 		setComponentsVisibility();
 		initializeListeners();
+
+		mainForm.getMainFrame().setVisible(true);
 	}
 
 	private void initializeComboBoxSetType() {
@@ -230,9 +232,15 @@ public class MainFormActions implements Actions {
 	}
 
 	private void refreshTextAreaDecisionRulesBaseOnSysParameters(List<List<Object>> resultObjectListOfObject, boolean withCache) {
+		boolean isSysParameterShowDecRulesGenerationTime = SystemProperties.isSystemParameterShowDecRulesGenerationTime();
 		StringBuilder result = new StringBuilder("<b>Decision rules:</b><br>");
 		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : resultObjectListOfObject) {
 			buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
+		}
+		if (isSysParameterShowDecRulesGenerationTime) {
+			result.append("<br>");
+			result.append("Decision rules generation time: ").append(greedyDecisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
+			result.append("<br>");
 		}
 		mainForm.getEditorPaneDecisionRules().setText(result.toString());
 
@@ -242,17 +250,20 @@ public class MainFormActions implements Actions {
 			for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : (List<List<Object>>) Cache.getInstance().get("DECISION_RULES")) {
 				buildResultForTextAreaDecisionRules(result, resultConsistedOfRowsSetAndRowsSetForEachAttributes);
 			}
+			if (isSysParameterShowDecRulesGenerationTime) {
+				result.append("<br>");
+				//TODO greedyDecisionRulesGenerator.getTimeMeasure() should be cached value
+				result.append("Decision rules generation time: ").append(greedyDecisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
+				result.append("<br>");
+			}
 			mainForm.getEditorPaneCachedDecisionRules().setText(result.toString());
 		}
 	}
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
-		boolean isSysParametersAll = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.ALL_DATA,
-				isSysParametersCoverageAndDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.COVERAGE_AND_DECISION_RULES,
-				isSysParametersDecisionRulesSet = SystemProperties.getSystemParameterDecisionRulesDataRange() == Constants.DecisionRulesDataRange.DECISION_RULES,
-				isSysParametersCalculateQualityMeasureForEachDecisionRules = SystemProperties.isSystemParameterCalculateQualityMeasureForEachDecisionRules();
+		boolean isSysParametersCalculateQualityMeasureForEachDecisionRules = SystemProperties.isSystemParameterCalculateQualityMeasureForEachDecisionRules();
 
-		if (isSysParametersAll) {
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.ROWS_SETS)) {
 			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getValue()).toString() + "<br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 					Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getValue()))
@@ -260,7 +271,7 @@ public class MainFormActions implements Actions {
 			result.append("<br>");
 		}
 
-		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet) {
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.COVERAGES)) {
 			result.append("Coverage: <br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 					Constants.StandardDecisionRulesGenerator.COVERAGE.getValue()))
@@ -268,7 +279,7 @@ public class MainFormActions implements Actions {
 			result.append("<br>");
 		}
 
-		if (isSysParametersAll || isSysParametersCoverageAndDecisionRulesSet || isSysParametersDecisionRulesSet) {
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.DECISION_RULES)) {
 			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
 			result.append("<br>");
 			if (isSysParametersCalculateQualityMeasureForEachDecisionRules)

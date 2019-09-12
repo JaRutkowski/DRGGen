@@ -22,7 +22,7 @@ public class Constants {
 	}
 
 	public enum DecisionRulesDataRange {
-		ALL_DATA, COVERAGE_AND_DECISION_RULES, DECISION_RULES
+		ROWS_SETS, COVERAGES, DECISION_RULES
 	}
 
 	@Getter
@@ -47,7 +47,7 @@ public class Constants {
 	public double APPLICATION_TRAINING_PERCENTAGE = 70;
 	public double APPLICATION_TEST_PERCENTAGE = 30;
 	public boolean APPLICATION_SHUFFLE = true;
-	public DecisionRulesDataRange APPLICATION_DECISION_RULES_DATA_RANGE = DecisionRulesDataRange.ALL_DATA;
+	public DecisionRulesDataRange APPLICATION_DECISION_RULES_DATA_RANGE = DecisionRulesDataRange.ROWS_SETS;
 
 	public String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
 	public boolean DEFAULT_DATA_BASE_CONNECTION_FLAG = false;

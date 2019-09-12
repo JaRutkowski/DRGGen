@@ -25,6 +25,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class MainForm extends JFrame {
+	@Getter
 	private JFrame mainFrame;
 	private JPanel mainPanel;
 
@@ -126,8 +127,6 @@ public class MainForm extends JFrame {
 		internationalizing();
 		setupGraphics();
 		setupTextContentType();
-
-		mainFrame.setVisible(true);
 	}
 
 	private void internationalizing() {
