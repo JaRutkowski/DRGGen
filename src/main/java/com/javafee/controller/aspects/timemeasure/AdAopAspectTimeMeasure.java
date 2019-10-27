@@ -11,7 +11,7 @@ import lombok.extern.java.Log;
 @Aspect
 @Log
 public class AdAopAspectTimeMeasure {
-	@Around("com.javafee.controller.aspects.timemeasure.AdAopExpression.execPointcut()")
+	@Around("com.javafee.controller.aspects.aopexpression.AdAopExpression.execPointcut()")
 	public Object execTimeMeasure(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		long begin = System.currentTimeMillis(), duration = 0L;
 

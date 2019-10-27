@@ -1,6 +1,8 @@
 package com.javafee.controller.utils;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -42,9 +44,50 @@ public class Common {
 		return tableModel;
 	}
 
+	public Vector prepareColumnForGivenAttributeIndexFromData(Vector<Vector> data, long indexOfAttribute) {
+		Vector columnForGivenAttributeIndex = new Vector();
+		data.forEach(row -> columnForGivenAttributeIndex.add(row.get(Math.toIntExact(indexOfAttribute))));
+		return columnForGivenAttributeIndex;
+	}
+
+	public Vector prepareVectorOnlyWithConditionalAttributesValuesForGivenRow(Vector row, long decisionAttributeIndex) {
+		Vector clone = (Vector) row.clone();
+		clone.remove(Math.toIntExact(decisionAttributeIndex));
+		return clone;
+	}
+
+	public <T> T[] concatenateArrays(T[] first, T[] second) {
+		T[] result = Arrays.copyOf(first, first.length + second.length);
+		System.arraycopy(second, 0, result, first.length, second.length);
+		return result;
+	}
+
+	public long[] concatenateArrays(long[] first, long[] second) {
+		long[] result = Arrays.copyOf(first, first.length + second.length);
+		System.arraycopy(second, 0, result, first.length, second.length);
+		return result;
+	}
+
+	public void refreshSystemParameterDecisionAttributeIndexAfterAttributesRemoval(long[] removedAttributesIndexes) {
+		int amountOfRemovedAttributesWithLowerIndexWhenDecisionAttribute =
+				Arrays.stream(removedAttributesIndexes).boxed().collect(Collectors.toList())
+						.stream().filter(e -> e < SystemProperties.getSystemParameterDecisionAttributeIndex())
+						.collect(Collectors.toList()).size();
+
+		SystemProperties.setSystemParameterDecisionAttributeIndex(
+				SystemProperties.getSystemParameterDecisionAttributeIndex() - amountOfRemovedAttributesWithLowerIndexWhenDecisionAttribute
+		);
+	}
+
 	public void initializeComboBoxSetType(JComboBox jComboBox) {
 		jComboBox.addItem(Constants.SetType.FULL.getName());
 		jComboBox.addItem(Constants.SetType.TRAINING.getName());
 		jComboBox.addItem(Constants.SetType.TEST.getName());
+	}
+
+	public void initializeComboBoxSetTypeConsistency(JComboBox jComboBox) {
+		jComboBox.addItem(Constants.SetTypeConsistency.NOT_CHECKED.getName());
+		jComboBox.addItem(Constants.SetTypeConsistency.CONSISTENT.getName());
+		jComboBox.addItem(Constants.SetTypeConsistency.INCONSISTENT.getName());
 	}
 }

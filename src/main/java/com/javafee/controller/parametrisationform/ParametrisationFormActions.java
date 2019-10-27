@@ -24,6 +24,7 @@ public class ParametrisationFormActions implements Actions {
 		if (parametrisationForm == null || (parametrisationForm != null && !parametrisationForm.getParametrisationFrame().isDisplayable())) {
 			parametrisationForm = new ParametrisationForm();
 			initializeComboBoxSetType();
+			initializeComboBoxSetTypeConsistency();
 			setComponentsVisibility();
 			initializeListeners();
 			initializeParameters();
@@ -41,7 +42,12 @@ public class ParametrisationFormActions implements Actions {
 		Common.initializeComboBoxSetType(parametrisationForm.getComboBoxSetType());
 	}
 
+	private void initializeComboBoxSetTypeConsistency() {
+		Common.initializeComboBoxSetTypeConsistency(parametrisationForm.getComboBoxDeclaredSetTypeConsistency());
+	}
+
 	private void setComponentsVisibility() {
+		// Decision table settings panel
 		parametrisationForm.getDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getLblDecisionAttributeIndex().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getSpinnerDecisionAttributeIndex().setEnabled(Params.getInstance().contains("TABLE_NAME"));
@@ -52,7 +58,20 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getLblTestPercentage().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getDoubleSpinnerTestPercentage().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShuffle().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+
+		// Decision table inconsistency generator settings panel
+		parametrisationForm.getDecisionTableInconsistencyGeneratorSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getLblDeclaredSetTypeConsistency().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getComboBoxDeclaredSetTypeConsistency().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxShowDeclaredSetTypeConsistencyInDataParameterPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxGenerateInconsistencyDuringDataLoading().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getRadioButtonRemoveFirstAttributeWithMaxOccurrences().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getRadioButtonRemoveAllAttributesWithSaneMaxOccurrences().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxRecursiveRemoval().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+		parametrisationForm.getCheckBoxGenerateInconsistencyGenerationReport().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getBtnAcceptDecisionTableSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
+
+		// Decision rules settings panel
 		parametrisationForm.getDecisionRulesSettingsPanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getDecisionRulesDataRangePanel().setEnabled(Params.getInstance().contains("TABLE_NAME"));
 		parametrisationForm.getCheckBoxShowRowsSets().setEnabled(Params.getInstance().contains("TABLE_NAME"));
@@ -71,6 +90,7 @@ public class ParametrisationFormActions implements Actions {
 
 	private void initializeParameters() {
 		initializeSystemParameterDecisionTable();
+		initializeSystemParameterDecisionTableInconsistencyGenerator();
 		initializeSystemParameterDecisionRulesDataRange();
 	}
 
@@ -81,6 +101,15 @@ public class ParametrisationFormActions implements Actions {
 		parametrisationForm.getDoubleSpinnerTrainingPercentage().setValue(SystemProperties.getSystemParameterTrainingPercentage());
 		parametrisationForm.getDoubleSpinnerTestPercentage().setValue(SystemProperties.getSystemParameterTestPercentage());
 		parametrisationForm.getCheckBoxShuffle().setSelected(SystemProperties.isSystemParameterShuffle());
+	}
+
+	private void initializeSystemParameterDecisionTableInconsistencyGenerator() {
+		parametrisationForm.getComboBoxDeclaredSetTypeConsistency().setSelectedItem(SystemProperties.getSystemParameterSetTypeConsistency().getName());
+		parametrisationForm.getCheckBoxShowDeclaredSetTypeConsistencyInDataParameterPanel().setSelected(SystemProperties.isSystemParameterShowDeclaredSetTypeConsistencyInDataParameterPanel());
+		parametrisationForm.getRadioButtonRemoveFirstAttributeWithMaxOccurrences().setSelected(SystemProperties.isSystemParameterRemoveFirstAttributeInconsistencyGenerator());
+		parametrisationForm.getRadioButtonRemoveAllAttributesWithSaneMaxOccurrences().setSelected(!SystemProperties.isSystemParameterRemoveFirstAttributeInconsistencyGenerator());
+		parametrisationForm.getCheckBoxRecursiveRemoval().setSelected(SystemProperties.isSystemParameterRecursiveRemovalInconsistencyGenerator());
+		parametrisationForm.getCheckBoxGenerateInconsistencyGenerationReport().setSelected(SystemProperties.isSystemParameterGenerateInconsistencyGenerationReport());
 	}
 
 	private void initializeSystemParameterDecisionRulesDataRange() {
@@ -113,13 +142,13 @@ public class ParametrisationFormActions implements Actions {
 				reloadLblTestConnection(false);
 				Session.isDataBaseConnected = true;
 			} catch (SQLException | ClassNotFoundException e) {
-				Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"),
+				Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"),
 						e.getMessage(), parametrisationForm.getParametrisationFrame());
 				reloadLblTestConnection(true);
 			}
 		} else
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.validationOptionPaneTitle"),
-					SystemProperties.getResourceBundle().getString("parametrisationFormActions.dataBasePropertiesValidationMessage"),
+					SystemProperties.getResourceBundle().getString("optionPane.parametrisationFormActions.dataBasePropertiesValidationMessage"),
 					JOptionPane.ERROR_MESSAGE, parametrisationForm.getParametrisationFrame());
 	}
 
@@ -133,15 +162,20 @@ public class ParametrisationFormActions implements Actions {
 				SystemProperties.setSystemParameterTrainingPercentage(parametrisationForm.getDoubleSpinnerTrainingPercentage().getDouble());
 				SystemProperties.setSystemParameterTestPercentage(parametrisationForm.getDoubleSpinnerTestPercentage().getDouble());
 				SystemProperties.setSystemParameterShuffle(parametrisationForm.getCheckBoxShuffle().isSelected());
+				SystemProperties.setSystemParameterSetTypeConsistency(Constants.SetTypeConsistency.getByTypeName(parametrisationForm.getComboBoxDeclaredSetTypeConsistency().getSelectedItem().toString()));
+				SystemProperties.setSystemParameterShowDeclaredSetTypeConsistencyInDataParameterPanel(parametrisationForm.getCheckBoxShowDeclaredSetTypeConsistencyInDataParameterPanel().isSelected());
+				SystemProperties.setSystemParameterRemoveFirstAttributeInconsistencyGenerator(parametrisationForm.getRadioButtonRemoveFirstAttributeWithMaxOccurrences().isSelected());
+				SystemProperties.setSystemParameterRecursiveRemovalInconsistencyGenerator(parametrisationForm.getCheckBoxRecursiveRemoval().isSelected());
+				SystemProperties.setSystemParameterGenerateInconsistencyGenerationReport(parametrisationForm.getCheckBoxGenerateInconsistencyGenerationReport().isSelected());
 				Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
-						SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionTableParametersSuccessMessage"),
+						SystemProperties.getResourceBundle().getString("optionPane.parametrisationFormActions.sysParamDecisionTableParametersSuccessMessage"),
 						JOptionPane.INFORMATION_MESSAGE, null);
 				invokeFillDataParametersPanel();
 				invokeBuildAndRefreshViewOfDecisionTable();
 			}
 		} else
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.validationOptionPaneTitle"),
-					SystemProperties.getResourceBundle().getString("parametrisationFormActions.trainingAndTestPercentageValuesValidationMessage"),
+					SystemProperties.getResourceBundle().getString("optionPane.parametrisationFormActions.trainingAndTestPercentageValuesValidationMessage"),
 					JOptionPane.ERROR_MESSAGE, parametrisationForm.getParametrisationFrame());
 	}
 
@@ -160,7 +194,7 @@ public class ParametrisationFormActions implements Actions {
 			SystemProperties.setSystemParameterShowDecRulesGenerationTime(
 					parametrisationForm.getCheckBoxShowDecRulesGenerationTime().isSelected());
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
-					SystemProperties.getResourceBundle().getString("optionPane.sysParamDecisionRulesDataRangeSuccessMessage"),
+					SystemProperties.getResourceBundle().getString("optionPane.parametrisationFormActions.sysParamDecisionRulesDataRangeSuccessMessage"),
 					JOptionPane.INFORMATION_MESSAGE, null);
 		}
 	}

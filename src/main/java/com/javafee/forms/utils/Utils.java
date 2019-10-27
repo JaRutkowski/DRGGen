@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import com.javafee.controller.utils.Constants;
 import com.javafee.controller.utils.SystemProperties;
 
 import lombok.experimental.UtilityClass;
@@ -34,9 +35,21 @@ public class Utils {
 		dialog.setVisible(true);
 	}
 
-	public static void displayErrorJOptionPaneAndLogError(String title, String message, Component component) {
+	public static void displayErrorOptionPane(String title, String message, String tMessage, Component component) {
+		JOptionPane optionPane = new JOptionPane();
+		optionPane.setMessage("<html>" + message + "<hr>" + tMessage + "</html>");
+		optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+		JDialog dialog = optionPane.createDialog(component, title);
+		dialog.setVisible(true);
+	}
+
+	public static void displayErrorOptionPane(String title, String message, Component component) {
 		displayOptionPane(title, message, JOptionPane.ERROR_MESSAGE, component);
 		log.severe(message);
+	}
+
+	public static void displayErrorOptionPane(String title, String message, Throwable t, Component component) {
+		displayErrorOptionPane(title, message, t.getMessage(), component);
 	}
 
 	public File displayFileChooserAndGetFile(String directory) {
@@ -59,6 +72,15 @@ public class Utils {
 			result = jfc.getSelectedFile();
 
 		return result;
+	}
+
+	public String buildStatus(Constants.GeneralStatusPart generalStatusPart, String pathPart, boolean isConsistent) {
+		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
+				generalStatusPart.getValue(),
+				pathPart != null && !"".equals(pathPart) ? pathPart : "",
+				isConsistent ?
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.consistent") :
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent"));
 	}
 
 	public Icon getResourceIcon(String resourceName) {

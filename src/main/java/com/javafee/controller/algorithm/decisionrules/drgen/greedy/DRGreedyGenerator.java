@@ -1,4 +1,4 @@
-package com.javafee.controller.algorithm.process.drgen.greedy;
+package com.javafee.controller.algorithm.decisionrules.drgen.greedy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,14 +8,14 @@ import com.javafee.controller.algorithm.datastructure.LogicalAttributeValuePair;
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.LogicalOperator;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
-import com.javafee.controller.algorithm.process.drgen.DRGenAlgorithm;
+import com.javafee.controller.algorithm.decisionrules.drgen.DRGenerator;
 import com.javafee.controller.utils.SystemProperties;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public class DRGreedyGenAlgorithmProcess implements DRGenAlgorithm {
+public class DRGreedyGenerator implements DRGenerator {
 	@Setter
 	private int initialCoverage = 0;
 	@Setter
@@ -85,7 +85,7 @@ public class DRGreedyGenAlgorithmProcess implements DRGenAlgorithm {
 	                                  int start, int rowsSetArraySize, int index, int coefficient) {
 		if (index == coefficient) {
 			for (int j = 0; j < coefficient; j++) {
-				System.out.print(currentCombinationsArray[j] + " "); //split & check coverage for combinate set
+				System.out.print(currentCombinationsArray[j] + " "); //split & check coverage for processed set
 			}
 			calculateCoverage(currentCombinationsArray);
 			allCombinationsForCoefficient.add(currentCombinationsArray);
@@ -94,12 +94,11 @@ public class DRGreedyGenAlgorithmProcess implements DRGenAlgorithm {
 			return;
 		}
 
-		for (int i = start; i <= rowsSetArraySize && rowsSetArraySize - i + 1 >= coefficient - index; i++) {
+		for (int i = start; i <= rowsSetArraySize && rowsSetArraySize - i + 1 >= coefficient - index; i++)
 			if (!stopAlgorithm) {
 				currentCombinationsArray[index] = rowsSetArray[i];
 				generateCombinations(rowsSetArray, currentCombinationsArray, i + 1, rowsSetArraySize, index + 1, coefficient);
 			} else return;
-		}
 	}
 
 	private void calculateCoverage(RowsSet[] rowsSetCombinationArray) {

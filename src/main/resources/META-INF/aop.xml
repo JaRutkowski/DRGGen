@@ -1,10 +1,10 @@
 <aspectj>
     <aspects>
-        <aspect name="com.javafee.controller.aspects.timemeasure.AdAopAspectTimeMeasure" />
+        <aspect name="com.javafee.controller.aspects.timemeasure.AdAopAspectTimeMeasure"/>
+        <aspect name="com.javafee.controller.aspects.exception.AtAopAspectAlgorithmException"/>
     </aspects>
 
     <weaver options="-XnoInline -Xlintfile:META-INF/Xlint.properties">
-        <include within="*" />
+        <include within="*"/>
     </weaver>
-
 </aspectj>
