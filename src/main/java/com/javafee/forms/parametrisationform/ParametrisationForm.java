@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -25,6 +26,8 @@ public class ParametrisationForm {
 	private JPanel databaseSettingsPanel;
 	@Getter
 	private JPanel decisionTableSettingsPanel;
+	@Getter
+	private JPanel decisionTableInconsistencyGeneratorSettingsPanel;
 	@Getter
 	private JPanel decisionRulesSettingsPanel;
 	@Getter
@@ -62,6 +65,24 @@ public class ParametrisationForm {
 	private DoubleJSpinner doubleSpinnerTestPercentage;
 	@Getter
 	private JCheckBox checkBoxShuffle;
+
+	@Getter
+	private JLabel lblDeclaredSetTypeConsistency;
+	@Getter
+	private JCheckBox checkBoxShowDeclaredSetTypeConsistencyInDataParameterPanel;
+	@Getter
+	private JComboBox comboBoxDeclaredSetTypeConsistency;
+	@Getter
+	private JCheckBox checkBoxGenerateInconsistencyDuringDataLoading;
+	@Getter
+	private JRadioButton radioButtonRemoveFirstAttributeWithMaxOccurrences;
+	@Getter
+	private JRadioButton radioButtonRemoveAllAttributesWithSaneMaxOccurrences;
+	@Getter
+	private JCheckBox checkBoxRecursiveRemoval;
+	@Getter
+	private JCheckBox checkBoxGenerateInconsistencyGenerationReport;
+
 	@Getter
 	private JButton btnAcceptDecisionTableSettingsPanel;
 
@@ -93,8 +114,9 @@ public class ParametrisationForm {
 	private void internationalizing() {
 		((TitledBorder) databaseSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.dataBaseSettingsPanelTitle"));
 		((TitledBorder) decisionTableSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableSettingsPanelTitle"));
-		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesPanel"));
-		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanel"));
+		((TitledBorder) decisionTableInconsistencyGeneratorSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionTableInconsistencyGeneratorSettingsPanelTitle"));
+		((TitledBorder) decisionRulesSettingsPanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesPanelTitle"));
+		((TitledBorder) decisionRulesDataRangePanel.getBorder()).setTitle(SystemProperties.getResourceBundle().getString("parametrisationForm.decisionRulesDataRangePanelTitle"));
 
 		lblDataBaseUrl.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUrl"));
 		lblUser.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblUser"));
@@ -102,11 +124,18 @@ public class ParametrisationForm {
 		btnConfigureConnection.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnConfigureConnection"));
 
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDecisionAttributeIndex"));
-		btnAcceptDecisionTableSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 		lblSetType.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblSetType"));
 		lblTrainingPercentage.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblTrainingPercentage"));
 		lblTestPercentage.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblTestPercentage"));
 		checkBoxShuffle.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShuffle"));
+		lblDeclaredSetTypeConsistency.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.lblDeclaredSetTypeConsistency"));
+		checkBoxShowDeclaredSetTypeConsistencyInDataParameterPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowDeclaredSetTypeConsistencyInDataParameterPanel"));
+		checkBoxGenerateInconsistencyDuringDataLoading.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxGenerateInconsistencyDuringDataLoading"));
+		radioButtonRemoveFirstAttributeWithMaxOccurrences.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonRemoveFirstAttributeWithMaxOccurrences"));
+		radioButtonRemoveAllAttributesWithSaneMaxOccurrences.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.radioButtonRemoveAllAttributesWithSaneMaxOccurrences"));
+		checkBoxRecursiveRemoval.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxRecursiveRemoval"));
+		checkBoxGenerateInconsistencyGenerationReport.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxGenerateInconsistencyGenerationReport"));
+		btnAcceptDecisionTableSettingsPanel.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.btnAccept"));
 
 		checkBoxShowRowsSets.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowRowsSets"));
 		checkBoxShowCoverages.setText(SystemProperties.getResourceBundle().getString("parametrisationForm.checkBoxShowCoverages"));

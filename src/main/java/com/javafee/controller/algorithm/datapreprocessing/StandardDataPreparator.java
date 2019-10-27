@@ -1,4 +1,4 @@
-package com.javafee.controller.algorithm.datapreparation;
+package com.javafee.controller.algorithm.datapreprocessing;
 
 import java.util.Vector;
 

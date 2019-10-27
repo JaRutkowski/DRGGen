@@ -9,10 +9,9 @@ import javax.inject.Named;
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.Row;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
+import com.javafee.controller.algorithm.decisionrules.drgen.DRGenAlgorithm;
+import com.javafee.controller.algorithm.decisionrules.drgen.greedy.DRGreedyGenerator;
 import com.javafee.controller.algorithm.process.VectorProcess;
-import com.javafee.controller.algorithm.process.drgen.DRGenAlgorithmProcess;
-import com.javafee.controller.algorithm.process.drgen.DRGeneratorProcess;
-import com.javafee.controller.algorithm.process.drgen.greedy.DRGreedyGenAlgorithmProcess;
 import com.javafee.controller.utils.SystemProperties;
 
 import lombok.Getter;
@@ -20,9 +19,6 @@ import lombok.Setter;
 
 @Named("StandardDecisionRulesGenerator")
 public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
-
-	private DRGeneratorProcess drGeneratorProcess = new DRGeneratorProcess();
-
 	@Getter
 	@Setter
 	private long timeMeasure = 0L;
@@ -62,9 +58,9 @@ public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
 			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(rowsSetForEachAttributesList);
 
 			// Third step - calculate cover and decision rules generation
-			DRGenAlgorithmProcess drGenAlgorithmProcess = new DRGenAlgorithmProcess(rowsSet, rowsSetForEachAttributesList, new DRGreedyGenAlgorithmProcess());
-			LogicalExpression decisionRules = drGenAlgorithmProcess.generateDecisionRules();
-			List<RowsSet> resultCoverageRowsSet = drGenAlgorithmProcess.getResultCoverageRowsSet();
+			DRGenAlgorithm drGenAlgorithm = new DRGenAlgorithm(rowsSet, rowsSetForEachAttributesList, new DRGreedyGenerator());
+			LogicalExpression decisionRules = drGenAlgorithm.generateDecisionRules();
+			List<RowsSet> resultCoverageRowsSet = drGenAlgorithm.getResultCoverageRowsSet();
 			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(resultCoverageRowsSet);
 			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(decisionRules);
 

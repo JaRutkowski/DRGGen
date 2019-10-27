@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,14 +21,18 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.javafee.controller.Actions;
+import com.javafee.controller.algorithm.datapreprocessing.inconsistency.InconsistencyGenerator;
+import com.javafee.controller.algorithm.datapreprocessing.inconsistency.StandardInconsistencyGenerator;
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.decisionrules.DecisionRulesGenerator;
 import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGenerator;
+import com.javafee.controller.algorithm.exception.AlgorithmException;
 import com.javafee.controller.algorithm.measures.StandardErrorRateMeasure;
 import com.javafee.controller.algorithm.measures.StandardQualityMeasure;
 import com.javafee.controller.algorithm.measures.StandardSupportMeasure;
+import com.javafee.controller.algorithm.process.InconsistencyProcess;
 import com.javafee.controller.algorithm.test.StandardTestGenerator;
 import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
@@ -42,9 +48,11 @@ import com.javafee.controller.utils.params.Params;
 import com.javafee.forms.mainform.MainForm;
 import com.javafee.forms.utils.Utils;
 
+import lombok.extern.java.Log;
 import net.coderazzi.filters.gui.TableFilterHeader;
 
 @Stateless
+@Log
 public class MainFormActions implements Actions {
 	private MainForm mainForm = new MainForm();
 
@@ -58,7 +66,8 @@ public class MainFormActions implements Actions {
 	private MySQLMapperService mySQLMapperService;
 
 	private TestGenerator testGenerator = new StandardTestGenerator();
-	private DecisionRulesGenerator greedyDecisionRulesGenerator = new StandardDecisionRulesGenerator();
+	private DecisionRulesGenerator decisionRulesGenerator = new StandardDecisionRulesGenerator();
+	private InconsistencyGenerator inconsistencyGenerator = new StandardInconsistencyGenerator();
 	private StandardQualityMeasure standardQualityMeasure = null;
 
 	private List<List<Object>> decisionRulesGeneratorResult = null;
@@ -66,6 +75,7 @@ public class MainFormActions implements Actions {
 
 	public void control() {
 		initializeComboBoxSetType();
+		initializeComboBoxSetTypeConsistency();
 		setComponentsVisibility();
 		initializeListeners();
 
@@ -74,6 +84,10 @@ public class MainFormActions implements Actions {
 
 	private void initializeComboBoxSetType() {
 		Common.initializeComboBoxSetType(mainForm.getComboBoxSetType());
+	}
+
+	private void initializeComboBoxSetTypeConsistency() {
+		Common.initializeComboBoxSetTypeConsistency(mainForm.getComboBoxSetTypeConsistency());
 	}
 
 	private void setComponentsVisibility() {
@@ -94,7 +108,10 @@ public class MainFormActions implements Actions {
 		mainForm.getCheckBoxShowDataParameters().addActionListener(e -> onClickCheckBoxDataParameters());
 		mainForm.getCheckBoxShowCache().addActionListener(e -> onClickCheckBoxShowCache());
 
-		mainForm.getBtnCheckData().addActionListener(e -> onClickBtnCheckData());
+		mainForm.getBtnCheckIfInconsistencyExists().addActionListener(e -> onClickBtnCheckIfInconsistencyExists());
+		mainForm.getBtnGenerateInconsistency().addActionListener(e -> onClickBtnGenerateInconsistency());
+		mainForm.getBtnRetrieveConsistentData().addActionListener(e -> onClickBtnRetrieveConsistentData());
+		mainForm.getBtnGenerateInconsistencyReport().addActionListener(e -> onClickBtnGenerateInconsistencyReport());
 		mainForm.getBtnGenerateTest().addActionListener(e -> onClickBtnGenerateTest());
 		mainForm.getBtnGenerateDecisionRules().addActionListener(e -> onClickBtnGenerateDecisionRules());
 		mainForm.getBtnCalculateDecisionRulesMeasures().addActionListener(e -> onClickBtnCalculateDecisionRulesMeasures());
@@ -130,7 +147,7 @@ public class MainFormActions implements Actions {
 			Consumer buildAndRefreshViewOfDecisionTable = (e) -> buildAndRefreshViewOfDecisionTable(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
 			Params.getInstance().add("MAIN_FORM_ACTIONS_BUILD_AND_REFRESH_VIEW_OF_DECISION_TABLE", buildAndRefreshViewOfDecisionTable);
 		} catch (IOException | InvalidFormatException e) {
-			Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
+			Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
 		}
 	}
 
@@ -142,13 +159,12 @@ public class MainFormActions implements Actions {
 			try {
 				mySQLMapperService.map(decisionTableModel, tableName);
 			} catch (SQLException e) {
-				Utils.displayErrorJOptionPaneAndLogError(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
+				Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
 			}
-		} else {
+		} else
 			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.validationOptionPaneTitle"),
-					SystemProperties.getResourceBundle().getString("mainFormActions.tableDataLoadedValidationMessage"),
+					SystemProperties.getResourceBundle().getString("optionPane.mainFormActions.tableDataLoadedValidationMessage"),
 					JOptionPane.ERROR_MESSAGE, mainForm);
-		}
 	}
 
 	private void onClickMenuParametrisation() {
@@ -166,7 +182,27 @@ public class MainFormActions implements Actions {
 		mainForm.pack();
 	}
 
-	private void onClickBtnCheckData() {
+	private void onClickBtnCheckIfInconsistencyExists() {
+		refreshLblInconsistencyStatus(InconsistencyProcess.checkIfInconsistencyExists(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector()));
+	}
+
+	private void onClickBtnGenerateInconsistency() {
+		inconsistencyGenerator = new StandardInconsistencyGenerator();
+		Vector<Vector> dataVector;
+		try {
+			dataVector = inconsistencyGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
+			reloadViewOfDecisionTableWithDataVectorAndColumnNames(dataVector);
+			fillDataParametersPanel(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
+		} catch (AlgorithmException e) {
+			log.severe(e.getStackTrace()[0].getClassName() + " " + e.getStackTrace()[0].getMethodName());
+		}
+	}
+
+	private void onClickBtnRetrieveConsistentData() {
+
+	}
+
+	private void onClickBtnGenerateInconsistencyReport() {
 
 	}
 
@@ -177,7 +213,7 @@ public class MainFormActions implements Actions {
 	}
 
 	private void onClickBtnGenerateDecisionRules() {
-		decisionRulesGeneratorResult = greedyDecisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
+		decisionRulesGeneratorResult = decisionRulesGenerator.generate(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector());
 		Cache.getInstance().cache("DECISION_RULES", decisionRulesGeneratorResult);
 		refreshTextAreaDecisionRulesBaseOnSysParameters(decisionRulesGeneratorResult, true);
 		setAndGetBtnCalculateDecisionRulesMeasures(true);
@@ -209,7 +245,8 @@ public class MainFormActions implements Actions {
 		for (; columnIndex < defaultTableModel.getColumnCount() - 1; columnIndex++)
 			attributes.append(defaultTableModel.getColumnName(columnIndex) + " ");
 
-		refreshTrainingAndTestAttributes();
+		reloadTrainingAndTestAttributes();
+		reloadSetTypeConsistencyAttribute();
 		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(dataVector.get(0).size() - 1));
 		mainForm.getTextFieldConditionalAttributes().setText(attributes.toString());
 		mainForm.getTextFieldNumberOfConditionalAttributes().setText(Integer.toString(dataVector.get(0).size() - 1));
@@ -239,7 +276,7 @@ public class MainFormActions implements Actions {
 		}
 		if (isSysParameterShowDecRulesGenerationTime) {
 			result.append("<br>");
-			result.append("Decision rules generation time: ").append(greedyDecisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
+			result.append("Decision rules generation time: ").append(decisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
 			result.append("<br>");
 		}
 		mainForm.getEditorPaneDecisionRules().setText(result.toString());
@@ -252,12 +289,45 @@ public class MainFormActions implements Actions {
 			}
 			if (isSysParameterShowDecRulesGenerationTime) {
 				result.append("<br>");
-				//TODO greedyDecisionRulesGenerator.getTimeMeasure() should be cached value
-				result.append("Decision rules generation time: ").append(greedyDecisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
+				//TODO decisionRulesGenerator.getTimeMeasure() should be cached value
+				result.append("Decision rules generation time: ").append(decisionRulesGenerator.getTimeMeasure() / 1000.0).append("s.");
 				result.append("<br>");
 			}
 			mainForm.getEditorPaneCachedDecisionRules().setText(result.toString());
 		}
+	}
+
+	private void refreshLblInconsistencyStatus(boolean isDataSetInconsistent) {
+		if (isDataSetInconsistent) {
+			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, null, false));
+			mainForm.getLblInconsistencyStatus().setIcon(Utils.getResourceIcon("lblInconsistencyStatus-ico.png"));
+		} else {
+			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, null, true));
+			mainForm.getLblInconsistencyStatus().setIcon(null);
+		}
+	}
+
+	private void reloadTrainingAndTestAttributes() {
+		mainForm.getComboBoxSetType().setSelectedItem(SystemProperties.getSystemParameterSetType().getName());
+		mainForm.getTextFieldTrainingPercentage().setText(Double.toString(SystemProperties.getSystemParameterTrainingPercentage()));
+		mainForm.getTextFieldTestPercentage().setText(Double.toString(SystemProperties.getSystemParameterTestPercentage()));
+		mainForm.getCheckBoxShowCache().setSelected(SystemProperties.isSystemParameterShuffle());
+	}
+
+	private void reloadSetTypeConsistencyAttribute() {
+		mainForm.getComboBoxSetTypeConsistency().setSelectedItem(SystemProperties.getSystemParameterSetTypeConsistency().getName());
+	}
+
+	private void reloadViewOfDecisionTableWithDataVectorAndColumnNames(Vector<Vector> dataVector) {
+		Vector columnNames = new Vector();
+		List<Long> attributesToRemoveIndexes = Arrays.stream((long[]) Params.getInstance().get("REMOVED_ATTRIBUTE_INDEXES")).
+				boxed().collect(Collectors.toList());
+		for (int columnNameIndex = 0; columnNameIndex < mainForm.getDecisionTable().getModel().getColumnCount(); columnNameIndex++) {
+			if (!attributesToRemoveIndexes.contains(Long.valueOf(columnNameIndex).longValue()))
+				columnNames.add(mainForm.getDecisionTable().getModel().getColumnName(columnNameIndex));
+		}
+
+		((DefaultTableModel) mainForm.getDecisionTable().getModel()).setDataVector(dataVector, columnNames);
 	}
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
@@ -295,13 +365,6 @@ public class MainFormActions implements Actions {
 		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule);
 		result.append("Error rate: " + ((StandardErrorRateMeasure) standardQualityMeasure).calculate().toString() + "<br>");
 		result.append("<br>");
-	}
-
-	private void refreshTrainingAndTestAttributes() {
-		mainForm.getComboBoxSetType().setSelectedItem(SystemProperties.getSystemParameterSetType().getName());
-		mainForm.getTextFieldTrainingPercentage().setText(Double.toString(SystemProperties.getSystemParameterTrainingPercentage()));
-		mainForm.getTextFieldTestPercentage().setText(Double.toString(SystemProperties.getSystemParameterTestPercentage()));
-		mainForm.getCheckBoxShowCache().setSelected(SystemProperties.isSystemParameterShuffle());
 	}
 
 	private void buildAndRefreshViewOfDecisionTable(DefaultTableModel defaultTableModel) {

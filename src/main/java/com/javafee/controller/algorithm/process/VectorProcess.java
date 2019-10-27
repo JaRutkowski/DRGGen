@@ -2,9 +2,13 @@ package com.javafee.controller.algorithm.process;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import com.javafee.controller.algorithm.datastructure.LogicalAttributeValuePair;
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
@@ -13,6 +17,7 @@ import com.javafee.controller.algorithm.datastructure.RowPair;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.datastructure.utils.Pair;
+import com.javafee.controller.utils.Common;
 import com.javafee.controller.utils.SystemProperties;
 
 import lombok.experimental.UtilityClass;
@@ -172,6 +177,71 @@ public class VectorProcess {
 	}
 
 	/**
+	 * Counts max occurrences of each types of values for each conditional attributes except decision values. Returns
+	 * map of attribute indexes and its max value occurrences.
+	 *
+	 * @param data data which contains rows set
+	 * @return {@link Map}
+	 */
+	public Map<Long, Long> countMaxOccurrencesOfEachTypesOfValuesForEachConditionalAttributesExceptDecisionValues(
+			Vector<Vector> data) {
+		Map<Long, Long> mapOfMaxCountOfValueForEachAttributeExceptDecisionValues = new HashMap<>();
+
+		Integer decisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
+		AtomicInteger attributeIndex = new AtomicInteger(0);
+		if (!data.isEmpty()) {
+			data.get(0).forEach(attribute -> {
+				if (attributeIndex.get() != decisionAttributeIndex) {
+					List<Object> values = Collections.list(Common.prepareColumnForGivenAttributeIndexFromData(data, attributeIndex.get()).elements());
+					Map<Object, Long> countByValues = values.stream()
+							.collect(Collectors.groupingBy(Object::hashCode, Collectors.counting()));
+					Long maxCountForValue = Collections.max(countByValues.entrySet(), Map.Entry.comparingByValue()).getValue();
+					mapOfMaxCountOfValueForEachAttributeExceptDecisionValues.put((long) attributeIndex.get(), maxCountForValue);
+				}
+				attributeIndex.getAndIncrement();
+			});
+		}
+
+		return mapOfMaxCountOfValueForEachAttributeExceptDecisionValues;
+	}
+
+	/**
+	 * Checks if same rows (with same conditional attributes) but not equal decision value exists for given data set.
+	 * Using <code>systemParameterDecisionAttributeIndex</code> parameter to get its index.
+	 *
+	 * @param data data which contains rows set
+	 * @return true if same row with not equal decision value exists, otherwise false
+	 * @see SystemProperties
+	 */
+	public boolean checkIfRowsWithSameAttributesAndVariousDecisionValueExists(Vector<Vector> data) {
+		boolean rowsWithSameAttributesAndVariousDecisionValueExists = false;
+		for (Vector row : data)
+			if (checkIfRowsWithSameAttributesAndVariousDecisionValueExists(row, data)) {
+				rowsWithSameAttributesAndVariousDecisionValueExists = true;
+				break;
+			}
+		return rowsWithSameAttributesAndVariousDecisionValueExists;
+	}
+
+	public static void main(String[] args) {
+		Vector v = new Vector();
+		v.add("kuba");
+		v.add("sylwia");
+		v.add("sylwia");
+		v.add("ala");
+		v.add("ala");
+		v.add("ala");
+		v.add("ala");
+
+		List<Object> objects = Collections.list(v.elements());
+		Map<Object, Long> countForId = objects.stream()
+				.collect(Collectors.groupingBy(Object::hashCode, Collectors.counting()));
+		Long key = (Long) Collections.max(countForId.entrySet(), Map.Entry.comparingByValue()).getValue();
+
+		System.out.println("end");
+	}
+
+	/**
 	 * Finds all the rows with various attributes and decision value in given data set.
 	 *
 	 * @param rowToCompare row to be compared with
@@ -186,12 +256,42 @@ public class VectorProcess {
 		String rowToCompareDecisionAttributeValue = (String) rowToCompare.get(rowToCompareDecisionAttributeIndex);
 
 		for (Vector row : data) {
-			if (!rowToCompare.equals(row) &&
+			Vector rowAttributes = (Vector) row.clone(), rowToCompareAttributes = (Vector) rowToCompare.clone();
+			rowAttributes.removeElementAt(SystemProperties.getSystemParameterDecisionAttributeIndex());
+			rowToCompareAttributes.removeElementAt(rowToCompareDecisionAttributeIndex);
+			if (!rowToCompareAttributes.equals(rowAttributes) &&
 					!rowToCompareDecisionAttributeValue.equals(row.get(rowToCompareDecisionAttributeIndex)))
 				rowIndexList.add(rowIndex);
 			rowIndex++;
 		}
 		return rowIndexList;
+	}
+
+	/**
+	 * Checks if same rows (with same conditional attributes) but not equal decision value exists for given row. Using
+	 * <code>systemParameterDecisionAttributeIndex</code> parameter to get its index.
+	 *
+	 * @param rowToCompare row to be compared with
+	 * @param data         data which contains rows set
+	 * @return true if same row with not equal decision value exists, otherwise false
+	 */
+	private boolean checkIfRowsWithSameAttributesAndVariousDecisionValueExists(Vector rowToCompare, Vector<Vector> data) {
+		boolean rowsWithSameAttributesAndVariousDecisionValueExists = false;
+
+		Integer decisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
+		String rowToCompareDecisionAttributeValue = (String) rowToCompare.get(decisionAttributeIndex);
+
+		for (Vector row : data) {
+			Vector rowOfAttributes = Common.prepareVectorOnlyWithConditionalAttributesValuesForGivenRow(row, decisionAttributeIndex);
+			Vector rowToCompareOfAttributes = Common.prepareVectorOnlyWithConditionalAttributesValuesForGivenRow(rowToCompare, decisionAttributeIndex);
+			if (rowToCompareOfAttributes.equals(rowOfAttributes) &&
+					!rowToCompareDecisionAttributeValue.equals(row.get(decisionAttributeIndex))) {
+				rowsWithSameAttributesAndVariousDecisionValueExists = true;
+				break;
+			}
+		}
+
+		return rowsWithSameAttributesAndVariousDecisionValueExists;
 	}
 
 	private Vector prepareRowCopyOnlyWithAppropriateConditionalAttributes(Vector concernedRow, int rowToCompareDecisionAttributeIndex, List<Integer> attributesIndexes) {
