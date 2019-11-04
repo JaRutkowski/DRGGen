@@ -35,6 +35,10 @@ public class LogicalExpression {
 		logicalValueFlag = true;
 	}
 
+	public int length() {
+		return logicalAttributeValuePairList.size();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();

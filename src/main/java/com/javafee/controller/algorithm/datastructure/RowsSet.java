@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.validation.constraints.NotNull;
 
 import com.javafee.controller.algorithm.datastructure.utils.RowsSetUtils;
+import com.javafee.controller.algorithm.process.VectorProcess;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -64,6 +65,20 @@ public class RowsSet {
 		return this.coverage(RowsSetUtils.merge(rowsSetCombinationArray));
 	}
 
+	public String getTheMostCommonDecision() {
+		return VectorProcess.findTheMostCommonDecision(this);
+	}
+
+	public DEGENERATION_TYPE isDegenerated() {
+		if (this.rows == null || this.rows.isEmpty())
+			return DEGENERATION_TYPE.EMPTY;
+		if (VectorProcess.checkIfRowsAreWithSameAttributes(this))
+			return DEGENERATION_TYPE.SAME_ROWS;
+		if (VectorProcess.checkIfRowsAreWithSameDecisionAttributes(this))
+			return DEGENERATION_TYPE.SAME_DECISIONS;
+		return DEGENERATION_TYPE.NOT_DEGENERATED;
+	}
+
 	private boolean contains(Row row) {
 		boolean result = false;
 		for (Row currRow : rows)
@@ -90,5 +105,9 @@ public class RowsSet {
 		}
 		result.append("}");
 		return result.toString();
+	}
+
+	public enum DEGENERATION_TYPE {
+		SAME_ROWS, SAME_DECISIONS, EMPTY, NOT_DEGENERATED
 	}
 }

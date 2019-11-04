@@ -17,6 +17,7 @@
         <opencsv.version>4.6</opencsv.version>
         <poi.ooxml.version>3.17</poi.ooxml.version>
         <commons.io.version>1.3.2</commons.io.version>
+        <combinatoricslib3.version>3.3.0</combinatoricslib3.version>
         <javaee.api.version>8.0</javaee.api.version>
         <mysql.connector.java.version>8.0.15</mysql.connector.java.version>
         <aspectj.version>1.9.4</aspectj.version>
@@ -117,6 +118,12 @@
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.dpaukov/combinatoricslib3 -->
+        <dependency>
+            <groupId>com.github.dpaukov</groupId>
+            <artifactId>combinatoricslib3</artifactId>
+            <version>${combinatoricslib3.version}</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
         <dependency>
@@ -144,5 +151,28 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
+        
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls-poi</artifactId>
+            <version>1.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.ooxml.version}</version>
+        </dependency>
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
     </dependencies>
 </project>

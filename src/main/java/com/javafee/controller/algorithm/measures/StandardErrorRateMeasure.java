@@ -11,6 +11,13 @@ public class StandardErrorRateMeasure extends StandardQualityMeasure implements 
 		super(data, decisionRules, decisionRule);
 	}
 
+	public StandardErrorRateMeasure(Vector<Vector> data, List<LogicalExpression> decisionRules, LogicalExpression decisionRule,
+	                                boolean dynamicCalculation) {
+		super(data, decisionRules, decisionRule);
+		this.dynamicCalculation = dynamicCalculation;
+		calculateDynamicForEachRow();
+	}
+
 	@Override
 	public Double calculate() {
 		Long result = VectorProcess.countRowsWithEqualAttributesAndVariousDecisionValue(getData(), getDecisionRule());
@@ -19,12 +26,27 @@ public class StandardErrorRateMeasure extends StandardQualityMeasure implements 
 
 	@Override
 	public Double calculateAverage() {
-		Double sum = 0.0;
+		if (!dynamicCalculation) calculateDynamicForEachRow();
+		return results.stream().mapToDouble(val -> val).average().orElse(0.0);
+	}
+
+	@Override
+	public Double calculateMax() {
+		if (!dynamicCalculation) calculateDynamicForEachRow();
+		return results.stream().mapToDouble(Double::doubleValue).max().getAsDouble();
+	}
+
+	@Override
+	public Double calculateMin() {
+		if (!dynamicCalculation) calculateDynamicForEachRow();
+		return results.stream().mapToDouble(Double::doubleValue).min().getAsDouble();
+	}
+
+	private void calculateDynamicForEachRow() {
 		Long result;
 		for (LogicalExpression decisionRule : getDecisionRules()) {
 			result = VectorProcess.countRowsWithEqualAttributesAndVariousDecisionValue(getData(), decisionRule);
-			sum += result / Double.valueOf(getData().size());
+			this.results.add(result / Double.valueOf(getData().size()));
 		}
-		return sum / getDecisionRules().size();
 	}
 }

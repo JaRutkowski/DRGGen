@@ -4,17 +4,14 @@ import java.util.List;
 import java.util.Vector;
 
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
-import com.javafee.controller.algorithm.datastructure.utils.Pair;
-import com.javafee.controller.algorithm.process.VectorProcess;
 
-public class StandardSupportMeasure extends StandardQualityMeasure implements QualityMeasure {
-
-	public StandardSupportMeasure(Vector<Vector> data, List<LogicalExpression> decisionRules, LogicalExpression decisionRule) {
+public class StandardDecisionRulesLengthMeasure extends StandardQualityMeasure implements QualityMeasure {
+	public StandardDecisionRulesLengthMeasure(Vector<Vector> data, List<LogicalExpression> decisionRules, LogicalExpression decisionRule) {
 		super(data, decisionRules, decisionRule);
 	}
 
-	public StandardSupportMeasure(Vector<Vector> data, List<LogicalExpression> decisionRules, LogicalExpression decisionRule,
-	                              boolean dynamicCalculation) {
+	public StandardDecisionRulesLengthMeasure(Vector<Vector> data, List<LogicalExpression> decisionRules, LogicalExpression decisionRule,
+	                                          boolean dynamicCalculation) {
 		super(data, decisionRules, decisionRule);
 		this.dynamicCalculation = dynamicCalculation;
 		calculateDynamicForEachRow();
@@ -22,8 +19,7 @@ public class StandardSupportMeasure extends StandardQualityMeasure implements Qu
 
 	@Override
 	public Double calculate() {
-		Pair<Long> results = VectorProcess.countRowsWithEqualAttributesAndEqualDecisionValueAndRowsWithEqualDecisionValue(getData(), getDecisionRule());
-		return results.getSecond().doubleValue() / results.getFirst().doubleValue();
+		return Double.valueOf(getDecisionRule().length());
 	}
 
 	@Override
@@ -45,10 +41,8 @@ public class StandardSupportMeasure extends StandardQualityMeasure implements Qu
 	}
 
 	private void calculateDynamicForEachRow() {
-		Pair<Long> results;
 		for (LogicalExpression decisionRule : getDecisionRules()) {
-			results = VectorProcess.countRowsWithEqualAttributesAndEqualDecisionValueAndRowsWithEqualDecisionValue(getData(), decisionRule);
-			this.results.add(results.getSecond().doubleValue() / results.getFirst().doubleValue());
+			this.results.add(Double.valueOf(decisionRule.length()));
 		}
 	}
 }
