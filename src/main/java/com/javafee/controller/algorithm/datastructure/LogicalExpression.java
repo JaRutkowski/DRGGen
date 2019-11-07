@@ -2,6 +2,7 @@ package com.javafee.controller.algorithm.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import lombok.Getter;
 
@@ -52,5 +53,26 @@ public class LogicalExpression {
 		}
 		result.append(" -> ").append(logicalValue);
 		return result.toString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) return false;
+		if (obj == this) return true;
+		if (!(obj instanceof LogicalExpression)) return false;
+		LogicalExpression logicalExpressionObj = (LogicalExpression) obj;
+		if (((LogicalExpression) obj).getLogicalAttributeValuePairList().size() != logicalAttributeValuePairList.size())
+			return false;
+		for (int index = 0; index < logicalExpressionObj.getLogicalAttributeValuePairList().size(); index++) {
+			if (!logicalExpressionObj.getLogicalAttributeValuePairList().get(index).equals(this.logicalAttributeValuePairList.get(index)))
+				return false;
+		}
+		if (!logicalExpressionObj.getLogicalValue().equals(logicalValue)) return false;
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(logicalAttributeValuePairList, logicalOperatorList, logicalValue);
 	}
 }

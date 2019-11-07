@@ -32,6 +32,7 @@ import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGener
 import com.javafee.controller.algorithm.exception.AlgorithmException;
 import com.javafee.controller.algorithm.measures.StandardDecisionRulesLengthMeasure;
 import com.javafee.controller.algorithm.measures.StandardErrorRateMeasure;
+import com.javafee.controller.algorithm.measures.StandardNumberOfVariousDecisionRulesMeasure;
 import com.javafee.controller.algorithm.measures.StandardQualityMeasure;
 import com.javafee.controller.algorithm.measures.StandardSupportMeasure;
 import com.javafee.controller.algorithm.process.InconsistencyProcess;
@@ -264,6 +265,8 @@ public class MainFormActions implements Actions {
 		result.append("Length [AVG] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
 		result.append("Length [MAX] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
 		result.append("Length [MIN] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardNumberOfVariousDecisionRulesMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
+		result.append("No of various decision rules : " + ((StandardNumberOfVariousDecisionRulesMeasure) standardQualityMeasure).calculate().toString() + "<br>");
 		mainForm.getEditorPaneDecisionRulesMeasures().setText(result.toString());
 
 		setAndGetBtnCalculateDecisionRulesMeasures(true);
