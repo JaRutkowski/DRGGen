@@ -47,6 +47,27 @@ public class VectorProcess {
 	}
 
 	/**
+	 * Finds distinct pairs of the rows with various decision value in given data set. Uses
+	 * the <code>RowPairSet</code> data structure to filter redundant row pairs.
+	 *
+	 * @param data data which contains rows set
+	 * @return {@link RowPairsSet}
+	 */
+	public RowPairsSet findDistinctRowPairsWithVariousDecisionValue(
+			RowsSet data) {
+		RowPairsSet rowPairsSet = new RowPairsSet();
+		int rowIndex = 1;
+		for (Row row : data.getRows()) {
+			List<Integer> rowsIndexes = findRowPairsIndexesWithVariousDecisionValue(
+					row, data);
+			for (Integer notEqualsRowIndex : rowsIndexes)
+				rowPairsSet.add(new RowPair(row.getIndex(), notEqualsRowIndex), true);
+			rowIndex++;
+		}
+		return rowPairsSet;
+	}
+
+	/**
 	 * Finds all the pairs of various rows with the various attributeIndex and decision value in given data set.
 	 *
 	 * @param rowToCompare          row to be compared with
@@ -68,6 +89,20 @@ public class VectorProcess {
 					!rowToCompareDecisionAttributeValue.equals(row.get(rowToCompareDecisionAttributeIndex)))
 				rowIndexList.add(rowIndex);
 			rowIndex++;
+		}
+		return rowIndexList;
+	}
+
+	public List<Integer> findRowPairsIndexesWithVariousDecisionValue(
+			Row rowToCompare, RowsSet data) {
+		List<Integer> rowIndexList = new ArrayList<>();
+
+		Integer rowToCompareDecisionAttributeIndex = SystemProperties.getSystemParameterDecisionAttributeIndex();
+		String rowToCompareDecisionAttributeValue = (String) rowToCompare.getValues().get(rowToCompareDecisionAttributeIndex);
+
+		for (Row row : data.getRows()) {
+			if (!rowToCompareDecisionAttributeValue.equals(row.getValues().get(rowToCompareDecisionAttributeIndex)))
+				rowIndexList.add(row.getIndex());
 		}
 		return rowIndexList;
 	}
@@ -109,6 +144,34 @@ public class VectorProcess {
 				resultRowsSet.add(row, true);
 		}
 		return resultRowsSet;
+	}
+
+	/**
+	 * Finds all the rows in rowSet with same attribute value.
+	 *
+	 * @param rowToCompare row to be compared with
+	 * @return {@link RowsSet}
+	 */
+	public RowsSet findDistinctRowsWithSameAttribute(Vector<Vector> data, Vector rowToCompare, ArrayList<Integer> sameAttributeIndexes) {
+		RowsSet rowsSet = new RowsSet();
+		List<Integer> rowsWithSameAttributesValuesIndexes = findRowsIndexesWithSameAttributes(rowToCompare,
+				data, sameAttributeIndexes);
+		//TODO optimized
+		rowsWithSameAttributesValuesIndexes.stream().forEach(notEqualsRowIndex -> rowsSet.add(new Row(notEqualsRowIndex, data.get(notEqualsRowIndex - 1)), true));
+		return rowsSet;
+	}
+
+	/**
+	 * Finds the most common decision in given rowSet.
+	 *
+	 * @param rowsSet rows set to be searched
+	 * @return {@link RowsSet}
+	 */
+	public static String findTheMostCommonDecision(RowsSet rowsSet) {
+		List<Object> values = Collections.list(Common.prepareColumnForGivenAttributeIndexFromData(rowsSet, SystemProperties.getSystemParameterDecisionAttributeIndex()).elements());
+		Map<Object, Long> countByValues = values.stream()
+				.collect(Collectors.groupingBy(Object::toString, Collectors.counting()));
+		return (String) Collections.max(countByValues.entrySet(), Map.Entry.comparingByValue()).getKey();
 	}
 
 	/**
@@ -223,6 +286,52 @@ public class VectorProcess {
 		return rowsWithSameAttributesAndVariousDecisionValueExists;
 	}
 
+	/**
+	 * Checks if same rows (with same conditional attributes). Using <code>systemParameterDecisionAttributeIndex</code>
+	 * parameter to get its index.
+	 *
+	 * @param data data which contains rows set
+	 * @return true if all rows are same, otherwise false
+	 * @see SystemProperties
+	 */
+	public boolean checkIfRowsAreWithSameAttributes(RowsSet data) {
+		boolean rowsWithSameAttributes = true;
+		Vector firstRowAttributes = (Vector) data.getRows().get(0).getValues().clone();
+		firstRowAttributes.removeElementAt(SystemProperties.getSystemParameterDecisionAttributeIndex());
+		for (int index = 1; index < data.getRows().size(); index++) {
+			Vector rowToCompareAttributes = (Vector) data.getRows().get(index).getValues().clone();
+			rowToCompareAttributes.removeElementAt(SystemProperties.getSystemParameterDecisionAttributeIndex());
+			if (!firstRowAttributes.equals(rowToCompareAttributes)) {
+				rowsWithSameAttributes = false;
+				break;
+			}
+		}
+		return rowsWithSameAttributes;
+	}
+
+	/**
+	 * Checks if same decision attributes. Using <code>systemParameterDecisionAttributeIndex</code>
+	 * parameter to get its index.
+	 *
+	 * @param data data which contains rows set
+	 * @return true if all rows are same, otherwise false
+	 * @see SystemProperties
+	 */
+	public boolean checkIfRowsAreWithSameDecisionAttributes(RowsSet data) {
+		boolean rowsWithSameDecision = true;
+		String firstRowDecisionAttributeValue = (String) data.getRows().get(0).getValues()
+				.get(SystemProperties.getSystemParameterDecisionAttributeIndex());
+		for (int index = 1; index < data.getRows().size(); index++) {
+			String rowToCompareDecisionAttribute = (String) data.getRows().get(index).getValues()
+					.get(SystemProperties.getSystemParameterDecisionAttributeIndex());
+			if (!firstRowDecisionAttributeValue.equals(rowToCompareDecisionAttribute)) {
+				rowsWithSameDecision = false;
+				break;
+			}
+		}
+		return rowsWithSameDecision;
+	}
+
 	public static void main(String[] args) {
 		Vector v = new Vector();
 		v.add("kuba");
@@ -262,6 +371,28 @@ public class VectorProcess {
 			if (!rowToCompareAttributes.equals(rowAttributes) &&
 					!rowToCompareDecisionAttributeValue.equals(row.get(rowToCompareDecisionAttributeIndex)))
 				rowIndexList.add(rowIndex);
+			rowIndex++;
+		}
+		return rowIndexList;
+	}
+
+	/**
+	 * Finds all the rows with various attributes and decision value in given data set.
+	 *
+	 * @param rowToCompare row to be compared with
+	 * @param data         data which contains rows set
+	 * @return list of the rows indexes
+	 */
+	private List<Integer> findRowsIndexesWithSameAttributes(Vector rowToCompare, Vector<Vector> data, ArrayList<Integer> indexes) {
+		List<Integer> rowIndexList = new ArrayList<>();
+		Integer rowIndex = 1;
+		for (Vector row : data) {
+			boolean areSameAttributes = true;
+			for (Integer index : indexes) {
+				if (!rowToCompare.get(index).equals(row.get(index)))
+					areSameAttributes = false;
+			}
+			if (areSameAttributes) rowIndexList.add(rowIndex);
 			rowIndex++;
 		}
 		return rowIndexList;

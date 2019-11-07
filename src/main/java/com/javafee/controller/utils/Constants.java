@@ -22,8 +22,35 @@ public class Constants {
 		}
 	}
 
+	@Getter
+	@AllArgsConstructor
+	public enum InconsistentDataDecisionRulesGenerator {
+		DECISION_RULES(0);
+
+		private final int value;
+
+		public static InconsistentDataDecisionRulesGenerator getByValue(int value) {
+			return Stream.of(InconsistentDataDecisionRulesGenerator.values()).filter(item -> item.getValue() == value)
+					.findFirst().get();
+		}
+	}
+
 	public enum DecisionRulesDataRange {
 		ROWS_SETS, COVERAGES, DECISION_RULES
+	}
+
+	@Getter
+	@AllArgsConstructor
+	public enum Algorithm {
+		GREEDY_FOR_CONSISTENT_DATA("Greedy for consistent data"),
+		GREEDY_FOR_INCONSISTENT_DATA("Greedy for inconsistent data");
+
+		private final String name;
+
+		public static Algorithm getByTypeName(String name) {
+			return Stream.of(Algorithm.values()).filter(item -> item.getName().equals(name))
+					.findFirst().get();
+		}
 	}
 
 	@Getter

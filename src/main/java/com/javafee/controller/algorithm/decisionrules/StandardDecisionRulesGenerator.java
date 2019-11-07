@@ -57,7 +57,7 @@ public class StandardDecisionRulesGenerator implements DecisionRulesGenerator {
 			}
 			resultConsistedOfRowsSetAndRowsSetForEachAttributesAndCoverageAndDecisionRules.add(rowsSetForEachAttributesList);
 
-			// Third step - calculate cover and decision rules generation
+			// Third step - greedy cover calculation and decision rules generation
 			DRGenAlgorithm drGenAlgorithm = new DRGenAlgorithm(rowsSet, rowsSetForEachAttributesList, new DRGreedyGenerator());
 			LogicalExpression decisionRules = drGenAlgorithm.generateDecisionRules();
 			List<RowsSet> resultCoverageRowsSet = drGenAlgorithm.getResultCoverageRowsSet();

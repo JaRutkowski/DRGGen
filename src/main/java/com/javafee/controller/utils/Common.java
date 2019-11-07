@@ -10,6 +10,8 @@ import java.util.stream.IntStream;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
+import com.javafee.controller.algorithm.datastructure.RowsSet;
+
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -50,6 +52,12 @@ public class Common {
 		return columnForGivenAttributeIndex;
 	}
 
+	public Vector prepareColumnForGivenAttributeIndexFromData(RowsSet data, long indexOfAttribute) {
+		Vector columnForGivenAttributeIndex = new Vector();
+		data.getRows().forEach(row -> columnForGivenAttributeIndex.add(row.getValues().get(Math.toIntExact(indexOfAttribute))));
+		return columnForGivenAttributeIndex;
+	}
+
 	public Vector prepareVectorOnlyWithConditionalAttributesValuesForGivenRow(Vector row, long decisionAttributeIndex) {
 		Vector clone = (Vector) row.clone();
 		clone.remove(Math.toIntExact(decisionAttributeIndex));
@@ -77,6 +85,11 @@ public class Common {
 		SystemProperties.setSystemParameterDecisionAttributeIndex(
 				SystemProperties.getSystemParameterDecisionAttributeIndex() - amountOfRemovedAttributesWithLowerIndexWhenDecisionAttribute
 		);
+	}
+
+	public void initializeComboBoxAlgorithm(JComboBox jComboBox) {
+		jComboBox.addItem(Constants.Algorithm.GREEDY_FOR_CONSISTENT_DATA.getName());
+		jComboBox.addItem(Constants.Algorithm.GREEDY_FOR_INCONSISTENT_DATA.getName());
 	}
 
 	public void initializeComboBoxSetType(JComboBox jComboBox) {

@@ -4,4 +4,8 @@ public interface QualityMeasure {
 	Double calculate();
 
 	Double calculateAverage();
+
+	Double calculateMax();
+
+	Double calculateMin();
 }

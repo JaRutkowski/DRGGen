@@ -27,9 +27,12 @@ import com.javafee.controller.algorithm.datastructure.LogicalExpression;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.decisionrules.DecisionRulesGenerator;
+import com.javafee.controller.algorithm.decisionrules.InconsistentDataDecisionRulesGenerator;
 import com.javafee.controller.algorithm.decisionrules.StandardDecisionRulesGenerator;
 import com.javafee.controller.algorithm.exception.AlgorithmException;
+import com.javafee.controller.algorithm.measures.StandardDecisionRulesLengthMeasure;
 import com.javafee.controller.algorithm.measures.StandardErrorRateMeasure;
+import com.javafee.controller.algorithm.measures.StandardNumberOfVariousDecisionRulesMeasure;
 import com.javafee.controller.algorithm.measures.StandardQualityMeasure;
 import com.javafee.controller.algorithm.measures.StandardSupportMeasure;
 import com.javafee.controller.algorithm.process.InconsistencyProcess;
@@ -38,6 +41,7 @@ import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
 import com.javafee.controller.utils.Common;
 import com.javafee.controller.utils.Constants;
+import com.javafee.controller.utils.SingletonFactory;
 import com.javafee.controller.utils.SystemProperties;
 import com.javafee.controller.utils.cache.Cache;
 import com.javafee.controller.utils.databasemapper.MySQLMapperService;
@@ -66,7 +70,7 @@ public class MainFormActions implements Actions {
 	private MySQLMapperService mySQLMapperService;
 
 	private TestGenerator testGenerator = new StandardTestGenerator();
-	private DecisionRulesGenerator decisionRulesGenerator = new StandardDecisionRulesGenerator();
+	private DecisionRulesGenerator decisionRulesGenerator = null;
 	private InconsistencyGenerator inconsistencyGenerator = new StandardInconsistencyGenerator();
 	private StandardQualityMeasure standardQualityMeasure = null;
 
@@ -74,12 +78,18 @@ public class MainFormActions implements Actions {
 	private TableFilterHeader decisionTableFilterHeader = null;
 
 	public void control() {
+		initializeComboBoxAlgorithm();
 		initializeComboBoxSetType();
 		initializeComboBoxSetTypeConsistency();
 		setComponentsVisibility();
 		initializeListeners();
 
 		mainForm.getMainFrame().setVisible(true);
+	}
+
+	private void initializeComboBoxAlgorithm() {
+		Common.initializeComboBoxAlgorithm(mainForm.getComboBoxAlgorithm());
+		onChangeComboBoxAlgorithm();
 	}
 
 	private void initializeComboBoxSetType() {
@@ -104,6 +114,8 @@ public class MainFormActions implements Actions {
 		mainForm.getMenuItemLoadData().addActionListener(e -> onClickMenuItemLoadData());
 		mainForm.getMenuItemSaveToDatabase().addActionListener(e -> onClickMenuItemSaveToDatabase());
 		mainForm.getMenuItemSettings().addActionListener(e -> onClickMenuParametrisation());
+
+		mainForm.getComboBoxAlgorithm().addActionListener(e -> onChangeComboBoxAlgorithm());
 
 		mainForm.getCheckBoxShowDataParameters().addActionListener(e -> onClickCheckBoxDataParameters());
 		mainForm.getCheckBoxShowCache().addActionListener(e -> onClickCheckBoxShowCache());
@@ -173,6 +185,17 @@ public class MainFormActions implements Actions {
 		parametrisationFormActions.control();
 	}
 
+	private void onChangeComboBoxAlgorithm() {
+		switch (Constants.Algorithm.getByTypeName(mainForm.getComboBoxAlgorithm().getSelectedItem().toString())) {
+			case GREEDY_FOR_CONSISTENT_DATA:
+				this.decisionRulesGenerator = SingletonFactory.getInstance(StandardDecisionRulesGenerator.class);
+				break;
+			case GREEDY_FOR_INCONSISTENT_DATA:
+				this.decisionRulesGenerator = SingletonFactory.getInstance(InconsistentDataDecisionRulesGenerator.class);
+				break;
+		}
+	}
+
 	private void onClickCheckBoxDataParameters() {
 		mainForm.getDataParametersPanel().setVisible(mainForm.getCheckBoxShowDataParameters().isSelected());
 	}
@@ -220,16 +243,30 @@ public class MainFormActions implements Actions {
 	}
 
 	private void onClickBtnCalculateDecisionRulesMeasures() {
+		boolean isGreedyForConsistentDataAlgorithmSelected = Constants.Algorithm.getByTypeName(mainForm.getComboBoxAlgorithm().getSelectedItem().toString())
+				== Constants.Algorithm.GREEDY_FOR_CONSISTENT_DATA;
+
 		List<LogicalExpression> decisionRules = new ArrayList<>();
-		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : decisionRulesGeneratorResult) {
-			decisionRules.add((LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()));
-		}
+		for (List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes : decisionRulesGeneratorResult)
+			decisionRules.add((LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(isGreedyForConsistentDataAlgorithmSelected ?
+					Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue() :
+					Constants.InconsistentDataDecisionRulesGenerator.DECISION_RULES.getValue()));
 
 		StringBuilder result = new StringBuilder();
-		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
-		result.append("Support: " + ((StandardSupportMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
-		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
-		result.append("Error rate: " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateAverage().toString());
+		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
+		result.append("Support [AVG] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
+		result.append("Support [MAX] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
+		result.append("Support [MIN] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
+		result.append("Error rate [AVG] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
+		result.append("Error rate [MAX] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
+		result.append("Error rate [MIN] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardDecisionRulesLengthMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
+		result.append("Length [AVG] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
+		result.append("Length [MAX] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
+		result.append("Length [MIN] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardNumberOfVariousDecisionRulesMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
+		result.append("No of various decision rules : " + ((StandardNumberOfVariousDecisionRulesMeasure) standardQualityMeasure).calculate().toString() + "<br>");
 		mainForm.getEditorPaneDecisionRulesMeasures().setText(result.toString());
 
 		setAndGetBtnCalculateDecisionRulesMeasures(true);
@@ -332,8 +369,11 @@ public class MainFormActions implements Actions {
 
 	private void buildResultForTextAreaDecisionRules(StringBuilder result, List<Object> resultConsistedOfRowsSetAndRowsSetForEachAttributes) {
 		boolean isSysParametersCalculateQualityMeasureForEachDecisionRules = SystemProperties.isSystemParameterCalculateQualityMeasureForEachDecisionRules();
+		boolean isGreedyForConsistentDataAlgorithmSelected = Constants.Algorithm.getByTypeName(mainForm.getComboBoxAlgorithm().getSelectedItem().toString())
+				== Constants.Algorithm.GREEDY_FOR_CONSISTENT_DATA;
 
-		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.ROWS_SETS)) {
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.ROWS_SETS)
+				&& isGreedyForConsistentDataAlgorithmSelected) {
 			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.ROWS_SET.getValue()).toString() + "<br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 					Constants.StandardDecisionRulesGenerator.ROWS_SET_FOR_EACH_ATTRIBUTE.getValue()))
@@ -341,7 +381,8 @@ public class MainFormActions implements Actions {
 			result.append("<br>");
 		}
 
-		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.COVERAGES)) {
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.COVERAGES)
+				&& isGreedyForConsistentDataAlgorithmSelected) {
 			result.append("Coverage: <br>");
 			for (RowsSet rowsSet : (List<RowsSet>) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(
 					Constants.StandardDecisionRulesGenerator.COVERAGE.getValue()))
@@ -349,12 +390,18 @@ public class MainFormActions implements Actions {
 			result.append("<br>");
 		}
 
-		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.DECISION_RULES)) {
-			result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
+		if (SystemProperties.getSystemParameterDecisionRulesDataRangeList().contains(Constants.DecisionRulesDataRange.DECISION_RULES)
+				|| !isGreedyForConsistentDataAlgorithmSelected) {
+			if (isGreedyForConsistentDataAlgorithmSelected)
+				result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
+			else
+				result.append(resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.InconsistentDataDecisionRulesGenerator.DECISION_RULES.getValue()).toString());
 			result.append("<br>");
 			if (isSysParametersCalculateQualityMeasureForEachDecisionRules)
 				buildResultConsistedOfCalculatedQualityMeasure(
-						(LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue()),
+						(LogicalExpression) resultConsistedOfRowsSetAndRowsSetForEachAttributes.get(isGreedyForConsistentDataAlgorithmSelected ?
+								Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue() :
+								Constants.InconsistentDataDecisionRulesGenerator.DECISION_RULES.getValue()),
 						result);
 		}
 	}
