@@ -1,12 +1,14 @@
 package com.javafee.controller.algorithm.datastructure;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 import lombok.Getter;
 
-public class LogicalExpression {
+public class LogicalExpression implements Serializable {
 	@Getter
 	private List<LogicalAttributeValuePair> logicalAttributeValuePairList = new ArrayList<>();
 	private List<LogicalOperator> logicalOperatorList = new ArrayList<>();
@@ -22,6 +24,7 @@ public class LogicalExpression {
 		if (logicalOperatorFlag && !logicalValueFlag)
 			logicalAttributeValuePairList.add(logicalAttributeValuePair);
 		logicalOperatorFlag = false;
+		logicalAttributeValuePairList.sort(Comparator.comparing(LogicalAttributeValuePair::getAttributeIndex));
 	}
 
 	public void append(LogicalOperator logicalOperator) {
@@ -38,6 +41,12 @@ public class LogicalExpression {
 
 	public int length() {
 		return logicalAttributeValuePairList.size();
+	}
+
+	public boolean isInconsistent(LogicalExpression logicalExpressionToCompare) {
+		return (logicalAttributeValuePairList.containsAll(logicalExpressionToCompare.getLogicalAttributeValuePairList())
+				&& logicalExpressionToCompare.getLogicalAttributeValuePairList().containsAll(logicalAttributeValuePairList))
+				&& !this.logicalValue.equals(logicalExpressionToCompare.getLogicalValue());
 	}
 
 	@Override

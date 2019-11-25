@@ -74,13 +74,74 @@ public class Utils {
 		return result;
 	}
 
+	public String buildStatus(String generalStatusPart) {
+		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
+				generalStatusPart,
+				"",
+				"",
+				"",
+				"",
+				"",
+				"");
+	}
+
 	public String buildStatus(Constants.GeneralStatusPart generalStatusPart, String pathPart, boolean isConsistent) {
 		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
 				generalStatusPart.getValue(),
+				Constants.APPLICATION_STATUS_SEPARATOR,
 				pathPart != null && !"".equals(pathPart) ? pathPart : "",
+				Constants.APPLICATION_STATUS_SEPARATOR,
 				isConsistent ?
 						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.consistent") :
-						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent"));
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent"),
+				"",
+				"");
+	}
+
+	public String buildStatus(Constants.GeneralStatusPart generalStatusPart, boolean isConsistent, String currentStatus) {
+		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
+				generalStatusPart.getValue(),
+				Constants.APPLICATION_STATUS_SEPARATOR,
+				currentStatus.split(Constants.APPLICATION_STATUS_SEPARATOR)[Constants.APPLICATION_STATUS_PATH_PART_INDEX].split(" ")[1],
+				Constants.APPLICATION_STATUS_SEPARATOR,
+				isConsistent ?
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.consistent") :
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent"),
+				"",
+				"");
+	}
+
+	public String buildStatus(Constants.GeneralStatusPart generalStatusPart, String pathPart) {
+		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
+				generalStatusPart.getValue(),
+				Constants.APPLICATION_STATUS_SEPARATOR,
+				pathPart != null && !"".equals(pathPart) ? pathPart : "",
+				"",
+				"",
+				"",
+				"");
+	}
+
+	public String buildStatus(boolean isInconsistencyInDecisionRulesExist, String currentStatus) {
+		currentStatus = currentStatus.replace("<html><p style=\"font-style:italic;color:#328EED\">", "");
+		currentStatus = currentStatus.replace("</p></html>", "");
+		String[] currentStatusArray = currentStatus.split(Constants.APPLICATION_STATUS_SEPARATOR);
+		return String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
+				currentStatusArray.length > 0 ? currentStatusArray[0] : Constants.GeneralStatusPart.READY.getValue(),
+				currentStatusArray.length > 0 && currentStatusArray[1].contains("\\") ? Constants.APPLICATION_STATUS_SEPARATOR : "",
+				currentStatusArray.length > 0 && currentStatusArray[1].contains("\\") ?
+						currentStatus.split(Constants.APPLICATION_STATUS_SEPARATOR)[Constants.APPLICATION_STATUS_PATH_PART_INDEX].split(" ")[1]
+						: "",
+				currentStatusArray.length > 1 && currentStatusArray[1].contains(SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.consistent")) ||
+						currentStatusArray[1].contains(SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent")) ?
+						Constants.APPLICATION_STATUS_SEPARATOR : "",
+				currentStatusArray.length > 1 && currentStatusArray[1].contains(SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.consistent")) ||
+						currentStatusArray[1].contains(SystemProperties.getResourceBundle().getString("mainForm.lblStatus.dataInconsistency.inconsistent")) ?
+						currentStatusArray[2] : "",
+				Constants.APPLICATION_STATUS_SEPARATOR,
+				isInconsistencyInDecisionRulesExist ?
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.decisionRulesSet.decisionRulesInconsistent") :
+						SystemProperties.getResourceBundle().getString("mainForm.lblStatus.decisionRulesSet.decisionRulesConsistent"));
 	}
 
 	public Icon getResourceIcon(String resourceName) {

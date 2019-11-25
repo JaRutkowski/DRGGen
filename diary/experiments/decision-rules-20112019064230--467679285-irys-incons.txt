@@ -1,0 +1,157 @@
+C:\Users\rutko\Desktop\dataOriginal\praca-mgr-2019\bezdekIris.csv
+0.0 s.
+Support [MAX] [AVG] [MIN] : 13.0, 4.24, 1.0
+Error rate [MAX] [AVG] [MIN] : 1.0, 0.013333333333333334, 0.0
+Length [MAX] [AVG] [MIN] : 2.0, 1.1933333333333334, 1.0
+No of various decision rules : 71
+
+f_0 = 6.3 AND f_1 = 4.9 -> Iris-versicolor
+f_1 = 1.3 -> Iris-setosa
+f_1 = 5.2 -> Iris-virginica
+f_1 = 5.4 -> Iris-virginica
+f_1 = 1.6 -> Iris-setosa
+f_0 = 4.8 -> Iris-setosa
+f_1 = 1.3 -> Iris-setosa
+f_0 = 5.8 AND f_1 = 5.1 -> Iris-virginica
+f_1 = 4.2 -> Iris-versicolor
+f_1 = 3.9 -> Iris-versicolor
+f_1 = 4.0 -> Iris-versicolor
+f_1 = 6.0 -> Iris-virginica
+f_1 = 5.6 -> Iris-virginica
+f_1 = 5.6 -> Iris-virginica
+f_1 = 4.2 -> Iris-versicolor
+f_0 = 5.3 -> Iris-setosa
+f_1 = 3.6 -> Iris-versicolor
+f_1 = 5.5 -> Iris-virginica
+f_0 = 4.4 -> Iris-setosa
+f_1 = 1.4 -> Iris-setosa
+f_1 = 5.7 -> Iris-virginica
+f_0 = 7.7 -> Iris-virginica
+f_0 = 4.9 AND f_1 = 4.5 -> Iris-virginica
+f_0 = 4.8 -> Iris-setosa
+f_1 = 5.6 -> Iris-virginica
+f_0 = 6.9 AND f_1 = 5.1 -> Iris-virginica
+f_0 = 7.2 -> Iris-virginica
+f_0 = 4.3 -> Iris-setosa
+f_0 = 4.7 -> Iris-setosa
+f_1 = 1.6 -> Iris-setosa
+f_1 = 4.2 -> Iris-versicolor
+f_1 = 3.5 -> Iris-versicolor
+f_1 = 1.2 -> Iris-setosa
+f_1 = 4.3 -> Iris-versicolor
+f_1 = 5.6 -> Iris-virginica
+f_1 = 1.5 -> Iris-setosa
+f_1 = 4.4 -> Iris-versicolor
+f_1 = 3.8 -> Iris-versicolor
+f_1 = 4.4 -> Iris-versicolor
+f_0 = 6.1 AND f_1 = 4.9 -> Iris-virginica
+f_1 = 3.3 -> Iris-versicolor
+f_0 = 4.6 -> Iris-setosa
+f_0 = 5.7 AND f_1 = 4.5 -> Iris-versicolor
+f_1 = 1.6 -> Iris-setosa
+f_1 = 1.7 -> Iris-setosa
+f_1 = 1.7 -> Iris-setosa
+f_0 = 7.9 -> Iris-virginica
+f_0 = 7.4 -> Iris-virginica
+f_0 = 7.7 -> Iris-virginica
+f_0 = 6.0 AND f_1 = 4.5 -> Iris-versicolor
+f_0 = 5.8 AND f_1 = 5.1 -> Iris-virginica
+f_1 = 4.7 -> Iris-versicolor
+f_1 = 1.4 -> Iris-setosa
+f_1 = 4.3 -> Iris-versicolor
+f_1 = 1.5 -> Iris-setosa
+f_0 = 6.2 AND f_1 = 4.8 -> Iris-virginica
+f_1 = 1.4 -> Iris-setosa
+f_0 = 6.0 AND f_1 = 4.5 -> Iris-versicolor
+f_0 = 7.7 -> Iris-virginica
+f_0 = 6.3 AND f_1 = 5.0 -> Iris-virginica
+f_1 = 3.7 -> Iris-versicolor
+f_1 = 5.5 -> Iris-virginica
+f_1 = 4.7 -> Iris-versicolor
+f_0 = 6.4 AND f_1 = 4.5 -> Iris-versicolor
+f_1 = 5.7 -> Iris-virginica
+f_1 = 4.0 -> Iris-versicolor
+f_1 = 5.9 -> Iris-virginica
+f_0 = 6.6 -> Iris-versicolor
+f_0 = 4.7 -> Iris-setosa
+f_1 = 4.6 -> Iris-versicolor
+f_1 = 4.0 -> Iris-versicolor
+f_1 = 1.6 -> Iris-setosa
+f_1 = 5.3 -> Iris-virginica
+f_0 = 7.2 -> Iris-virginica
+f_0 = 6.8 AND f_1 = 4.8 -> Iris-versicolor
+f_1 = 5.3 -> Iris-virginica
+f_0 = 5.4 AND f_1 = 4.5 -> Iris-versicolor
+f_1 = 4.0 -> Iris-versicolor
+f_1 = 4.0 -> Iris-versicolor
+f_0 = 4.8 -> Iris-setosa
+f_1 = 1.7 -> Iris-setosa
+f_0 = 6.2 AND f_1 = 4.5 -> Iris-versicolor
+f_1 = 1.5 -> Iris-setosa
+f_1 = 1.4 -> Iris-setosa
+f_0 = 7.3 -> Iris-virginica
+f_0 = 7.2 -> Iris-virginica
+f_1 = 3.9 -> Iris-versicolor
+f_1 = 1.3 -> Iris-setosa
+f_1 = 3.9 -> Iris-versicolor
+f_1 = 3.0 -> Iris-versicolor
+f_1 = 1.7 -> Iris-setosa
+f_0 = 7.0 -> Iris-versicolor
+f_1 = 1.5 -> Iris-setosa
+f_0 = 6.3 AND f_1 = 5.1 -> Iris-virginica
+f_1 = 1.4 -> Iris-setosa
+f_1 = 5.5 -> Iris-virginica
+f_1 = 1.4 -> Iris-setosa
+f_1 = 5.4 -> Iris-virginica
+f_0 = 5.9 AND f_1 = 4.8 -> Iris-versicolor
+f_0 = 5.7 AND f_1 = 5.0 -> Iris-virginica
+f_1 = 1.5 -> Iris-setosa
+f_0 = 7.6 -> Iris-virginica
+f_1 = 5.8 -> Iris-virginica
+f_0 = 5.8 AND f_1 = 5.1 -> Iris-virginica
+f_0 = 7.7 -> Iris-virginica
+f_1 = 4.4 -> Iris-versicolor
+f_1 = 4.1 -> Iris-versicolor
+f_0 = 5.6 AND f_1 = 4.5 -> Iris-versicolor
+f_1 = 1.4 -> Iris-setosa
+f_0 = 4.6 -> Iris-setosa
+f_1 = 1.5 -> Iris-setosa
+f_1 = 1.5 -> Iris-setosa
+f_1 = 3.3 -> Iris-versicolor
+f_1 = 1.5 -> Iris-setosa
+f_1 = 1.5 -> Iris-setosa
+f_1 = 1.4 -> Iris-setosa
+f_0 = 4.6 -> Iris-setosa
+f_1 = 1.5 -> Iris-setosa
+f_0 = 4.6 -> Iris-setosa
+f_1 = 4.1 -> Iris-versicolor
+f_0 = 6.0 AND f_1 = 5.0 -> Iris-virginica
+f_1 = 5.2 -> Iris-virginica
+f_1 = 1.5 -> Iris-setosa
+f_1 = 4.6 -> Iris-versicolor
+f_1 = 4.7 -> Iris-versicolor
+f_0 = 6.9 AND f_1 = 4.9 -> Iris-versicolor
+f_0 = 6.6 -> Iris-versicolor
+f_0 = 7.1 -> Iris-virginica
+f_1 = 5.6 -> Iris-virginica
+f_1 = 5.8 -> Iris-virginica
+f_1 = 4.7 -> Iris-versicolor
+f_1 = 3.5 -> Iris-versicolor
+f_0 = 6.0 AND f_1 = 5.1 -> Iris-versicolor
+f_1 = 5.6 -> Iris-virginica
+f_0 = 6.3 AND f_1 = 4.9 -> Iris-versicolor
+f_1 = 4.1 -> Iris-versicolor
+f_0 = 6.5 AND f_1 = 5.1 -> Iris-virginica
+f_0 = 4.8 -> Iris-setosa
+f_0 = 5.6 AND f_1 = 4.9 -> Iris-virginica
+f_0 = 4.4 -> Iris-setosa
+f_1 = 4.2 -> Iris-versicolor
+f_0 = 4.5 -> Iris-setosa
+f_1 = 5.7 -> Iris-virginica
+f_1 = 1.9 -> Iris-setosa
+f_0 = 6.7 AND f_1 = 5.0 -> Iris-versicolor
+f_1 = 1.2 -> Iris-setosa
+f_0 = 4.4 -> Iris-setosa
+f_0 = 5.9 AND f_1 = 5.1 -> Iris-virginica
+f_0 = 4.8 -> Iris-setosa
+f_0 = 6.0 AND f_1 = 4.8 -> Iris-virginica

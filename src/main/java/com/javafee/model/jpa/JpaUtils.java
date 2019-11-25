@@ -1,4 +1,4 @@
-package com.javafee.model;
+package com.javafee.model.jpa;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

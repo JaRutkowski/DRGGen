@@ -1,15 +1,15 @@
-package com.javafee.model.dao;
+package com.javafee.model.jpa.dao;
 
 import java.sql.SQLException;
 import java.util.Vector;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.javafee.model.JpaUtils;
-import com.javafee.model.utils.QueryBuilder;
+import com.javafee.model.jpa.JpaUtils;
+import com.javafee.model.jpa.utils.QueryBuilder;
 
 //TODO @Inject - @Named addition
-public class JpaDao implements BaseDao {
+public class JpaDao implements Dao {
 	@Override
 	public int createTable(String[] columnNames, String name) throws SQLException {
 		String preparedQuery = new QueryBuilder().addColumnsDefinition(columnNames.length).getPreparedCreateQuery();

@@ -1,0 +1,1735 @@
+C:\Users\rutko\Desktop\dataOriginal\praca-mgr-2019\cars.csv
+642.437 s.
+Support [MAX] [AVG] [MIN] : 576.0, 332.7297453703704, 1.0
+Error rate [MAX] [AVG] [MIN] : 0.0, 0.0, 0.0
+Length [MAX] [AVG] [MIN] : 6.0, 2.4340277777777777, 1.0
+No of various decision rules : 246
+
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_0 = vhigh AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_0 = vhigh AND f_1 = high -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = vhigh AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = vhigh AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_0 = high AND f_1 = vhigh -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = high AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = high AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = high AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_4 = small AND f_5 = med -> unacc
+f_0 = med AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = med AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = med AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 2 AND f_4 = med AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 3 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 4 AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_3 = 4 AND f_5 = high -> acc
+f_5 = low -> unacc
+f_1 = vhigh AND f_4 = small AND f_5 = med -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = vhigh AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = vhigh AND f_2 = 5more AND f_3 = more AND f_5 = high -> acc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 3 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 4 AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = high -> acc
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = high AND f_2 = 5more AND f_3 = more AND f_5 = med -> acc
+f_0 = low AND f_1 = high AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = med AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 2 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_2 = 2 AND f_3 = more AND f_4 = small -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 2 AND f_3 = more AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = 4 AND f_4 = med AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_2 = 3 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_2 = 4 AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_3 = 2 -> unacc
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = 4 AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = 4 AND f_4 = big AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = med -> acc
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = small AND f_5 = high -> good
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_2 = 5more AND f_3 = more AND f_4 = med AND f_5 = high -> vgood
+f_5 = low -> unacc
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = med -> good
+f_0 = low AND f_1 = low AND f_3 = more AND f_4 = big AND f_5 = high -> vgood

@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import com.javafee.model.JpaUtils;
+import com.javafee.model.jpa.JpaUtils;
 
 import lombok.Getter;
 import lombok.Setter;

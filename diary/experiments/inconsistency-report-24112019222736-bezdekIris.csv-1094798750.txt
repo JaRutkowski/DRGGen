@@ -1,0 +1,4 @@
+bezdekIris.csv
+Inconsistent rows: 
+r_73 = [6.3, 4.9, Iris-versicolor]
+r_124 = [6.3, 4.9, Iris-virginica]

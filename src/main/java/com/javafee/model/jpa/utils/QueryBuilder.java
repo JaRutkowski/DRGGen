@@ -1,4 +1,4 @@
-package com.javafee.model.utils;
+package com.javafee.model.jpa.utils;
 
 import java.util.Vector;
 

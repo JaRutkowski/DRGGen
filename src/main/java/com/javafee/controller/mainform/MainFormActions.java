@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -18,12 +21,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.javafee.controller.Actions;
 import com.javafee.controller.algorithm.datapreprocessing.inconsistency.InconsistencyGenerator;
 import com.javafee.controller.algorithm.datapreprocessing.inconsistency.StandardInconsistencyGenerator;
 import com.javafee.controller.algorithm.datastructure.LogicalExpression;
+import com.javafee.controller.algorithm.datastructure.Row;
 import com.javafee.controller.algorithm.datastructure.RowPairsSet;
 import com.javafee.controller.algorithm.datastructure.RowsSet;
 import com.javafee.controller.algorithm.decisionrules.DecisionRulesGenerator;
@@ -36,6 +41,7 @@ import com.javafee.controller.algorithm.measures.StandardNumberOfVariousDecision
 import com.javafee.controller.algorithm.measures.StandardQualityMeasure;
 import com.javafee.controller.algorithm.measures.StandardSupportMeasure;
 import com.javafee.controller.algorithm.process.InconsistencyProcess;
+import com.javafee.controller.algorithm.process.VectorProcess;
 import com.javafee.controller.algorithm.test.StandardTestGenerator;
 import com.javafee.controller.algorithm.test.TestGenerator;
 import com.javafee.controller.parametrisationform.ParametrisationFormActions;
@@ -51,6 +57,7 @@ import com.javafee.controller.utils.jtablemapper.FileToDefaultTableModelMapperSe
 import com.javafee.controller.utils.params.Params;
 import com.javafee.forms.mainform.MainForm;
 import com.javafee.forms.utils.Utils;
+import com.javafee.model.foodb.dao.text.FotDBDao;
 
 import lombok.extern.java.Log;
 import net.coderazzi.filters.gui.TableFilterHeader;
@@ -111,7 +118,7 @@ public class MainFormActions implements Actions {
 	}
 
 	private void initializeListeners() {
-		mainForm.getMenuItemLoadData().addActionListener(e -> onClickMenuItemLoadData());
+		mainForm.getMenuItemLoadData().addActionListener(e -> onClickMenuItemLoadData(Utils.displayFileChooserAndGetFile(null)));
 		mainForm.getMenuItemSaveToDatabase().addActionListener(e -> onClickMenuItemSaveToDatabase());
 		mainForm.getMenuItemSettings().addActionListener(e -> onClickMenuParametrisation());
 
@@ -126,11 +133,12 @@ public class MainFormActions implements Actions {
 		mainForm.getBtnGenerateInconsistencyReport().addActionListener(e -> onClickBtnGenerateInconsistencyReport());
 		mainForm.getBtnGenerateTest().addActionListener(e -> onClickBtnGenerateTest());
 		mainForm.getBtnGenerateDecisionRules().addActionListener(e -> onClickBtnGenerateDecisionRules());
+		mainForm.getBtnCheckIfDecisionRulesSetConsistent().addActionListener(e -> onClickBtnCheckIfDecisionRulesSetConsistent());
 		mainForm.getBtnCalculateDecisionRulesMeasures().addActionListener(e -> onClickBtnCalculateDecisionRulesMeasures());
+		mainForm.getBtnSaveResearch().addActionListener(e -> onClickBtnSaveResearch());
 	}
 
-	private void onClickMenuItemLoadData() {
-		File file = Utils.displayFileChooserAndGetFile(null);
+	private void onClickMenuItemLoadData(File file) {
 		try {
 			if (file != null && file.toString().endsWith(Constants.CSV_EXTENSION))
 				fileToDefaultTableModelMapperService = new FileToDefaultTableModelMapperService(new CSVFormatToDefaultTableModelMapper());
@@ -147,6 +155,7 @@ public class MainFormActions implements Actions {
 			setAndGetCheckBoxShowDataParametersVisibility(Params.getInstance().contains("TABLE_NAME"));
 			setAndGetCheckBoxShowCacheVisibility(Params.getInstance().contains("TABLE_NAME"));
 			fillDataParametersPanel(defaultTableModel);
+			refreshLblStatus(Utils.buildStatus(Constants.GeneralStatusPart.READY, file.getAbsolutePath()));
 
 			SystemProperties.setSystemParameterDecisionAttributeIndex(
 					SystemProperties.getSystemParameterDecisionAttributeIndex(((Vector) defaultTableModel.getDataVector().get(0)).size()));
@@ -158,6 +167,7 @@ public class MainFormActions implements Actions {
 			Params.getInstance().add("MAIN_FORM_ACTIONS_FILL_DATA_PARAMS_PANEL", fillDataParametersPanel);
 			Consumer buildAndRefreshViewOfDecisionTable = (e) -> buildAndRefreshViewOfDecisionTable(fileToDefaultTableModelMapperService.getTableModels().get(SystemProperties.getSystemParameterSetType()));
 			Params.getInstance().add("MAIN_FORM_ACTIONS_BUILD_AND_REFRESH_VIEW_OF_DECISION_TABLE", buildAndRefreshViewOfDecisionTable);
+			Params.getInstance().add("LOADED_FILE", file);
 		} catch (IOException | InvalidFormatException e) {
 			Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"), e.getMessage(), mainForm);
 		}
@@ -222,11 +232,27 @@ public class MainFormActions implements Actions {
 	}
 
 	private void onClickBtnRetrieveConsistentData() {
-
+		onClickMenuItemLoadData((File) Params.getInstance().get("LOADED_FILE"));
 	}
 
 	private void onClickBtnGenerateInconsistencyReport() {
-
+		File loadedFile = (File) Params.getInstance().get("LOADED_FILE");
+		Vector<Vector> data = ((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector();
+		List<Row> inconsistentRows = new ArrayList<>(VectorProcess.findRowsWithSameAttributesAndVariousDecisionValue(data));
+		try {
+			FotDBDao fotDBDao = new FotDBDao("inconsistency-report-"
+					+ new SimpleDateFormat("ddMMYYYYHHmmss").format(new Date())
+					+ "-" + loadedFile.getName() + "-" + Objects.hash(loadedFile));
+			fotDBDao.save(loadedFile.getName(), true)
+					.save("Inconsistent rows: ", true)
+					.saveAll(inconsistentRows, true);
+			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
+					SystemProperties.getResourceBundle().getString("optionPane.mainFormActions.foDBSavingSuccessMessage"),
+					JOptionPane.INFORMATION_MESSAGE, null);
+		} catch (IOException e) {
+			Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"),
+					SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneFoDBSavingError"), e, null);
+		}
 	}
 
 	private void onClickBtnGenerateTest() {
@@ -242,7 +268,39 @@ public class MainFormActions implements Actions {
 		setAndGetBtnCalculateDecisionRulesMeasures(true);
 	}
 
+	private void onClickBtnCheckIfDecisionRulesSetConsistent() {
+		mainForm.getLblStatus().setText(Utils.buildStatus(InconsistencyProcess
+						.checkIfInconsistencyExists(extractDecisionRulesFromGenerationResultListBasedOnAlgorithm()),
+				mainForm.getLblStatus().getText()));
+	}
+
 	private void onClickBtnCalculateDecisionRulesMeasures() {
+		List<LogicalExpression> decisionRules = extractDecisionRulesFromGenerationResultListBasedOnAlgorithm();
+
+		StringBuilder result = new StringBuilder();
+		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true, StandardSupportMeasure.TYPE.ABSOLUTE);
+		result.append("Support [MAX] [AVG] [MIN] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateMax().toString() + ", "
+				+ ((StandardSupportMeasure) standardQualityMeasure).calculateAverage().toString() + ", "
+				+ ((StandardSupportMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true, StandardErrorRateMeasure.TYPE.ABSOLUTE);
+		result.append("Error rate [MAX] [AVG] [MIN] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateMax().toString() + ", "
+				+ ((StandardErrorRateMeasure) standardQualityMeasure).calculateAverage().toString() + ", "
+				+ ((StandardErrorRateMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardDecisionRulesLengthMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
+		result.append("Length [MAX] [AVG] [MIN] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMax().toString() + ", "
+				+ ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateAverage().toString() + ", "
+				+ ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
+		standardQualityMeasure = new StandardNumberOfVariousDecisionRulesMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
+		result.append("No of various decision rules : " + ((StandardNumberOfVariousDecisionRulesMeasure) standardQualityMeasure).calculate().toString() + "<br>");
+		mainForm.getEditorPaneDecisionRulesMeasures().setText(result.toString());
+		Params.getInstance().add("DECISION_RULES_MEASURES", StringUtils.replace(result.toString(), "<br>", "\n"));
+
+		setAndGetBtnCalculateDecisionRulesMeasures(true);
+		setAndGetScrollPaneEditorPaneDecisionRulesMeasuresVisibility(true);
+		mainForm.pack();
+	}
+
+	private List<LogicalExpression> extractDecisionRulesFromGenerationResultListBasedOnAlgorithm() {
 		boolean isGreedyForConsistentDataAlgorithmSelected = Constants.Algorithm.getByTypeName(mainForm.getComboBoxAlgorithm().getSelectedItem().toString())
 				== Constants.Algorithm.GREEDY_FOR_CONSISTENT_DATA;
 
@@ -252,26 +310,27 @@ public class MainFormActions implements Actions {
 					Constants.StandardDecisionRulesGenerator.DECISION_RULES.getValue() :
 					Constants.InconsistentDataDecisionRulesGenerator.DECISION_RULES.getValue()));
 
-		StringBuilder result = new StringBuilder();
-		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
-		result.append("Support [AVG] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
-		result.append("Support [MAX] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
-		result.append("Support [MIN] : " + ((StandardSupportMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
-		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
-		result.append("Error rate [AVG] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
-		result.append("Error rate [MAX] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
-		result.append("Error rate [MIN] : " + ((StandardErrorRateMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
-		standardQualityMeasure = new StandardDecisionRulesLengthMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null, true);
-		result.append("Length [AVG] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateAverage().toString() + "<br>");
-		result.append("Length [MAX] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMax().toString() + "<br>");
-		result.append("Length [MIN] : " + ((StandardDecisionRulesLengthMeasure) standardQualityMeasure).calculateMin().toString() + "<br>");
-		standardQualityMeasure = new StandardNumberOfVariousDecisionRulesMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), decisionRules, null);
-		result.append("No of various decision rules : " + ((StandardNumberOfVariousDecisionRulesMeasure) standardQualityMeasure).calculate().toString() + "<br>");
-		mainForm.getEditorPaneDecisionRulesMeasures().setText(result.toString());
+		return decisionRules;
+	}
 
-		setAndGetBtnCalculateDecisionRulesMeasures(true);
-		setAndGetScrollPaneEditorPaneDecisionRulesMeasuresVisibility(true);
-		mainForm.pack();
+	private void onClickBtnSaveResearch() {
+		List<LogicalExpression> decisionRules = extractDecisionRulesFromGenerationResultListBasedOnAlgorithm();
+		try {
+			FotDBDao fotDBDao = new FotDBDao("decision-rules-"
+					+ new SimpleDateFormat("ddMMYYYYHHmmss").format(new Date())
+					+ "-" + Objects.hash(decisionRules));
+			fotDBDao
+					.save(mainForm.getLblStatus().getText().split(Constants.APPLICATION_STATUS_SEPARATOR)[1].split(" ")[1], true)
+					.save(decisionRulesGenerator.getTimeMeasure() / 1000.0 + " s.", true)
+					.save(Params.getInstance().get("DECISION_RULES_MEASURES").toString(), true)
+					.saveAll(decisionRules, true);
+			Utils.displayOptionPane(SystemProperties.getResourceBundle().getString("optionPane.successTitle"),
+					SystemProperties.getResourceBundle().getString("optionPane.mainFormActions.foDBSavingSuccessMessage"),
+					JOptionPane.INFORMATION_MESSAGE, null);
+		} catch (IOException e) {
+			Utils.displayErrorOptionPane(SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneTitle"),
+					SystemProperties.getResourceBundle().getString("optionPane.errorOptionPaneFoDBSavingError"), e, null);
+		}
 	}
 
 	private void fillDataParametersPanel(DefaultTableModel defaultTableModel) {
@@ -286,6 +345,10 @@ public class MainFormActions implements Actions {
 		reloadSetTypeConsistencyAttribute();
 		mainForm.getTextFieldDecisionAttributeIndex().setText(Integer.toString(dataVector.get(0).size() - 1));
 		mainForm.getTextFieldConditionalAttributes().setText(attributes.toString());
+		mainForm.getTextFieldNumberOfDecisionAttributes().setText(
+				String.valueOf(Common.getNumberOfUniqueValues(dataVector, dataVector.get(0).size() - 1)));
+		mainForm.getTextFieldDecisionAttributesProportion().setText(
+				Common.prepareFrequencyForEachValuesInformation(dataVector, dataVector.get(0).size() - 1));
 		mainForm.getTextFieldNumberOfConditionalAttributes().setText(Integer.toString(dataVector.get(0).size() - 1));
 		mainForm.getTextFieldNumberOfRows().setText(Integer.toString(dataVector.size()));
 		mainForm.getTextFieldNumberOfColumns().setText(Integer.toString(dataVector.get(0).size()));
@@ -334,12 +397,16 @@ public class MainFormActions implements Actions {
 		}
 	}
 
+	private void refreshLblStatus(String builtStatus) {
+		mainForm.getLblStatus().setText(builtStatus);
+	}
+
 	private void refreshLblInconsistencyStatus(boolean isDataSetInconsistent) {
 		if (isDataSetInconsistent) {
-			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, null, false));
+			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, false, mainForm.getLblStatus().getText()));
 			mainForm.getLblInconsistencyStatus().setIcon(Utils.getResourceIcon("lblInconsistencyStatus-ico.png"));
 		} else {
-			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, null, true));
+			mainForm.getLblStatus().setText(Utils.buildStatus(Constants.GeneralStatusPart.READY, true, mainForm.getLblStatus().getText()));
 			mainForm.getLblInconsistencyStatus().setIcon(null);
 		}
 	}
@@ -407,9 +474,9 @@ public class MainFormActions implements Actions {
 	}
 
 	private void buildResultConsistedOfCalculatedQualityMeasure(LogicalExpression decisionRule, StringBuilder result) {
-		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule);
+		standardQualityMeasure = new StandardSupportMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule, false, StandardSupportMeasure.TYPE.ABSOLUTE);
 		result.append("Support: " + ((StandardSupportMeasure) standardQualityMeasure).calculate().toString() + "<br>");
-		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule);
+		standardQualityMeasure = new StandardErrorRateMeasure(((DefaultTableModel) mainForm.getDecisionTable().getModel()).getDataVector(), null, decisionRule, false, StandardErrorRateMeasure.TYPE.ABSOLUTE);
 		result.append("Error rate: " + ((StandardErrorRateMeasure) standardQualityMeasure).calculate().toString() + "<br>");
 		result.append("<br>");
 	}
