@@ -1,0 +1,442 @@
+C:\Users\rutko\Desktop\dataOriginal\praca-mgr-2019\house-votes.csv
+36.46 s.
+Support [MAX] [AVG] [MIN] : 219.0, 59.87816091954023, 1.0
+Error rate [MAX] [AVG] [MIN] : 0.0, 0.0, 0.0
+Length [MAX] [AVG] [MIN] : 5.0, 2.328735632183908, 2.0
+No of various decision rules : 71
+
+f_1 = ? AND f_3 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_1 = y AND f_12 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_3 = ? -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_3 = ? AND f_10 = n -> republican
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_0 = y AND f_2 = n AND f_10 = n AND f_14 = n -> republican
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_2 = y AND f_3 = y AND f_6 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_3 = n AND f_10 = y -> democrat
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_0 = y AND f_4 = ? -> democrat
+f_0 = ? AND f_11 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_3 = y AND f_4 = y AND f_6 = y -> republican
+f_1 = n AND f_2 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_0 = y AND f_6 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_2 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_3 = y AND f_7 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_12 = ? -> democrat
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_3 = y AND f_10 = ? -> republican
+f_0 = n AND f_6 = n AND f_7 = y -> democrat
+f_2 = y AND f_15 = n -> democrat
+f_2 = n AND f_11 = ? -> republican
+f_3 = y AND f_14 = ? -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_2 = n AND f_15 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_12 = y -> republican
+f_0 = y AND f_4 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_13 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = n AND f_2 = n AND f_15 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_3 = y AND f_10 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_1 = y AND f_9 = n AND f_12 = y AND f_15 = n -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_2 = n AND f_7 = ? -> republican
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_0 = ? AND f_1 = y -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_2 = y AND f_15 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = ? AND f_3 = n -> democrat
+f_2 = n AND f_10 = ? -> republican
+f_0 = ? AND f_3 = y -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_5 = ? -> democrat
+f_2 = n AND f_3 = y AND f_12 = y AND f_15 = y -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_0 = y AND f_5 = ? -> democrat
+f_4 = ? AND f_8 = y -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_2 = n AND f_3 = y AND f_11 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_6 = n AND f_9 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_2 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_2 = n AND f_7 = ? -> republican
+f_2 = n AND f_11 = ? -> republican
+f_0 = y AND f_2 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_2 = y AND f_3 = y AND f_6 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_10 = ? -> republican
+f_2 = n AND f_11 = ? -> republican
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_3 = y AND f_14 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = n AND f_12 = ? AND f_15 = y -> democrat
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_0 = y AND f_3 = y AND f_10 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_11 = ? -> republican
+f_1 = ? AND f_3 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = y AND f_3 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_2 = n AND f_7 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_3 = n AND f_11 = y -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_0 = y AND f_6 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_3 = n AND f_6 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_3 = y AND f_14 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_7 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_4 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_2 = n AND f_15 = ? -> republican
+f_1 = n AND f_12 = ? -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_6 = y AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_0 = y AND f_5 = ? -> democrat
+f_3 = y AND f_4 = ? -> republican
+f_0 = y AND f_5 = ? -> democrat
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_3 = y AND f_14 = ? -> republican
+f_2 = y AND f_6 = n AND f_9 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_2 = n AND f_10 = ? -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_4 = n AND f_9 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_0 = y AND f_1 = y AND f_15 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_9 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_7 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_0 = n AND f_2 = n AND f_4 = y AND f_15 = ? -> republican
+f_6 = y AND f_15 = n -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_3 = n AND f_11 = y -> democrat
+f_2 = n AND f_11 = ? -> republican
+f_0 = ? AND f_3 = n -> democrat
+f_3 = y AND f_14 = ? -> republican
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_4 = ? -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = ? AND f_1 = y -> democrat
+f_0 = y AND f_3 = ? -> democrat
+f_2 = n AND f_4 = y AND f_7 = y -> republican
+f_3 = n AND f_10 = y -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_3 = y AND f_4 = y AND f_6 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_3 = y AND f_10 = n -> republican
+f_3 = n AND f_6 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_2 = n AND f_11 = ? -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_1 = ? AND f_3 = n -> democrat
+f_0 = y AND f_3 = n AND f_5 = y -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_13 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_13 = ? -> republican
+f_2 = n AND f_7 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_0 = n AND f_8 = y AND f_15 = ? -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_2 = y AND f_3 = n -> democrat
+f_0 = y AND f_4 = ? -> democrat
+f_1 = n AND f_12 = ? -> democrat
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_0 = y AND f_8 = ? -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = ? AND f_3 = n -> democrat
+f_2 = n AND f_7 = ? -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_0 = n AND f_1 = n AND f_10 = y AND f_15 = n -> democrat
+f_2 = ? AND f_8 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_3 = y AND f_15 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_6 = ? -> democrat
+f_0 = ? AND f_3 = n -> democrat
+f_1 = n AND f_2 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_3 = n AND f_6 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = y AND f_3 = y AND f_9 = y -> republican
+f_0 = ? AND f_2 = n -> democrat
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_0 = n AND f_9 = ? -> republican
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_1 = y AND f_6 = n AND f_14 = y -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = y AND f_6 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_9 = y -> republican
+f_1 = ? AND f_3 = y -> republican
+f_1 = ? AND f_14 = y -> democrat
+f_0 = y AND f_4 = ? -> democrat
+f_1 = ? AND f_3 = n -> democrat
+f_2 = n AND f_3 = y AND f_10 = n AND f_11 = y -> republican
+f_1 = n AND f_13 = n -> democrat
+f_0 = n AND f_9 = ? -> republican
+f_0 = y AND f_13 = ? -> democrat
+f_3 = y AND f_9 = y AND f_10 = n -> republican
+f_2 = n AND f_11 = ? -> republican
+f_1 = n AND f_13 = n -> democrat
+f_1 = n AND f_3 = y AND f_6 = y -> republican
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = n AND f_10 = n AND f_15 = n -> republican
+f_1 = n AND f_2 = n AND f_15 = ? -> republican
+f_0 = y AND f_8 = ? -> democrat
+f_2 = n AND f_13 = ? -> republican
+f_0 = n AND f_3 = y AND f_5 = n -> republican
+f_1 = ? AND f_3 = n -> democrat
+f_1 = n AND f_3 = y AND f_9 = y -> republican
+f_0 = y AND f_8 = ? -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_1 = n AND f_3 = y -> republican
+f_1 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = y AND f_3 = n -> democrat
+f_1 = y AND f_3 = n -> democrat
+f_0 = y AND f_8 = ? -> democrat
+f_1 = n AND f_13 = n -> democrat
+f_2 = n AND f_10 = ? -> republican

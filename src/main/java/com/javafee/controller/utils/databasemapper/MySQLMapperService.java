@@ -7,12 +7,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import com.javafee.controller.utils.Common;
-import com.javafee.model.dao.BaseDao;
-import com.javafee.model.dao.JpaDao;
+import com.javafee.model.jpa.dao.Dao;
+import com.javafee.model.jpa.dao.JpaDao;
 
 @Stateless
 public class MySQLMapperService implements DataBaseMapperStrategy {
-	private BaseDao dao = new JpaDao();
+	private Dao dao = new JpaDao();
 
 	@Override
 	public int map(TableModel inputData, String tableName) throws SQLException {

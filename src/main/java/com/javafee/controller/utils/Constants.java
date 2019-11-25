@@ -99,6 +99,8 @@ public class Constants {
 
 	public String LANGUAGE_RESOURCE_BUNDLE = "messages";
 	public String APPLICATION_LANGUAGE = "pl";
+	public String APPLICATION_STATUS_SEPARATOR = "•";
+	public int APPLICATION_STATUS_PATH_PART_INDEX = 1;
 	public SetType APPLICATION_SET_TYPE = SetType.TRAINING;
 	public double APPLICATION_TRAINING_PERCENTAGE = 70;
 	public double APPLICATION_TEST_PERCENTAGE = 30;
@@ -112,6 +114,10 @@ public class Constants {
 	public boolean APPLICATION_SHOW_DECISION_RULES_GENERATION_TIME = false;
 
 	public DecisionRulesDataRange APPLICATION_DECISION_RULES_DATA_RANGE = DecisionRulesDataRange.ROWS_SETS;
+
+	public String FOTDB_EXTENSION = ".txt";
+	public String FOJDB_EXTENSION = ".json";
+	public String FOODB_EXTENSION = ".db";
 
 	public String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
 	public boolean DEFAULT_DATA_BASE_CONNECTION_FLAG = false;

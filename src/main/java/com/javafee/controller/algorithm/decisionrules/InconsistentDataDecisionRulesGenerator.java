@@ -1,7 +1,6 @@
 package com.javafee.controller.algorithm.decisionrules;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class InconsistentDataDecisionRulesGenerator implements DecisionRulesGene
 	public List<List<Object>> generate(Vector<Vector> data) {
 		List<List<Object>> result = new ArrayList<>();
 
-		int rowIndex = 1;
+		int rowIndex = 1, rowIndexLogger = 1;
 		// For each rows r_1, r_2 to r_n
 		for (Vector row : data) {
 			// Initialization
@@ -54,28 +53,31 @@ public class InconsistentDataDecisionRulesGenerator implements DecisionRulesGene
 					List combinationIndexesForGivenCombinationSize = Generator.combination(list.toArray(new Integer[list.size()]))
 							.simple(combinationCurrentSize)
 							.stream().collect(Collectors.toList());
-					int iterationNumber = 0;
+					int iterationNumber = 0, currentMinCardinality = 0;
 					RowsSet subTable = null;
 					for (Object attributesIndexesCombination : combinationIndexesForGivenCombinationSize) {
 						ArrayList<Integer> attributesIndexesCombinationList = (ArrayList<Integer>) attributesIndexesCombination;
-						subTable = VectorProcess.findDistinctRowsWithSameAttribute(data, row, attributesIndexesCombinationList);
+						subTable = VectorProcess.findRowsWithSameAttributes(data, row, attributesIndexesCombinationList);
 						RowPairsSet rowPairsSet = VectorProcess.findDistinctRowPairsWithVariousDecisionValue(subTable);
+						if (iterationNumber == 0) {
+							currentMinCardinality = rowPairsSet.cardinality();
+							for (int attributeIndex : attributesIndexesCombinationList)
+								p.put(attributeIndex, rowPairsSet.cardinality());
+						}
 
 						// Second step - add calculated cardinality of P(T(f_x, r_y)) value to P set
-						p.put(attributesIndexesCombinationList.get(attributesIndexesCombinationList.size() - 1), rowPairsSet.cardinality());
+						if (rowPairsSet.cardinality() < currentMinCardinality) {
+							p.clear();
+							currentMinCardinality = rowPairsSet.cardinality();
+							for (int attributeIndex : attributesIndexesCombinationList)
+								p.put(attributeIndex, rowPairsSet.cardinality());
+						}
 
 						// Third step - if degenerated generate Q, break, calculate decision rule
 						isDegenerated = subTable.isDegenerated();
 						if (isDegenerated != RowsSet.DEGENERATION_TYPE.NOT_DEGENERATED) {
-							Integer attribute = ((Integer) Collections.min(p.entrySet(), Map.Entry.comparingByValue()).getKey());
-							q.add(attribute);
+							q.addAll(p.keySet());
 							break;
-						}
-
-						// Third step - for last iteration, generate Q
-						if (iterationNumber == combinationIndexesForGivenCombinationSize.size() - 1) {
-							Integer attribute = ((Integer) Collections.min(p.entrySet(), Map.Entry.comparingByValue()).getKey());
-							q.add(attribute);
 						}
 
 						iterationNumber++;
@@ -103,13 +105,14 @@ public class InconsistentDataDecisionRulesGenerator implements DecisionRulesGene
 							index++;
 						}
 
-						System.out.println(logicalExpression.toString());
+						System.out.println("[" + rowIndexLogger + "]" + " " + logicalExpression.toString());
 						resultConsistedOfDecisionRules.add(logicalExpression);
 
 						result.add(resultConsistedOfDecisionRules);
 					}
 				}
 			}
+			rowIndexLogger++;
 		}
 
 		return result;

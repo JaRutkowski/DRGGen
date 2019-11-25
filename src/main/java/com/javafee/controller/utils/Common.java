@@ -1,7 +1,10 @@
 package com.javafee.controller.utils;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -62,6 +65,23 @@ public class Common {
 		Vector clone = (Vector) row.clone();
 		clone.remove(Math.toIntExact(decisionAttributeIndex));
 		return clone;
+	}
+
+	public String prepareFrequencyForEachValuesInformation(Vector<Vector> data, long indexOfAttribute) {
+		StringBuilder result = new StringBuilder();
+		Vector decisionColumn = Common.prepareColumnForGivenAttributeIndexFromData(data, indexOfAttribute);
+		List decisionColumnList = Collections.list(decisionColumn.elements());
+		Set<String> st = new HashSet<String>(decisionColumnList);
+		for (String s : st)
+			result.append(s + ":" + Collections.frequency(decisionColumnList, s) + " ");
+		return result.toString();
+	}
+
+	public Integer getNumberOfUniqueValues(Vector<Vector> data, long indexOfAttribute) {
+		Vector decisionColumn = Common.prepareColumnForGivenAttributeIndexFromData(data, indexOfAttribute);
+		List decisionColumnList = Collections.list(decisionColumn.elements());
+		Set<String> st = new HashSet<String>(decisionColumnList);
+		return st.size();
 	}
 
 	public <T> T[] concatenateArrays(T[] first, T[] second) {

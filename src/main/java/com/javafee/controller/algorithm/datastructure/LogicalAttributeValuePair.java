@@ -1,5 +1,6 @@
 package com.javafee.controller.algorithm.datastructure;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LogicalAttributeValuePair {
+public class LogicalAttributeValuePair implements Serializable {
 	private Integer attributeIndex = null;
 	private String value = null;
 
@@ -22,8 +23,8 @@ public class LogicalAttributeValuePair {
 		if (obj == this) return true;
 		if (!(obj instanceof LogicalAttributeValuePair)) return false;
 		LogicalAttributeValuePair logicalExpressionObj = (LogicalAttributeValuePair) obj;
-		if (logicalExpressionObj.getAttributeIndex() != this.attributeIndex
-				&& !logicalExpressionObj.getValue().equals(this.value))
+		if (!logicalExpressionObj.getAttributeIndex().equals(this.attributeIndex)
+				|| !logicalExpressionObj.getValue().equals(this.value))
 			return false;
 		return true;
 	}

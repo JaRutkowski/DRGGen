@@ -1,0 +1,633 @@
+C:\Users\rutko\Desktop\dataOriginal\balance-scale.csv
+441.84 s.
+Support [MAX] [AVG] [MIN] : 5.0, 3.9968051118210863, 1.0
+Error rate [MAX] [AVG] [MIN] : 0.0, 0.0, 0.0
+Length [MAX] [AVG] [MIN] : 4.0, 3.246006389776358, 1.0
+No of various decision rules : 337
+
+f_0 = c -> c
+f_0 = 1 AND f_1 = 1 AND f_2 = 1 AND f_3 = 1 -> B
+f_0 = 1 AND f_1 = 1 AND f_3 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_3 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 2 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 1 AND f_2 = 5 -> R
+f_1 = 2 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 1 AND f_1 = 2 AND f_2 = 1 AND f_3 = 2 -> B
+f_0 = 1 AND f_1 = 2 AND f_3 = 3 -> R
+f_0 = 1 AND f_1 = 2 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 2 AND f_3 = 1 -> B
+f_0 = 1 AND f_1 = 2 AND f_2 = 2 AND f_3 = 2 -> R
+f_0 = 1 AND f_1 = 2 AND f_3 = 3 -> R
+f_0 = 1 AND f_1 = 2 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 3 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 2 AND f_2 = 5 -> R
+f_1 = 3 AND f_2 = 1 AND f_3 = 1 -> L
+f_1 = 3 AND f_2 = 1 AND f_3 = 2 -> L
+f_0 = 1 AND f_1 = 3 AND f_2 = 1 AND f_3 = 3 -> B
+f_0 = 1 AND f_1 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_3 = 5 -> R
+f_1 = 3 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 1 AND f_1 = 3 AND f_2 = 2 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_0 = 1 AND f_1 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 3 AND f_3 = 1 -> B
+f_0 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 1 AND f_1 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 4 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 3 AND f_2 = 5 -> R
+f_1 = 4 AND f_2 = 1 AND f_3 = 1 -> L
+f_1 = 4 AND f_2 = 1 AND f_3 = 2 -> L
+f_1 = 4 AND f_2 = 1 AND f_3 = 3 -> L
+f_0 = 1 AND f_1 = 4 AND f_2 = 1 AND f_3 = 4 -> B
+f_0 = 1 AND f_1 = 4 AND f_3 = 5 -> R
+f_1 = 4 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 1 AND f_1 = 4 AND f_2 = 2 AND f_3 = 2 -> B
+f_0 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 4 AND f_3 = 5 -> R
+f_1 = 4 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 4 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 4 AND f_3 = 1 -> B
+f_0 = 1 AND f_2 = 4 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 1 AND f_1 = 4 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 5 -> R
+f_0 = 1 AND f_1 = 4 AND f_2 = 5 -> R
+f_1 = 5 AND f_2 = 1 AND f_3 = 1 -> L
+f_1 = 5 AND f_2 = 1 AND f_3 = 2 -> L
+f_1 = 5 AND f_2 = 1 AND f_3 = 3 -> L
+f_1 = 5 AND f_2 = 1 AND f_3 = 4 -> L
+f_0 = 1 AND f_1 = 5 AND f_2 = 1 AND f_3 = 5 -> B
+f_1 = 5 AND f_2 = 2 AND f_3 = 1 -> L
+f_1 = 5 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 1 AND f_2 = 2 AND f_3 = 5 -> R
+f_1 = 5 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 1 AND f_2 = 3 AND f_3 = 5 -> R
+f_1 = 5 AND f_2 = 4 AND f_3 = 1 -> L
+f_0 = 1 AND f_2 = 4 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 1 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 1 AND f_1 = 5 AND f_2 = 5 AND f_3 = 1 -> B
+f_0 = 1 AND f_2 = 5 AND f_3 = 2 -> R
+f_0 = 1 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 1 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 1 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 2 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 1 AND f_2 = 1 AND f_3 = 2 -> B
+f_0 = 2 AND f_1 = 1 AND f_3 = 3 -> R
+f_0 = 2 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 2 AND f_3 = 1 -> B
+f_0 = 2 AND f_1 = 1 AND f_2 = 2 AND f_3 = 2 -> R
+f_0 = 2 AND f_1 = 1 AND f_3 = 3 -> R
+f_0 = 2 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 3 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 2 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 2 AND f_2 = 1 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 2 AND f_2 = 1 AND f_3 = 3 -> L
+f_0 = 2 AND f_1 = 2 AND f_2 = 1 AND f_3 = 4 -> B
+f_0 = 2 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 2 AND f_2 = 2 AND f_3 = 2 -> B
+f_0 = 2 AND f_1 = 2 AND f_2 = 2 AND f_3 = 3 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 2 AND f_2 = 3 AND f_3 = 2 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 4 AND f_3 = 1 -> B
+f_0 = 2 AND f_1 = 2 AND f_2 = 4 AND f_3 = 2 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 5 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 2 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 3 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 2 AND f_3 = 3 -> B
+f_0 = 2 AND f_1 = 3 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 2 AND f_1 = 3 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 3 AND f_3 = 2 -> B
+f_0 = 2 AND f_1 = 3 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 4 AND f_3 = 2 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 3 AND f_2 = 5 AND f_3 = 2 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 4 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 2 AND f_3 = 3 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 2 AND f_3 = 4 -> B
+f_0 = 2 AND f_1 = 4 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 3 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 4 AND f_3 = 2 -> B
+f_0 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 4 AND f_2 = 5 AND f_3 = 2 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_3 = 1 -> L
+f_1 = 5 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 2 AND f_3 = 3 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 2 AND f_3 = 4 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 2 AND f_3 = 5 -> B
+f_0 = 2 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 3 AND f_3 = 2 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 3 AND f_3 = 3 -> L
+f_0 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 4 AND f_3 = 2 -> L
+f_0 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 2 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 2 AND f_1 = 5 AND f_2 = 5 AND f_3 = 2 -> B
+f_0 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 2 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 3 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 3 AND f_2 = 1 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 1 AND f_2 = 1 AND f_3 = 3 -> B
+f_0 = 3 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 3 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 1 AND f_2 = 2 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_0 = 3 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 3 AND f_3 = 1 -> B
+f_1 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_0 = 3 AND f_1 = 1 AND f_3 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 4 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 3 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 3 AND f_1 = 2 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 2 AND f_3 = 3 -> B
+f_0 = 3 AND f_1 = 2 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 3 AND f_1 = 2 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 3 AND f_3 = 2 -> B
+f_0 = 3 AND f_1 = 2 AND f_2 = 3 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 4 AND f_3 = 2 -> R
+f_1 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 2 AND f_2 = 5 AND f_3 = 2 -> R
+f_1 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 3 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 2 AND f_3 = 3 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 2 AND f_3 = 4 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 3 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 3 AND f_3 = 3 -> B
+f_0 = 3 AND f_1 = 3 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 3 AND f_1 = 3 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 4 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 4 AND f_3 = 3 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 3 AND f_2 = 5 AND f_3 = 2 -> R
+f_0 = 3 AND f_1 = 3 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 4 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 3 AND f_3 = 3 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 3 AND f_3 = 4 -> B
+f_0 = 3 AND f_1 = 4 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 4 AND f_3 = 3 -> B
+f_0 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 4 AND f_2 = 5 AND f_3 = 3 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 3 AND f_3 = 3 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 3 AND f_3 = 4 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 3 AND f_3 = 5 -> B
+f_0 = 3 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 4 AND f_3 = 3 -> L
+f_0 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 3 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 3 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 3 AND f_1 = 5 AND f_2 = 5 AND f_3 = 3 -> B
+f_0 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 3 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 4 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 4 AND f_2 = 1 AND f_3 = 2 -> L
+f_0 = 4 AND f_2 = 1 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 1 AND f_2 = 1 AND f_3 = 4 -> B
+f_0 = 4 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 4 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 1 AND f_2 = 2 AND f_3 = 2 -> B
+f_1 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 2 AND f_3 = 4 -> R
+f_0 = 4 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 4 AND f_2 = 3 AND f_3 = 1 -> L
+f_1 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 4 -> R
+f_0 = 4 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 4 AND f_3 = 1 -> B
+f_1 = 1 AND f_2 = 4 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 4 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 4 AND f_3 = 4 -> R
+f_0 = 4 AND f_1 = 1 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 4 AND f_1 = 1 AND f_2 = 5 -> R
+f_0 = 4 AND f_1 = 2 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 2 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 2 AND f_3 = 4 -> B
+f_0 = 4 AND f_1 = 2 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 3 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 3 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 4 AND f_3 = 2 -> B
+f_1 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 2 AND f_2 = 5 AND f_3 = 2 -> R
+f_1 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 4 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 3 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 3 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 3 AND f_3 = 4 -> B
+f_0 = 4 AND f_1 = 3 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 4 AND f_3 = 3 -> B
+f_1 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_1 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 3 AND f_2 = 5 AND f_3 = 3 -> R
+f_1 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 4 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 4 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 2 AND f_3 = 5 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 3 AND f_3 = 5 -> L
+f_0 = 4 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 4 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 4 AND f_3 = 4 -> B
+f_0 = 4 AND f_1 = 4 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 4 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 4 AND f_2 = 5 AND f_3 = 4 -> R
+f_0 = 4 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 4 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 4 AND f_3 = 4 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 4 AND f_3 = 5 -> B
+f_0 = 4 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 4 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 4 AND f_1 = 5 AND f_3 = 3 -> L
+f_0 = 4 AND f_1 = 5 AND f_2 = 5 AND f_3 = 4 -> B
+f_0 = 4 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 5 AND f_2 = 1 AND f_3 = 1 -> L
+f_0 = 5 AND f_2 = 1 AND f_3 = 2 -> L
+f_0 = 5 AND f_2 = 1 AND f_3 = 3 -> L
+f_0 = 5 AND f_2 = 1 AND f_3 = 4 -> L
+f_0 = 5 AND f_1 = 1 AND f_2 = 1 AND f_3 = 5 -> B
+f_0 = 5 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_2 = 2 AND f_3 = 2 -> L
+f_1 = 1 AND f_2 = 2 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 2 AND f_3 = 4 -> R
+f_1 = 1 AND f_2 = 2 AND f_3 = 5 -> R
+f_0 = 5 AND f_2 = 3 AND f_3 = 1 -> L
+f_1 = 1 AND f_2 = 3 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 4 -> R
+f_1 = 1 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 5 AND f_2 = 4 AND f_3 = 1 -> L
+f_1 = 1 AND f_2 = 4 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 4 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 4 AND f_3 = 4 -> R
+f_1 = 1 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 1 AND f_2 = 5 AND f_3 = 1 -> B
+f_1 = 1 AND f_2 = 5 AND f_3 = 2 -> R
+f_1 = 1 AND f_2 = 5 AND f_3 = 3 -> R
+f_1 = 1 AND f_2 = 5 AND f_3 = 4 -> R
+f_1 = 1 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_2 = 2 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 2 AND f_3 = 3 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 2 AND f_3 = 4 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 2 AND f_3 = 5 -> B
+f_0 = 5 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 3 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 3 AND f_3 = 3 -> L
+f_1 = 2 AND f_2 = 3 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 3 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 4 AND f_3 = 2 -> L
+f_1 = 2 AND f_2 = 4 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 4 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 2 AND f_2 = 5 AND f_3 = 2 -> B
+f_1 = 2 AND f_2 = 5 AND f_3 = 3 -> R
+f_1 = 2 AND f_2 = 5 AND f_3 = 4 -> R
+f_1 = 2 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 3 AND f_3 = 3 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 3 AND f_3 = 4 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 3 AND f_3 = 5 -> B
+f_0 = 5 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 4 AND f_3 = 3 -> L
+f_1 = 3 AND f_2 = 4 AND f_3 = 4 -> R
+f_1 = 3 AND f_2 = 4 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 3 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 3 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 3 AND f_2 = 5 AND f_3 = 3 -> B
+f_1 = 3 AND f_2 = 5 AND f_3 = 4 -> R
+f_1 = 3 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_3 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 4 AND f_3 = 4 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 4 AND f_3 = 5 -> B
+f_0 = 5 AND f_1 = 4 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 4 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 4 AND f_3 = 3 -> L
+f_0 = 5 AND f_1 = 4 AND f_2 = 5 AND f_3 = 4 -> B
+f_1 = 4 AND f_2 = 5 AND f_3 = 5 -> R
+f_0 = 5 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 2 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 2 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 3 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 3 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 4 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 4 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 4 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 4 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 4 -> L
+f_0 = 5 AND f_1 = 5 AND f_3 = 1 -> L
+f_0 = 5 AND f_1 = 5 AND f_3 = 2 -> L
+f_0 = 5 AND f_1 = 5 AND f_3 = 3 -> L
+f_0 = 5 AND f_1 = 5 AND f_3 = 4 -> L
+f_0 = 5 AND f_1 = 5 AND f_2 = 5 AND f_3 = 5 -> B

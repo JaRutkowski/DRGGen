@@ -1,5 +1,6 @@
 package com.javafee.controller.algorithm.datastructure;
 
+import java.io.Serializable;
 import java.util.stream.Stream;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum LogicalOperator {
+public enum LogicalOperator implements Serializable {
 	CONJUNCTION("AND"), DISJUNCTION("OR");
 
 	private final String logicalOperatorName;

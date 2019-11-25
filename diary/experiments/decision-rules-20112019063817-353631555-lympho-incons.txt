@@ -1,0 +1,155 @@
+C:\Users\rutko\Desktop\dataOriginal\praca-mgr-2019\lymphography.csv
+6.499 s.
+Support [MAX] [AVG] [MIN] : 12.0, 5.074324324324325, 1.0
+Error rate [MAX] [AVG] [MIN] : 1.0, 0.02027027027027027, 0.0
+Length [MAX] [AVG] [MIN] : 5.0, 2.364864864864865, 1.0
+No of various decision rules : 79
+
+f_0 = 2 AND f_1 = 1 AND f_6 = 3 -> 3
+f_5 = 4 AND f_6 = 4 -> 3
+f_3 = 3 AND f_5 = 2 -> 2
+f_3 = 2 AND f_6 = 6 -> 3
+f_3 = 2 AND f_4 = 3 AND f_5 = 8 -> 2
+f_0 = 3 AND f_4 = 2 AND f_6 = 2 -> 3
+f_0 = 1 -> 1
+f_1 = 1 AND f_6 = 6 -> 3
+f_0 = 4 AND f_3 = 2 AND f_4 = 3 -> 2
+f_0 = 2 AND f_1 = 1 AND f_4 = 2 AND f_5 = 8 AND f_6 = 1 -> 2
+f_1 = 2 AND f_3 = 2 AND f_4 = 3 -> 2
+f_0 = 2 AND f_5 = 2 -> 2
+f_1 = 2 AND f_4 = 2 AND f_5 = 3 -> 3
+f_0 = 2 AND f_5 = 2 -> 2
+f_0 = 4 AND f_1 = 1 AND f_2 = 1 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 3 AND f_4 = 3 AND f_5 = 4 -> 2
+f_0 = 4 AND f_4 = 4 -> 3
+f_5 = 4 AND f_6 = 1 -> 2
+f_0 = 3 AND f_2 = 4 -> 3
+f_0 = 4 AND f_4 = 4 -> 3
+f_0 = 3 AND f_3 = 4 AND f_5 = 8 -> 3
+f_1 = 1 AND f_5 = 5 AND f_6 = 2 -> 3
+f_0 = 2 AND f_5 = 2 -> 2
+f_0 = 4 AND f_2 = 4 AND f_5 = 4 -> 2
+f_2 = 4 AND f_6 = 4 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_1 = 1 AND f_4 = 4 -> 3
+f_0 = 3 AND f_5 = 8 AND f_6 = 2 -> 3
+f_0 = 1 -> 1
+f_0 = 3 AND f_3 = 4 AND f_6 = 2 -> 2
+f_0 = 2 AND f_2 = 2 AND f_5 = 4 -> 2
+f_6 = 5 -> 3
+f_0 = 2 AND f_2 = 3 AND f_4 = 2 -> 3
+f_0 = 2 AND f_1 = 2 AND f_4 = 3 AND f_6 = 2 -> 2
+f_0 = 3 AND f_2 = 2 AND f_3 = 3 -> 2
+f_0 = 4 AND f_1 = 2 AND f_5 = 8 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_5 = 7 -> 3
+f_0 = 3 AND f_2 = 4 -> 3
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 3 AND f_2 = 3 AND f_4 = 2 -> 2
+f_0 = 3 AND f_5 = 1 -> 2
+f_4 = 2 AND f_6 = 3 -> 3
+f_0 = 4 AND f_5 = 2 -> 2
+f_0 = 4 AND f_2 = 2 AND f_4 = 2 -> 2
+f_6 = 5 -> 3
+f_2 = 4 AND f_6 = 1 -> 2
+f_3 = 3 AND f_5 = 4 -> 2
+f_0 = 2 AND f_2 = 1 -> 2
+f_3 = 2 AND f_4 = 4 -> 3
+f_0 = 3 AND f_4 = 1 -> 4
+f_2 = 4 AND f_5 = 5 -> 3
+f_0 = 2 AND f_1 = 1 AND f_4 = 2 AND f_5 = 8 AND f_6 = 1 -> 2
+f_0 = 2 AND f_2 = 1 -> 2
+f_0 = 3 AND f_1 = 1 AND f_4 = 3 -> 2
+f_5 = 7 -> 3
+f_0 = 3 AND f_2 = 4 -> 3
+f_0 = 2 AND f_2 = 1 -> 2
+f_0 = 2 AND f_2 = 3 AND f_5 = 3 -> 2
+f_0 = 3 AND f_2 = 2 AND f_6 = 4 -> 3
+f_5 = 5 AND f_6 = 1 -> 2
+f_5 = 7 -> 3
+f_0 = 2 AND f_3 = 4 AND f_4 = 3 -> 2
+f_0 = 2 AND f_1 = 2 AND f_4 = 3 AND f_6 = 2 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 2 AND f_1 = 2 AND f_2 = 2 AND f_5 = 5 -> 2
+f_0 = 2 AND f_1 = 1 AND f_4 = 2 AND f_5 = 8 AND f_6 = 1 -> 2
+f_4 = 2 AND f_6 = 3 -> 3
+f_6 = 5 -> 3
+f_2 = 3 AND f_4 = 4 -> 3
+f_2 = 2 AND f_3 = 3 AND f_5 = 8 -> 2
+f_3 = 2 AND f_5 = 2 -> 2
+f_0 = 4 AND f_1 = 2 AND f_2 = 2 AND f_5 = 8 -> 2
+f_3 = 3 AND f_5 = 2 -> 2
+f_0 = 3 AND f_5 = 3 -> 2
+f_5 = 4 AND f_6 = 1 -> 2
+f_0 = 2 AND f_1 = 2 AND f_3 = 3 AND f_5 = 3 -> 3
+f_3 = 2 AND f_4 = 3 AND f_5 = 8 -> 2
+f_0 = 4 AND f_1 = 2 AND f_5 = 8 -> 2
+f_6 = 5 -> 3
+f_4 = 3 AND f_6 = 6 -> 2
+f_3 = 2 AND f_4 = 4 -> 3
+f_0 = 4 AND f_1 = 1 AND f_2 = 2 AND f_3 = 3 AND f_5 = 3 -> 3
+f_4 = 3 AND f_5 = 2 -> 2
+f_0 = 4 AND f_6 = 6 -> 3
+f_0 = 4 AND f_3 = 2 AND f_4 = 3 -> 2
+f_2 = 4 AND f_3 = 2 -> 3
+f_6 = 5 -> 3
+f_0 = 4 AND f_1 = 1 AND f_5 = 4 -> 2
+f_3 = 3 AND f_5 = 4 -> 2
+f_5 = 7 -> 3
+f_0 = 4 AND f_4 = 1 -> 3
+f_5 = 4 AND f_6 = 1 -> 2
+f_0 = 2 AND f_2 = 1 -> 2
+f_5 = 7 -> 3
+f_0 = 2 AND f_3 = 2 AND f_5 = 5 -> 2
+f_4 = 2 AND f_6 = 3 -> 3
+f_0 = 2 AND f_2 = 2 AND f_5 = 4 -> 2
+f_0 = 2 AND f_6 = 7 -> 3
+f_0 = 2 AND f_3 = 4 AND f_4 = 3 -> 2
+f_0 = 3 AND f_6 = 6 -> 3
+f_2 = 1 AND f_5 = 5 -> 4
+f_0 = 3 AND f_3 = 2 AND f_4 = 3 -> 2
+f_3 = 3 AND f_5 = 4 -> 2
+f_0 = 3 AND f_3 = 4 AND f_5 = 8 -> 3
+f_1 = 1 AND f_4 = 4 -> 3
+f_0 = 2 AND f_3 = 4 AND f_6 = 1 -> 2
+f_6 = 5 -> 3
+f_0 = 2 AND f_5 = 2 -> 2
+f_5 = 7 -> 3
+f_2 = 1 AND f_6 = 4 -> 4
+f_3 = 3 AND f_5 = 4 -> 2
+f_0 = 3 AND f_3 = 4 AND f_6 = 2 -> 2
+f_0 = 3 AND f_2 = 4 -> 3
+f_6 = 8 -> 3
+f_0 = 2 AND f_2 = 3 AND f_3 = 2 -> 3
+f_3 = 3 AND f_5 = 4 -> 2
+f_4 = 2 AND f_6 = 3 -> 3
+f_1 = 1 AND f_4 = 4 -> 3
+f_0 = 4 AND f_4 = 4 -> 3
+f_0 = 2 AND f_3 = 4 AND f_4 = 3 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 3 AND f_2 = 4 -> 3
+f_0 = 4 AND f_2 = 3 AND f_4 = 3 -> 2
+f_0 = 4 AND f_4 = 4 -> 3
+f_0 = 4 AND f_5 = 2 -> 2
+f_0 = 3 AND f_1 = 1 AND f_4 = 3 -> 2
+f_3 = 3 AND f_5 = 4 -> 2
+f_0 = 3 AND f_3 = 4 AND f_6 = 7 -> 4
+f_0 = 2 AND f_1 = 1 AND f_3 = 3 AND f_5 = 3 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_5 = 7 -> 3
+f_5 = 5 AND f_6 = 1 -> 2
+f_3 = 3 AND f_5 = 6 -> 2
+f_2 = 1 AND f_3 = 3 -> 2
+f_0 = 2 AND f_1 = 1 AND f_2 = 2 AND f_3 = 2 AND f_5 = 3 -> 3
+f_0 = 2 AND f_1 = 2 AND f_6 = 4 -> 3
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 2 AND f_2 = 1 -> 2
+f_3 = 2 AND f_5 = 8 AND f_6 = 2 -> 3
+f_0 = 4 AND f_5 = 2 -> 2
+f_5 = 5 AND f_6 = 1 -> 2
+f_0 = 4 AND f_4 = 4 -> 3
+f_3 = 2 AND f_4 = 3 AND f_5 = 8 -> 2
+f_6 = 5 -> 3
+f_0 = 2 AND f_2 = 3 AND f_4 = 2 -> 3

@@ -78,6 +78,12 @@ public class MainForm extends JFrame {
 	private JTextField textFieldDecisionAttributeIndex;
 	private JLabel lblConditionalAttributes;
 	@Getter
+	private JTextField textFieldNumberOfDecisionAttributes;
+	private JLabel lblNumberOfDecisionAttributes;
+	@Getter
+	private JTextField textFieldDecisionAttributesProportion;
+	private JLabel lblDecisionAttributesProportion;
+	@Getter
 	private JTextField textFieldConditionalAttributes;
 	private JLabel lblNumberOfConditionalAttributes;
 	@Getter
@@ -101,6 +107,8 @@ public class MainForm extends JFrame {
 	private JButton btnGenerateTest;
 	@Getter
 	private JButton btnGenerateDecisionRules;
+	@Getter
+	private JButton btnCheckIfDecisionRulesSetConsistent;
 	@Getter
 	private JButton btnCalculateDecisionRulesMeasures;
 
@@ -158,6 +166,8 @@ public class MainForm extends JFrame {
 		lblTestPercentage.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblTestPercentage"));
 		lblDecisionAttributeIndex.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblDecisionAttributeIndex"));
 		lblConditionalAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblConditionalAttributes"));
+		lblNumberOfDecisionAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblNumberOfDecisionAttributes"));
+		lblDecisionAttributesProportion.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblDecisionAttributesProportion"));
 		lblNumberOfConditionalAttributes.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblNumberOfConditionalAttributes"));
 		lblNumberOfRows.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblNumberOfRows"));
 		lblNumberOfColumns.setText(SystemProperties.getResourceBundle().getString("dataParametersPanel.lblNumberOfColumns"));
@@ -168,6 +178,7 @@ public class MainForm extends JFrame {
 		btnGenerateInconsistencyReport.setText(SystemProperties.getResourceBundle().getString("mainForm.btnGenerateInconsistencyReport"));
 		btnGenerateTest.setText(SystemProperties.getResourceBundle().getString("mainForm.btnGenerateTest"));
 		btnGenerateDecisionRules.setText(SystemProperties.getResourceBundle().getString("mainForm.btnGenerateDecisionRules"));
+		btnCheckIfDecisionRulesSetConsistent.setText(SystemProperties.getResourceBundle().getString("mainForm.btnCheckIfDecisionRulesSetConsistent"));
 		btnCalculateDecisionRulesMeasures.setText(SystemProperties.getResourceBundle().getString("mainForm.btnCalculateDecisionRulesMeasures"));
 
 		editorPaneTest.setText(SystemProperties.getResourceBundle().getString("mainForm.textAreaTest"));
@@ -180,7 +191,7 @@ public class MainForm extends JFrame {
 		menuData.setText(SystemProperties.getResourceBundle().getString("mainForm.menuData"));
 
 		lblStatus.setText(String.format(SystemProperties.getResourceBundle().getString("mainForm.lblStatus"),
-				SystemProperties.getResourceBundle().getString("mainForm.lblStatus.general.ready"), "", ""));
+				SystemProperties.getResourceBundle().getString("mainForm.lblStatus.general.ready"), "", " ", "", " ", " ", " "));
 	}
 
 	private void setupGraphics() {
@@ -190,6 +201,7 @@ public class MainForm extends JFrame {
 		btnRetrieveConsistentData.setIcon(Utils.getResourceIcon("btnRetrieveConsistentData-ico.png"));
 		btnGenerateInconsistencyReport.setIcon(Utils.getResourceIcon("btnGenerateInconsistencyReport-ico.png"));
 		btnGenerateDecisionRules.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
+		btnCheckIfDecisionRulesSetConsistent.setIcon(Utils.getResourceIcon("btnCheckIfInconsistencyExists-ico.png"));
 		btnCalculateDecisionRulesMeasures.setIcon(Utils.getResourceIcon("btnCalculateDecisionRulesMeasures-ico.png"));
 		btnGenerateTest.setIcon(Utils.getResourceIcon("btnGenerate-ico.png"));
 		btnSaveDecisionRules.setIcon(Utils.getResourceIcon("btnSave-ico.png"));

@@ -7,7 +7,11 @@ public class AdAopExpression {
 	public void execFor_StandardDecisionRulesGenerator_generate() {
 	}
 
-	@Pointcut("execFor_StandardDecisionRulesGenerator_generate()")
+	@Pointcut("execution(* com.javafee.controller.algorithm.decisionrules.InconsistentDataDecisionRulesGenerator.generate(..))")
+	public void execFor_InconsistentDataDecisionRulesGenerator_generate() {
+	}
+
+	@Pointcut("execFor_StandardDecisionRulesGenerator_generate() || execFor_InconsistentDataDecisionRulesGenerator_generate()")
 	public void execPointcut() {
 	}
 }
